@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://qsxibdu7sd4e"]
+
+[ext_resource type="Script" uid="uid://blnsvu5y16aoh" path="res://scenes scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="2_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydash"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_onrkg")
+
+[node name="SmolSnake" type="Sprite2D" parent="."]
+scale = Vector2(17.716795, 17.716795)
+texture = ExtResource("2_i3pqv")
+hframes = 10
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="SmolSnake"]
+rotation = 1.5707964
+scale = Vector2(0.056443617, 0.056443617)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmolSnake/Area2D"]
+scale = Vector2(3.3200011, 3.3200011)
+shape = SubResource("RectangleShape2D_ydash")
