@@ -1,10 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1765112475
-::res://scenes scripts/::1765112401
+::res://::1765173241
+README.md::TextFile::-1::1765171754::0::1::::<><><>0<>0<><>::
+::res://scenes scripts/::1765171898
 global.gd::GDScript::2912662693220618486::1765013542::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::7816693174992426300::1765006571::0::1::::<><><>0<>0<><>::uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn
-player.gd::GDScript::3186466379993582715::1765112401::0::1::::<>Node2D<><>0<>0<><>::
-player.tscn::PackedScene::1161591133076408506::1765110387::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+main.tscn::PackedScene::7816693174992426300::1765171898::0::1::::<><><>0<>0<><>::uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn
+player.gd::GDScript::3186466379993582715::1765124933::0::1::::<>Node2D<><>0<>0<><>::
+player.tscn::PackedScene::1161591133076408506::1765124780::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
 tail.tscn::PackedScene::6937240318415454553::1765081359::0::1::::<><><>0<>0<><>::uid://305whs0fsehe::::res://sprites/smol snake.png
 ::res://sprites/::1765006577
 icon.svg::CompressedTexture2D::5196198289066680378::1765006013::1765006564::1::::<><><>0<>0<>7092596bd1aa04d49e5336b4ea392ee2<>res://.godot/imported/icon.svg-964d8c66fbd3bda40c44ca195472a8e1.ctex::
