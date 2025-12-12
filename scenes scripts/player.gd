@@ -18,7 +18,6 @@ var directionHistory : Array = []
 func _ready() -> void:
 	move()
 
-
 func _process(delta: float) -> void:
 	# tick timer
 	time += delta
@@ -33,16 +32,16 @@ func _input(event: InputEvent) -> void:
 	# append move orders (only if not reversing)
 	if moveOrders.size() < 4 && !reversing:
 		if event.is_action_pressed("ui_up"):
-			if moveOrders.size() == 0 || moveOrders.back() != up:
+			if moveOrders.back() != up:
 				moveOrders.append(up)
 		if event.is_action_pressed("ui_down"):
-			if moveOrders.size() == 0 || moveOrders.back() != down:
+			if moveOrders.back() != down:
 				moveOrders.append(down)
 		if event.is_action_pressed("ui_left"):
-			if moveOrders.size() == 0 || moveOrders.back() != left:
+			if moveOrders.back() != left:
 				moveOrders.append(left)
 		if event.is_action_pressed("ui_right"):
-			if moveOrders.size() == 0 || moveOrders.back() != right:
+			if moveOrders.back() != right:
 				moveOrders.append(right)
 		# debug
 	if event.is_action_pressed("action"):
@@ -72,6 +71,28 @@ func updateTailPositions():
 		# Ensure we have enough history
 		if posIndex >= 0:
 			tailSegments[i].global_position = positions[posIndex]
+			
+			# NEW CODE: UPDATE TAIL SEGMENT DIRECTION BASED ON DIRECTION HISTORY
+			# Get the direction from history for this tail segment's position
+			var dirIndex = directionHistory.size() - 1 - stepsAgo
+			if dirIndex >= 0:
+				var segmentDirection = directionHistory[dirIndex]
+				
+				# Apply rotation and flip based on direction
+				match segmentDirection:
+					up:
+						tailSegments[i].get_node("SmolSnake").rotation = deg_to_rad(-90)
+						tailSegments[i].get_node("SmolSnake").flip_h = false
+					down:
+						tailSegments[i].get_node("SmolSnake").rotation = deg_to_rad(90)
+						tailSegments[i].get_node("SmolSnake").flip_h = false
+					left:
+						tailSegments[i].get_node("SmolSnake").rotation = 0
+						tailSegments[i].get_node("SmolSnake").flip_h = true
+					right:
+						tailSegments[i].get_node("SmolSnake").rotation = 0
+						tailSegments[i].get_node("SmolSnake").flip_h = false
+			# END NEW CODE
 
 # takes move orders and moves the player every tick
 func move():
@@ -136,6 +157,14 @@ func move():
 		# saves position to array after move
 		positions.append(global_position)
 		directionHistory.append(direction)
+	
+	# NEW CODE: LIMIT DIRECTION HISTORY TO MATCH POSITIONS HISTORY
+	# Keep direction history in sync with positions history
+	# If we're limiting positions, we should also limit directionHistory
+	# (Uncomment if you uncomment the positions limiting code below)
+	#if directionHistory.size() > positions.size():
+		#directionHistory.remove_at(0)
+	# END NEW CODE
 	
 	# NEW: Optional: Limit position history to avoid memory issues
 	# Keep enough positions for all tail segments plus a buffer
