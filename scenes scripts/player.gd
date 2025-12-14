@@ -57,6 +57,8 @@ func _input(event: InputEvent) -> void:
 		reversing = true
 	if event.is_action_released("action2"):
 		reversing = false
+	if event.is_action_pressed("action3"):
+		direction = stop
 
 # spawns tail at head current pos and adds it to array
 func spawnTail():
