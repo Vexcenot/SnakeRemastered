@@ -1,5 +1,6 @@
 extends Node2D
 
+signal updateTexture
 enum {stop, up, down, left, right}
 var direction : int = stop
 var tail = preload("res://scenes scripts/tail.tscn")
@@ -9,14 +10,18 @@ var time : float = 0
 var moveDistance : int = 100
 var eat : int = 0
 var reversing : bool = false  # NEW: Track if we're reversing
+var limitHor : bool = false
 
 var positions : Array = []
 var moveOrders : Array = []
 var tailSegments : Array = [] 
 var directionHistory : Array = []
+var turnHistory : Array = []
 
 func _ready() -> void:
-	move()
+	positions.append(global_position)
+	directionHistory.append(direction)
+	turnHistory.append(0)
 
 func _process(delta: float) -> void:
 	# tick timer
@@ -26,7 +31,8 @@ func _process(delta: float) -> void:
 		spawnTail()
 		move()
 		updateTailPositions()  
-		print(directionHistory)
+		print("tur ", turnHistory)
+		print("dir ", directionHistory)
 
 func _input(event: InputEvent) -> void:
 	# append move orders (only if not reversing)
@@ -72,7 +78,6 @@ func updateTailPositions():
 		if posIndex >= 0:
 			tailSegments[i].global_position = positions[posIndex]
 			
-			# NEW CODE: UPDATE TAIL SEGMENT DIRECTION BASED ON DIRECTION HISTORY
 			# Get the direction from history for this tail segment's position
 			var dirIndex = directionHistory.size() - 1 - stepsAgo
 			if dirIndex >= 0:
@@ -92,7 +97,8 @@ func updateTailPositions():
 					right:
 						tailSegments[i].get_node("SmolSnake").rotation = 0
 						tailSegments[i].get_node("SmolSnake").flip_h = false
-			# END NEW CODE
+		updateTexture.emit() 
+
 
 # takes move orders and moves the player every tick
 func move():
@@ -154,9 +160,33 @@ func move():
 				$SmolSnake.rotation = 0
 				$SmolSnake.flip_h = false
 
-		# saves position to array after move
-		positions.append(global_position)
-		directionHistory.append(direction)
+		# saves position to arrays after move
+		if direction != stop:
+			updateArrays()
+
+func updateArrays():
+	if direction != directionHistory.back() and directionHistory.back() != stop:
+		turnHistory.append(1)
+	else:
+		turnHistory.append(0)
+	positions.append(global_position)
+	directionHistory.append(direction)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	# NEW CODE: LIMIT DIRECTION HISTORY TO MATCH POSITIONS HISTORY
 	# Keep direction history in sync with positions history
