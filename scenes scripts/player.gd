@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 	time += delta
 	if time >= finalTime:
 		time = 0
-		spawnTail()
 		move()
+		spawnTail()
 		updateTailPositions()  
 		print("tur ", turnHistory)
 		print("dir ", directionHistory)
@@ -60,7 +60,7 @@ func _input(event: InputEvent) -> void:
 
 # spawns tail at head current pos and adds it to array
 func spawnTail():
-	if eat > 0:
+	if eat > 0 and direction != stop:
 		eat -= 1
 		var spawn = tail.instantiate() 
 		get_parent().add_child(spawn)
