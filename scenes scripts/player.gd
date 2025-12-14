@@ -31,8 +31,9 @@ func _process(delta: float) -> void:
 		move()
 		spawnTail()
 		updateTailPositions()  
-		print("tur ", turnHistory)
-		print("dir ", directionHistory)
+		print(direction)
+		#print("tur ", turnHistory)
+		#print("dir ", directionHistory)
 
 func _input(event: InputEvent) -> void:
 	# append move orders (only if not reversing)
@@ -143,24 +144,32 @@ func move():
 	else:
 		# Original forward movement
 		if moveOrders.size() > 0:
-			direction = moveOrders.pop_front()
+			var storedMove = moveOrders.pop_front()
+			if direction == storedMove or storedMove == up and limitHor == false or storedMove == down and limitHor == false or storedMove == left and limitHor == true or storedMove == right and limitHor == true:
+				pass
+			else:
+				direction = storedMove
 		match direction:
 			up:
 				position.y -= moveDistance
 				$SmolSnake.rotation = deg_to_rad(-90) 
 				$SmolSnake.flip_h = false
+				limitHor = false
 			down:
 				position.y += moveDistance
 				$SmolSnake.rotation = deg_to_rad(90)   
 				$SmolSnake.flip_h = false
+				limitHor = false
 			left:
 				position.x -= moveDistance
 				$SmolSnake.rotation = 0
 				$SmolSnake.flip_h = true
+				limitHor = true
 			right:
 				position.x += moveDistance
 				$SmolSnake.rotation = 0
 				$SmolSnake.flip_h = false
+				limitHor = true
 
 		# saves position to arrays after move
 		if direction != stop:
