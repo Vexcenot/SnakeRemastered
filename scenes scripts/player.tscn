@@ -8,16 +8,16 @@
 [node name="Player" type="Node2D"]
 script = ExtResource("1_onrkg")
 
-[node name="SmolSnake" type="Sprite2D" parent="."]
+[node name="headSprite" type="Sprite2D" parent="."]
 scale = Vector2(17.716795, 17.716795)
 texture = ExtResource("2_i3pqv")
 hframes = 10
 frame = 2
 
-[node name="Area2D" type="Area2D" parent="SmolSnake"]
+[node name="Area2D" type="Area2D" parent="headSprite"]
 rotation = 1.5707964
 scale = Vector2(0.056443617, 0.056443617)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SmolSnake/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="headSprite/Area2D"]
 scale = Vector2(3.3200011, 3.3200011)
 shape = SubResource("RectangleShape2D_ydash")

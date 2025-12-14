@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cxl0jc0rinrbq" path="res://scenes scripts/tail.gd" id="1_5baly"]
 [ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="1_e204m"]
 
-[node name="Node2D" type="Node2D"]
+[node name="tail" type="Node2D"]
 script = ExtResource("1_5baly")
 
-[node name="SmolSnake" type="Sprite2D" parent="."]
+[node name="tailSprite" type="Sprite2D" parent="."]
 scale = Vector2(17.716795, 17.716795)
 texture = ExtResource("1_e204m")
 hframes = 10

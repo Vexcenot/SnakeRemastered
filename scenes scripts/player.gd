@@ -61,6 +61,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action3"):
 		direction = stop
 
+
+
+
+#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 # spawns tail at head current pos and adds it to array
 func spawnTail():
 	if eat > 0 and direction != stop:
@@ -89,18 +93,20 @@ func updateTailPositions():
 				# Apply rotation and flip based on direction
 				match segmentDirection:
 					up:
-						tailSegments[i].get_node("SmolSnake").rotation = deg_to_rad(-90)
-						tailSegments[i].get_node("SmolSnake").flip_h = false
+						tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(-90)
+						tailSegments[i].get_node("tailSprite").flip_h = false
 					down:
-						tailSegments[i].get_node("SmolSnake").rotation = deg_to_rad(90)
-						tailSegments[i].get_node("SmolSnake").flip_h = false
+						tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(90)
+						tailSegments[i].get_node("tailSprite").flip_h = false
 					left:
-						tailSegments[i].get_node("SmolSnake").rotation = 0
-						tailSegments[i].get_node("SmolSnake").flip_h = true
+						tailSegments[i].get_node("tailSprite").rotation = 0
+						tailSegments[i].get_node("tailSprite").flip_h = true
 					right:
-						tailSegments[i].get_node("SmolSnake").rotation = 0
-						tailSegments[i].get_node("SmolSnake").flip_h = false
-		updateTexture.emit() 
+						tailSegments[i].get_node("tailSprite").rotation = 0
+						tailSegments[i].get_node("tailSprite").flip_h = false
+#AAAAAAAAA end
+
+
 
 
 # takes move orders and moves the player every tick
@@ -121,20 +127,20 @@ func move():
 					# Determine direction from previous to current position
 					if prevPos.x < currentPos.x:
 						direction = right
-						$SmolSnake.rotation = 0
-						$SmolSnake.flip_h = false
+						$headSprite.rotation = 0
+						$headSprite.flip_h = false
 					elif prevPos.x > currentPos.x:
 						direction = left
-						$SmolSnake.rotation = 0
-						$SmolSnake.flip_h = true
+						$headSprite.rotation = 0
+						$headSprite.flip_h = true
 					elif prevPos.y < currentPos.y:
 						direction = down
-						$SmolSnake.rotation = deg_to_rad(90)
-						$SmolSnake.flip_h = false
+						$headSprite.rotation = deg_to_rad(90)
+						$headSprite.flip_h = false
 					elif prevPos.y > currentPos.y:
 						direction = up
-						$SmolSnake.rotation = deg_to_rad(-90)
-						$SmolSnake.flip_h = false
+						$headSprite.rotation = deg_to_rad(-90)
+						$headSprite.flip_h = false
 				
 				# Remove the current position from history (pop back)
 				if positions.size() > 1:
@@ -152,23 +158,23 @@ func move():
 		match direction:
 			up:
 				position.y -= moveDistance
-				$SmolSnake.rotation = deg_to_rad(-90) 
-				$SmolSnake.flip_h = false
+				$headSprite.rotation = deg_to_rad(-90) 
+				$headSprite.flip_h = false
 				limitHor = false
 			down:
 				position.y += moveDistance
-				$SmolSnake.rotation = deg_to_rad(90)   
-				$SmolSnake.flip_h = false
+				$headSprite.rotation = deg_to_rad(90)   
+				$headSprite.flip_h = false
 				limitHor = false
 			left:
 				position.x -= moveDistance
-				$SmolSnake.rotation = 0
-				$SmolSnake.flip_h = true
+				$headSprite.rotation = 0
+				$headSprite.flip_h = true
 				limitHor = true
 			right:
 				position.x += moveDistance
-				$SmolSnake.rotation = 0
-				$SmolSnake.flip_h = false
+				$headSprite.rotation = 0
+				$headSprite.flip_h = false
 				limitHor = true
 
 		# saves position to arrays after move
