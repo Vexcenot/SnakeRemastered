@@ -1,15 +1,16 @@
 extends Sprite2D
 
 enum {stop, up, down, left, right}
-@export var turnCheck : int
+@export var turn : int
 @export var direction : int
+@export var nextDirection : int
 
 func _ready() -> void:
 	Global.tick.connect(update)
 
 func update():
 	rotation()
-	if turnCheck == 1:
+	if direction != nextDirection :
 		frame = 3
 	else:
 		frame = 1

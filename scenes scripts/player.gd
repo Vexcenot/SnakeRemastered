@@ -40,6 +40,8 @@ func update():
 	move()
 	spawnTail()
 	updateTailPositions()  
+	print("tur ", turnHistory)
+	print("dir ", directionHistory)
 	
 
 func _input(event: InputEvent) -> void:
@@ -97,20 +99,10 @@ func updateTailPositions():
 			if dirIndex >= 0:
 				var segmentDirection = directionHistory[dirIndex]
 				tailSegments[i].direction = segmentDirection
-				# Apply rotation and flip based on direction
-				#match segmentDirection:
-					#up:
-						#tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(-90)
-						#tailSegments[i].get_node("tailSprite").flip_h = false
-					#down:
-						#tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(90)
-						#tailSegments[i].get_node("tailSprite").flip_h = false
-					#left:
-						#tailSegments[i].get_node("tailSprite").rotation = 0
-						#tailSegments[i].get_node("tailSprite").flip_h = true
-					#right:
-						#tailSegments[i].get_node("tailSprite").rotation = 0
-						#tailSegments[i].get_node("tailSprite").flip_h = false
+			var turIndex = directionHistory.size() - stepsAgo
+			if turIndex >= 0:
+				var segmentTurn = directionHistory[turIndex]
+				tailSegments[i].nextDirection = segmentTurn
 #AAAAAAAAA end
 
 
