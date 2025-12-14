@@ -1,14 +1,38 @@
-extends Node2D
+extends Sprite2D
+
+enum {stop, up, down, left, right}
 @export var turnCheck : int
+@export var direction : int
 
 func _ready() -> void:
 	Global.tick.connect(update)
 
 func update():
-	print("fuck")
-
-func _process(_delta: float) -> void:
+	rotation()
 	if turnCheck == 1:
-		$tailSprite.frame = 3
+		frame = 3
 	else:
-		$tailSprite.frame = 1
+		frame = 1
+
+#func _process(_delta: float) -> void:
+	#if Global.time >= Global.finalTime:
+		#if turnCheck == 1:
+			#frame = 3
+		#else:
+			#frame = 1
+		#rotation()
+
+func rotation():
+	match direction:
+		up:
+			global_rotation = deg_to_rad(-90)
+			flip_h = false
+		down:
+			global_rotation = deg_to_rad(90)
+			flip_h = false
+		left:
+			global_rotation = 0
+			flip_h = true
+		right:
+			global_rotation = 0
+			flip_h = false

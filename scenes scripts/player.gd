@@ -22,18 +22,25 @@ func _ready() -> void:
 	positions.append(global_position)
 	directionHistory.append(direction)
 	turnHistory.append(0)
+	Global.tick.connect(update)
 
-func _process(delta: float) -> void:
-	# tick timer
-	time += delta
-	if time >= finalTime:
-		time = 0
-		move()
-		spawnTail()
-		updateTailPositions()  
-		print(direction)
+#func _process(delta: float) -> void:
+	## tick timer
+	#time += delta
+	#if time >= finalTime:
+		#time = 0
+		#move()
+		#spawnTail()
+		#updateTailPositions()  
+		#print(direction)
 		#print("tur ", turnHistory)
 		#print("dir ", directionHistory)
+	
+func update():
+	move()
+	spawnTail()
+	updateTailPositions()  
+	
 
 func _input(event: InputEvent) -> void:
 	# append move orders (only if not reversing)
@@ -89,21 +96,21 @@ func updateTailPositions():
 			var dirIndex = directionHistory.size() - 1 - stepsAgo
 			if dirIndex >= 0:
 				var segmentDirection = directionHistory[dirIndex]
-				
+				tailSegments[i].direction = segmentDirection
 				# Apply rotation and flip based on direction
-				match segmentDirection:
-					up:
-						tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(-90)
-						tailSegments[i].get_node("tailSprite").flip_h = false
-					down:
-						tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(90)
-						tailSegments[i].get_node("tailSprite").flip_h = false
-					left:
-						tailSegments[i].get_node("tailSprite").rotation = 0
-						tailSegments[i].get_node("tailSprite").flip_h = true
-					right:
-						tailSegments[i].get_node("tailSprite").rotation = 0
-						tailSegments[i].get_node("tailSprite").flip_h = false
+				#match segmentDirection:
+					#up:
+						#tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(-90)
+						#tailSegments[i].get_node("tailSprite").flip_h = false
+					#down:
+						#tailSegments[i].get_node("tailSprite").rotation = deg_to_rad(90)
+						#tailSegments[i].get_node("tailSprite").flip_h = false
+					#left:
+						#tailSegments[i].get_node("tailSprite").rotation = 0
+						#tailSegments[i].get_node("tailSprite").flip_h = true
+					#right:
+						#tailSegments[i].get_node("tailSprite").rotation = 0
+						#tailSegments[i].get_node("tailSprite").flip_h = false
 #AAAAAAAAA end
 
 
