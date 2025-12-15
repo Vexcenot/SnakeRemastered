@@ -1,5 +1,5 @@
 extends Node
-var finalTime : float = 1
+var finalTime : float = 0.3
 var time : float = 0
 var currentDirection : String = "where the player is currently facing"
 signal tick
