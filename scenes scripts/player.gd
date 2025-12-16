@@ -11,7 +11,7 @@ var moveDistance : int = 100
 var eat : int = 0
 var limitHor : bool = false
 
-var positions : Array = []
+var positionHistory : Array = []
 var moveOrders : Array = []
 var tailSegments : Array = [] 
 var directionHistory : Array = []
@@ -20,7 +20,7 @@ var turnHistory : Array = []
 
 
 func _ready() -> void:
-	positions.append(global_position)
+	positionHistory.append(global_position)
 	directionHistory.append(direction)
 	turnHistory.append(0)
 	Global.tick.connect(update)
@@ -37,7 +37,7 @@ func update():
 
 func _input(event: InputEvent) -> void:
 	# append move orders (only if not Global.reversing)
-	if moveOrders.size() < 4 && !Global.reversing:
+	if moveOrders.size() < 4 and !Global.reversing:
 		if event.is_action_pressed("ui_up"):
 			if moveOrders.back() != up:
 				moveOrders.append(up)
@@ -73,11 +73,11 @@ func updateTailPositions():
 	# Each tail segment follows the head's position from (i+1) steps ago
 	for i in range(tailSegments.size()):
 		var stepsAgo = i + 1
-		var posIndex = positions.size() - 1 - stepsAgo
+		var posIndex = positionHistory.size() - 1 - stepsAgo
 		
 		# Ensure we have enough history
 		if posIndex >= 0:
-			tailSegments[i].global_position = positions[posIndex]
+			tailSegments[i].global_position = positionHistory[posIndex]
 			
 			# Get the direction from history for this tail segment's position
 			var dirIndex = directionHistory.size() - 1 - stepsAgo
@@ -85,8 +85,6 @@ func updateTailPositions():
 				var segmentDirection = directionHistory[dirIndex]
 				tailSegments[i].direction = segmentDirection
 				
-				
-
 			var turIndex = directionHistory.size() - stepsAgo
 			
 			if turIndex >= 0:
@@ -101,48 +99,54 @@ func updateTailPositions():
 func move():
 	if Global.reversing:
 		# Reverse movement - move backwards through position history
-		if positions.size() > 0:
+		if positionHistory.size() > 0:
 			# Get the last position from history (before current position)
-			var lastPosIndex = positions.size() - 2
+			var lastPosIndex = positionHistory.size() - 2
+			var lastDirIndex = directionHistory.size() - 2
 			if lastPosIndex >= tailSegments.size():
-				global_position = positions[lastPosIndex]
-				
+				global_position = positionHistory[lastPosIndex]
+				direction = directionHistory[lastDirIndex]
+
 				# Update direction based on movement
-				if positions.size() >= 2:
-					var currentPos = positions[positions.size() - 1]
-					var prevPos = positions[positions.size() - 2]
-					
-					# Determine direction from previous to current position
-					if prevPos.x < currentPos.x:
-						direction = right
-						$headSprite.rotation = 0
-						$headSprite.flip_h = false
-					elif prevPos.x > currentPos.x:
-						direction = left
-						$headSprite.rotation = 0
-						$headSprite.flip_h = true
-					elif prevPos.y < currentPos.y:
-						direction = down
-						$headSprite.rotation = deg_to_rad(90)
-						$headSprite.flip_h = false
-					elif prevPos.y > currentPos.y:
-						direction = up
-						$headSprite.rotation = deg_to_rad(-90)
-						$headSprite.flip_h = false
+				if positionHistory.size() >= 2:
+					match direction:
+						up:
+							$headSprite.rotation = deg_to_rad(-90) 
+							$headSprite.flip_h = false
+							limitHor = false
+						down:
+							$headSprite.rotation = deg_to_rad(90)   
+							$headSprite.flip_h = false
+							limitHor = false
+						left:
+							$headSprite.rotation = deg_to_rad(0) 
+							$headSprite.flip_h = true
+							limitHor = true
+						right:
+							$headSprite.rotation = deg_to_rad(0) 
+							$headSprite.flip_h = false
+							limitHor = true
+							
+					#this one is for tail segment
+					direction = directionHistory.pop_back()
 				
 				# Remove the current position from history (pop back)
-				if positions.size() > 1:
-					positions.pop_back()
-					if directionHistory.size() > 0:
-						directionHistory.pop_back()
+				if positionHistory.size() > 1:
+					positionHistory.pop_back()
+					turnHistory.pop_back()
+
+
 	else:
-		# Original forward movement
+		# Normal foward movement
 		if moveOrders.size() > 0:
 			var storedMove = moveOrders.pop_front()
+			#skips move if same or in opposite direction
 			if direction == storedMove or storedMove == up and limitHor == false or storedMove == down and limitHor == false or storedMove == left and limitHor == true or storedMove == right and limitHor == true:
 				pass
 			else:
 				direction = storedMove
+		
+		#Apply position & direction
 		match direction:
 			up:
 				position.y -= moveDistance
@@ -169,12 +173,14 @@ func move():
 		if direction != stop:
 			updateArrays()
 
+
+#pushes updates to a buncha arrays
 func updateArrays():
 	if direction != directionHistory.back() and directionHistory.back() != stop:
 		turnHistory.append(1)
 	else:
 		turnHistory.append(0)
-	positions.append(global_position)
+	positionHistory.append(global_position)
 	directionHistory.append(direction)
 	
 	

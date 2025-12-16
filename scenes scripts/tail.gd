@@ -10,8 +10,9 @@ func _ready() -> void:
 	Global.tick.connect(update)
  
 func update():
+	#print(direction, nextDirection)
 	visible = true
-	if direction != nextDirection:
+	if direction != nextDirection and direction != stop:
 		turning = true
 	else:
 		turning = false
