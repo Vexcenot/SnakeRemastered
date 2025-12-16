@@ -1,6 +1,6 @@
 extends Node2D
 
-signal updateTexture
+
 enum {stop, up, down, left, right}
 var direction : int = stop
 var tail = preload("res://scenes scripts/tail.tscn")
@@ -9,7 +9,6 @@ var finalTime : float = 1
 var time : float = 0
 var moveDistance : int = 100
 var eat : int = 0
-var reversing : bool = false  # NEW: Track if we're reversing
 var limitHor : bool = false
 
 var positions : Array = []
@@ -18,35 +17,27 @@ var tailSegments : Array = []
 var directionHistory : Array = []
 var turnHistory : Array = []
 
+
+
 func _ready() -> void:
 	positions.append(global_position)
 	directionHistory.append(direction)
 	turnHistory.append(0)
 	Global.tick.connect(update)
 
-#func _process(delta: float) -> void:
-	## tick timer
-	#time += delta
-	#if time >= finalTime:
-		#time = 0
-		#move()
-		#spawnTail()
-		#updateTailPositions()  
-		#print(direction)
-		#print("tur ", turnHistory)
-		#print("dir ", directionHistory)
-	
+
 func update():
 	move()
 	spawnTail()
-	updateTailPositions()  
+	updateTailPositions()
 	print("tur ", turnHistory)
 	print("dir ", directionHistory)
-	
+
+
 
 func _input(event: InputEvent) -> void:
-	# append move orders (only if not reversing)
-	if moveOrders.size() < 4 && !reversing:
+	# append move orders (only if not Global.reversing)
+	if moveOrders.size() < 4 && !Global.reversing:
 		if event.is_action_pressed("ui_up"):
 			if moveOrders.back() != up:
 				moveOrders.append(up)
@@ -63,14 +54,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action"):
 		eat += 1
 	# Check for action2 button states
-	if event.is_action_pressed("action2"):
-		reversing = true
-	if event.is_action_released("action2"):
-		reversing = false
 	if event.is_action_pressed("action3"):
 		direction = stop
-
-
 
 
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -99,18 +84,22 @@ func updateTailPositions():
 			if dirIndex >= 0:
 				var segmentDirection = directionHistory[dirIndex]
 				tailSegments[i].direction = segmentDirection
+				
+				
+
 			var turIndex = directionHistory.size() - stepsAgo
+			
 			if turIndex >= 0:
+	
 				var segmentTurn = directionHistory[turIndex]
 				tailSegments[i].nextDirection = segmentTurn
+
 #AAAAAAAAA end
-
-
 
 
 # takes move orders and moves the player every tick
 func move():
-	if reversing:
+	if Global.reversing:
 		# Reverse movement - move backwards through position history
 		if positions.size() > 0:
 			# Get the last position from history (before current position)

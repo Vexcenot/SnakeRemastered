@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="1_e204m"]
 
 [node name="tailSprite" type="Sprite2D"]
+visible = false
 scale = Vector2(17.716795, 17.716795)
 texture = ExtResource("1_e204m")
 hframes = 10
