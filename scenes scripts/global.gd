@@ -1,5 +1,6 @@
 extends Node
-var finalTime : float = 1
+var originalTime = 0.4
+var finalTime : float = originalTime
 var time : float = finalTime
 var currentDirection : String = "where the player is currently facing"
 var reversing = false

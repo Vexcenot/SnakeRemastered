@@ -21,6 +21,8 @@ var turnHistory : Array = []
 
 
 func _ready() -> void:
+	moveOrders.append(right)
+	eat += 2
 	positionHistory.append(global_position)
 	directionHistory.append(direction)
 	turnHistory.append(0)
@@ -71,8 +73,8 @@ func spawnTail():
 		tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
 		
 		#sets last tail
-		#if tailSegments.size() <= 1:
-			#tailSegments.back().lastTail = true
+		if tailSegments.size() <= 1:
+			tailSegments.back().lastTail = true
 
 
 #update this shit to be less stupid VVVV
@@ -148,6 +150,7 @@ func move():
 		if moveOrders.size() > 0:
 			var storedMove = moveOrders.pop_front()
 			#skips move if same or in opposite direction
+			#look into making this a dictionary
 			if (
 				direction == storedMove or
 				storedMove == up and limitDir == limitVer or
@@ -169,21 +172,25 @@ func move():
 				position.y -= moveDistance
 				$headSprite.rotation = deg_to_rad(-90) 
 				$headSprite.flip_h = false
+				$headSprite.flip_v = false
 				limitDir = limitVer
 			down:
 				position.y += moveDistance
 				$headSprite.rotation = deg_to_rad(90)   
 				$headSprite.flip_h = false
+				$headSprite.flip_v = true
 				limitDir = limitVer
 			left:
 				position.x -= moveDistance
 				$headSprite.rotation = deg_to_rad(0)  
 				$headSprite.flip_h = true
+				$headSprite.flip_v = false
 				limitDir = limitHor
 			right:
 				position.x += moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
+				$headSprite.flip_v = false
 				limitDir = limitHor
 
 		# saves position to arrays after move

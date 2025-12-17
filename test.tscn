@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://6tqqq4m0ni1i"]
+
+[ext_resource type="PackedScene" uid="uid://c53plmxhqausf" path="res://scenes scripts/tail.tscn" id="1_37kl0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(584, 328)
+zoom = Vector2(6.375, 6.375)
+
+[node name="tailSprite" parent="." instance=ExtResource("1_37kl0")]
+position = Vector2(592, 328)

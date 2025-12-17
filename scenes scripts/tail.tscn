@@ -8,7 +8,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ured2"]
 
 [node name="tailSprite" type="Sprite2D"]
-visible = false
 texture = ExtResource("1_e204m")
 hframes = 10
 frame = 1

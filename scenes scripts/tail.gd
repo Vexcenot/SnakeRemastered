@@ -14,7 +14,7 @@ func update():
 	#print(direction, nextDirection)
 	visible = true
 	if direction != nextDirection and direction != stop:
-		turning = true
+		turning = true #true
 	else:
 		turning = false
 	if turning:
@@ -33,34 +33,58 @@ func rotation():
 	if turning:
 		if direction == up:
 			if nextDirection == left:
-				global_rotation = deg_to_rad(0)
+				global_rotation = deg_to_rad(90)
+				flip_h = false
+				flip_v = false
 			else:
-				global_rotation = deg_to_rad(-90)
+				global_rotation = deg_to_rad(0)
+				flip_h = false
+				flip_v = false
 		if direction == down:
 			if nextDirection == left:
-				global_rotation = deg_to_rad(90)
-			else:
 				global_rotation = deg_to_rad(180)
+				flip_h = false
+				flip_v = false
+			else:
+				global_rotation = deg_to_rad(-90)
+				flip_h = false
+				flip_v = false
 		if direction == right:
 			if nextDirection == up:
-				global_rotation = deg_to_rad(90)
+				global_rotation = deg_to_rad(180)
+				flip_h = false
+				flip_v = false
 			else:
 				global_rotation = deg_to_rad(0)
+				flip_h = true
+				flip_v = false
 		if direction == left:
 			if nextDirection == up:
-				global_rotation = deg_to_rad(-180)
+				global_rotation = deg_to_rad(-90)
+				flip_h = false
+				flip_v = false
 			else:
-				global_rotation = deg_to_rad(-90)
+				global_rotation = deg_to_rad(0)
+				flip_h = false
+				flip_v = false
 	else:
-		match direction:
+		match nextDirection:
 			up:
-				global_rotation = deg_to_rad(-90)
+				global_rotation = deg_to_rad(-90) 
+				flip_h = false
+				flip_v = false
 
 			down:
-				global_rotation = deg_to_rad(90)
+				global_rotation = deg_to_rad(90)   
+				flip_h = false
+				flip_v = true
 
 			left:
-				global_rotation = deg_to_rad(0)
+				global_rotation = deg_to_rad(0)  
+				flip_h = true
+				flip_v = false
 
 			right:
 				global_rotation = deg_to_rad(0)
+				flip_h = false
+				flip_v = false
