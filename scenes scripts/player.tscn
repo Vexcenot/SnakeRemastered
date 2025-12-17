@@ -9,7 +9,6 @@
 script = ExtResource("1_onrkg")
 
 [node name="headSprite" type="Sprite2D" parent="."]
-scale = Vector2(17.716795, 17.716795)
 texture = ExtResource("2_i3pqv")
 hframes = 10
 frame = 2

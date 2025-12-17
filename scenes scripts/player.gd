@@ -8,7 +8,7 @@ var tail = preload("res://scenes scripts/tail.tscn")
 
 var finalTime : float = 1
 var time : float = 0
-var moveDistance : int = 100
+var moveDistance : int = 6
 var eat : int = 0
 var limitDir : int = limitLeft
 
@@ -69,7 +69,13 @@ func spawnTail():
 		get_parent().add_child(spawn)
 		spawn.global_position = global_position
 		tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
+		
+		#sets last tail
+		#if tailSegments.size() <= 1:
+			#tailSegments.back().lastTail = true
 
+
+#update this shit to be less stupid VVVV
 # Moves tails
 func updateTailPositions():
 	# Each tail segment follows the head's position from (i+1) steps ago
@@ -77,7 +83,7 @@ func updateTailPositions():
 		var stepsAgo = i + 1
 		var posIndex = positionHistory.size() - 1 - stepsAgo
 		
-		# Ensure we have enough history
+		# Moves tail
 		if posIndex >= 0:
 			tailSegments[i].global_position = positionHistory[posIndex]
 			
@@ -86,11 +92,10 @@ func updateTailPositions():
 			if dirIndex >= 1:
 				var segmentDirection = directionHistory[dirIndex]
 				tailSegments[i].direction = segmentDirection
-				
-			var turIndex = directionHistory.size() - stepsAgo
 			
+			#turns tail	
+			var turIndex = directionHistory.size() - stepsAgo
 			if turIndex >= 0:
-	
 				var segmentTurn = directionHistory[turIndex]
 				tailSegments[i].nextDirection = segmentTurn
 

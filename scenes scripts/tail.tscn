@@ -1,14 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://c53plmxhqausf"]
+[gd_scene load_steps=5 format=3 uid="uid://c53plmxhqausf"]
 
 [ext_resource type="Script" uid="uid://cxl0jc0rinrbq" path="res://scenes scripts/tail.gd" id="1_5baly"]
 [ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="1_e204m"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5baly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ured2"]
+
 [node name="tailSprite" type="Sprite2D"]
 visible = false
-scale = Vector2(17.716795, 17.716795)
 texture = ExtResource("1_e204m")
 hframes = 10
 frame = 1
 script = ExtResource("1_5baly")
 
 [node name="tail" type="Node2D" parent="."]
+
+[node name="finalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finalArea"]
+scale = Vector2(0.10119358, 0.10119358)
+shape = SubResource("RectangleShape2D_5baly")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(0.39943987, 0.1014176)
+shape = SubResource("RectangleShape2D_ured2")

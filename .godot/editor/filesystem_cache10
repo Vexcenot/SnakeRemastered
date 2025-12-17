@@ -1,13 +1,15 @@
 63f7b34db8d8cdea90c76aacccf841ec
 ::res://::1765933426
 README.md::TextFile::-1::1765171754::0::1::::<><><>0<>0<><>::
-::res://scenes scripts/::1765903018
-global.gd::GDScript::2912662693220618486::1765901903::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::7816693174992426300::1765903018::0::1::::<><><>0<>0<><>::uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn
-player.gd::GDScript::3186466379993582715::1765903018::0::1::::<>Node2D<><>0<>0<><>::
-player.tscn::PackedScene::1161591133076408506::1765720360::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-tail.gd::GDScript::6411427067770344382::1765872371::0::1::::<>Sprite2D<><>0<>0<><>::
-tail.tscn::PackedScene::6937240318415454553::1765811278::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-::res://sprites/::1765799286
+::res://scenes scripts/::1765960323
+global.gd::GDScript::2912662693220618486::1765954525::0::1::::<>Node<><>0<>0<><>::
+main.tscn::PackedScene::7816693174992426300::1765960076::0::1::::<><><>0<>0<><>::uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn
+player.gd::GDScript::3186466379993582715::1765960055::0::1::::<>Node2D<><>0<>0<><>::
+player.tscn::PackedScene::1161591133076408506::1765960026::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+tail.gd::GDScript::6411427067770344382::1765956029::0::1::::<>Sprite2D<><>0<>0<><>::
+tail.tscn::PackedScene::6937240318415454553::1765960323::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+::res://sprites/::1765960706
 icon.svg::CompressedTexture2D::5196198289066680378::1765006013::1765006564::1::::<><><>0<>0<>7092596bd1aa04d49e5336b4ea392ee2<>res://.godot/imported/icon.svg-964d8c66fbd3bda40c44ca195472a8e1.ctex::
-smol snake.png::CompressedTexture2D::2018758259578512898::1765799286::1765799286::1::::<><><>0<>0<>8527168551ede85c88c77a9194551364<>res://.godot/imported/smol snake.png-89f2216305dfd51397e20ba77ff81a8e.ctex::
+smol snake.png::CompressedTexture2D::2018758259578512898::1765960706::1765960706::1::::<><><>0<>0<>8527168551ede85c88c77a9194551364<>res://.godot/imported/smol snake.png-89f2216305dfd51397e20ba77ff81a8e.ctex::
+::res://sprites/shit/::1765960276
+smol snake.png::CompressedTexture2D::3061767327793457863::1765960276::1765960276::1::::<><><>0<>0<>3cc2cd9e9780b1855c492a658d61d18b<>res://.godot/imported/smol snake.png-0ade032e913cf6711a276ceced3d20b4.ctex::

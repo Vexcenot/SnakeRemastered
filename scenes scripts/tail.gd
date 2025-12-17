@@ -4,6 +4,7 @@ enum {stop, up, down, left, right}
 @export var turn : int
 @export var direction : int
 @export var nextDirection : int
+@export var lastTail : bool = false
 var turning = false
 
 func _ready() -> void:
@@ -17,9 +18,15 @@ func update():
 	else:
 		turning = false
 	if turning:
-		frame = 3
+		if lastTail:
+			frame = 4
+		else:
+			frame = 3
 	else:
-		frame = 1
+		if lastTail:
+			frame = 0
+		else:
+			frame = 1
 	rotation()
 
 func rotation():
