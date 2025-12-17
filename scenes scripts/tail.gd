@@ -19,7 +19,7 @@ func update():
 		turning = false
 	if turning:
 		if lastTail:
-			frame = 4
+			pass
 		else:
 			frame = 3
 	else:
@@ -30,11 +30,11 @@ func update():
 	rotation()
 
 func rotation():
-	if turning:
+	if turning and not lastTail:
 		if direction == up:
 			if nextDirection == left:
-				global_rotation = deg_to_rad(90)
-				flip_h = false
+				global_rotation = deg_to_rad(0)
+				flip_h = true
 				flip_v = false
 			else:
 				global_rotation = deg_to_rad(0)
@@ -46,13 +46,13 @@ func rotation():
 				flip_h = false
 				flip_v = false
 			else:
-				global_rotation = deg_to_rad(-90)
+				global_rotation = deg_to_rad(0)
 				flip_h = false
-				flip_v = false
+				flip_v = true
 		if direction == right:
 			if nextDirection == up:
-				global_rotation = deg_to_rad(180)
-				flip_h = false
+				global_rotation = deg_to_rad(90)
+				flip_h = true
 				flip_v = false
 			else:
 				global_rotation = deg_to_rad(90)
@@ -64,9 +64,9 @@ func rotation():
 				flip_h = false
 				flip_v = false
 			else:
-				global_rotation = deg_to_rad(0)
+				global_rotation = deg_to_rad(90)
 				flip_h = false
-				flip_v = false
+				flip_v = true
 	else:
 		match nextDirection:
 			up:

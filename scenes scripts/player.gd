@@ -22,7 +22,6 @@ var turnHistory : Array = []
 
 func _ready() -> void:
 	moveOrders.append(right)
-
 	positionHistory.append(global_position)
 	directionHistory.append(direction)
 	turnHistory.append(0)
@@ -118,31 +117,7 @@ func move():
 
 				# Update direction based on movement
 				if positionHistory.size() >= 2:
-					match direction:
-						up:
-							position.y -= moveDistance
-							$headSprite.rotation = deg_to_rad(-90) 
-							$headSprite.flip_h = false
-							$headSprite.flip_v = false
-							limitDir = limitVer
-						down:
-							position.y += moveDistance
-							$headSprite.rotation = deg_to_rad(90)   
-							$headSprite.flip_h = false
-							$headSprite.flip_v = true
-							limitDir = limitVer
-						left:
-							position.x -= moveDistance
-							$headSprite.rotation = deg_to_rad(0)  
-							$headSprite.flip_h = true
-							$headSprite.flip_v = false
-							limitDir = limitHor
-						right:
-							position.x += moveDistance
-							$headSprite.rotation = deg_to_rad(0)
-							$headSprite.flip_h = false
-							$headSprite.flip_v = false
-							limitDir = limitHor
+					orientator()
 							
 					#this one is for tail segment
 					direction = directionHistory.pop_back()
@@ -175,31 +150,7 @@ func move():
 				direction = storedMove
 		
 		#Apply position & direction
-		match direction:
-			up:
-				position.y -= moveDistance
-				$headSprite.rotation = deg_to_rad(-90) 
-				$headSprite.flip_h = false
-				$headSprite.flip_v = false
-				limitDir = limitVer
-			down:
-				position.y += moveDistance
-				$headSprite.rotation = deg_to_rad(90)   
-				$headSprite.flip_h = false
-				$headSprite.flip_v = true
-				limitDir = limitVer
-			left:
-				position.x -= moveDistance
-				$headSprite.rotation = deg_to_rad(0)  
-				$headSprite.flip_h = true
-				$headSprite.flip_v = false
-				limitDir = limitHor
-			right:
-				position.x += moveDistance
-				$headSprite.rotation = deg_to_rad(0)
-				$headSprite.flip_h = false
-				$headSprite.flip_v = false
-				limitDir = limitHor
+		orientator()
 
 		# saves position to arrays after move
 		if direction != stop:
@@ -217,7 +168,32 @@ func updateArrays():
 	
 	
 	
-	
+func orientator():
+	match direction:
+		up:
+			position.y -= moveDistance
+			$headSprite.rotation = deg_to_rad(-90) 
+			$headSprite.flip_h = false
+			$headSprite.flip_v = false
+			limitDir = limitVer
+		down:
+			position.y += moveDistance
+			$headSprite.rotation = deg_to_rad(90)   
+			$headSprite.flip_h = false
+			$headSprite.flip_v = true
+			limitDir = limitVer
+		left:
+			position.x -= moveDistance
+			$headSprite.rotation = deg_to_rad(0)  
+			$headSprite.flip_h = true
+			$headSprite.flip_v = false
+			limitDir = limitHor
+		right:
+			position.x += moveDistance
+			$headSprite.rotation = deg_to_rad(0)
+			$headSprite.flip_h = false
+			$headSprite.flip_v = false
+			limitDir = limitHor
 	
 	
 	
