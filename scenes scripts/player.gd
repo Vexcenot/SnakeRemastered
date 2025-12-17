@@ -22,7 +22,7 @@ var turnHistory : Array = []
 
 func _ready() -> void:
 	moveOrders.append(right)
-	eat += 2
+
 	positionHistory.append(global_position)
 	directionHistory.append(direction)
 	turnHistory.append(0)
@@ -110,7 +110,7 @@ func move():
 		# Reverse movement - move backwards through position history
 		if positionHistory.size() > 0:
 			# Get the last position from history (before current position)
-			var lastPosIndex = positionHistory.size() - 2
+			var lastPosIndex = positionHistory.size() - 3
 			var lastDirIndex = directionHistory.size() - 2
 			if lastPosIndex >= tailSegments.size():
 				global_position = positionHistory[lastPosIndex]
@@ -120,20 +120,28 @@ func move():
 				if positionHistory.size() >= 2:
 					match direction:
 						up:
+							position.y -= moveDistance
 							$headSprite.rotation = deg_to_rad(-90) 
 							$headSprite.flip_h = false
+							$headSprite.flip_v = false
 							limitDir = limitVer
 						down:
+							position.y += moveDistance
 							$headSprite.rotation = deg_to_rad(90)   
 							$headSprite.flip_h = false
+							$headSprite.flip_v = true
 							limitDir = limitVer
 						left:
-							$headSprite.rotation = deg_to_rad(0) 
+							position.x -= moveDistance
+							$headSprite.rotation = deg_to_rad(0)  
 							$headSprite.flip_h = true
+							$headSprite.flip_v = false
 							limitDir = limitHor
 						right:
-							$headSprite.rotation = deg_to_rad(0) 
+							position.x += moveDistance
+							$headSprite.rotation = deg_to_rad(0)
 							$headSprite.flip_h = false
+							$headSprite.flip_v = false
 							limitDir = limitHor
 							
 					#this one is for tail segment
