@@ -28,8 +28,8 @@ func _ready() -> void:
 
 func update():
 	move()
-	spawnTail()
 	updateTailPositions()
+	spawnTail()
 	print("tur ", turnHistory)
 	print("dir ", directionHistory)
 
@@ -59,6 +59,7 @@ func _input(event: InputEvent) -> void:
 
 
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 # spawns tail at head current pos and adds it to array
 func spawnTail():
 	if eat > 0 and direction != stop:
@@ -66,7 +67,7 @@ func spawnTail():
 		var spawn = tail.instantiate() 
 		get_parent().add_child(spawn)
 		spawn.global_position = global_position
-		tailSegments.append(spawn)  # Add new tail segment to array for tracking
+		tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
 
 # Moves tails
 func updateTailPositions():
@@ -81,7 +82,7 @@ func updateTailPositions():
 			
 			# Get the direction from history for this tail segment's position
 			var dirIndex = directionHistory.size() - 1 - stepsAgo
-			if dirIndex >= 0:
+			if dirIndex >= 1:
 				var segmentDirection = directionHistory[dirIndex]
 				tailSegments[i].direction = segmentDirection
 				
@@ -160,12 +161,12 @@ func move():
 				limitHor = false
 			left:
 				position.x -= moveDistance
-				$headSprite.rotation = 0
+				$headSprite.rotation = deg_to_rad(0)  
 				$headSprite.flip_h = true
 				limitHor = true
 			right:
 				position.x += moveDistance
-				$headSprite.rotation = 0
+				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
 				limitHor = true
 

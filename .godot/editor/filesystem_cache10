@@ -1,10 +1,10 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1765890033
+::res://::1765933426
 README.md::TextFile::-1::1765171754::0::1::::<><><>0<>0<><>::
-::res://scenes scripts/::1765872371
-global.gd::GDScript::2912662693220618486::1765813787::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::7816693174992426300::1765872371::0::1::::<><><>0<>0<><>::uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn
-player.gd::GDScript::3186466379993582715::1765872100::0::1::::<>Node2D<><>0<>0<><>::
+::res://scenes scripts/::1765903018
+global.gd::GDScript::2912662693220618486::1765901903::0::1::::<>Node<><>0<>0<><>::
+main.tscn::PackedScene::7816693174992426300::1765903018::0::1::::<><><>0<>0<><>::uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn
+player.gd::GDScript::3186466379993582715::1765903018::0::1::::<>Node2D<><>0<>0<><>::
 player.tscn::PackedScene::1161591133076408506::1765720360::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
 tail.gd::GDScript::6411427067770344382::1765872371::0::1::::<>Sprite2D<><>0<>0<><>::
 tail.tscn::PackedScene::6937240318415454553::1765811278::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
