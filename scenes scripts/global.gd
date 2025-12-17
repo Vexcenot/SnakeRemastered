@@ -1,6 +1,6 @@
 extends Node
 var finalTime : float = 1
-var time : float = 0
+var time : float = finalTime
 var currentDirection : String = "where the player is currently facing"
 var reversing = false
 signal tick

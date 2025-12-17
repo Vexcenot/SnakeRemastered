@@ -2,6 +2,7 @@ extends Node2D
 
 
 enum {stop, up, down, left, right}
+enum {limitHor, limitVer ,limitUp, limitDown, limitLeft, limitRight}
 var direction : int = stop
 var tail = preload("res://scenes scripts/tail.tscn")
 
@@ -9,7 +10,7 @@ var finalTime : float = 1
 var time : float = 0
 var moveDistance : int = 100
 var eat : int = 0
-var limitHor : bool = false
+var limitDir : int = limitLeft
 
 var positionHistory : Array = []
 var moveOrders : Array = []
@@ -114,19 +115,19 @@ func move():
 						up:
 							$headSprite.rotation = deg_to_rad(-90) 
 							$headSprite.flip_h = false
-							limitHor = false
+							limitDir = limitVer
 						down:
 							$headSprite.rotation = deg_to_rad(90)   
 							$headSprite.flip_h = false
-							limitHor = false
+							limitDir = limitVer
 						left:
 							$headSprite.rotation = deg_to_rad(0) 
 							$headSprite.flip_h = true
-							limitHor = true
+							limitDir = limitHor
 						right:
 							$headSprite.rotation = deg_to_rad(0) 
 							$headSprite.flip_h = false
-							limitHor = true
+							limitDir = limitHor
 							
 					#this one is for tail segment
 					direction = directionHistory.pop_back()
@@ -142,7 +143,17 @@ func move():
 		if moveOrders.size() > 0:
 			var storedMove = moveOrders.pop_front()
 			#skips move if same or in opposite direction
-			if direction == storedMove or storedMove == up and limitHor == false or storedMove == down and limitHor == false or storedMove == left and limitHor == true or storedMove == right and limitHor == true:
+			if (
+				direction == storedMove or
+				storedMove == up and limitDir == limitVer or
+				storedMove == up and limitDir == limitUp or
+				storedMove == down and limitDir == limitVer or
+				storedMove == down and limitDir == limitDown or
+				storedMove == left and limitDir == limitHor or
+				storedMove == left and limitDir == limitLeft or
+				storedMove == right and limitDir == limitHor or
+				storedMove == right and limitDir == limitRight
+				):
 				pass
 			else:
 				direction = storedMove
@@ -153,22 +164,22 @@ func move():
 				position.y -= moveDistance
 				$headSprite.rotation = deg_to_rad(-90) 
 				$headSprite.flip_h = false
-				limitHor = false
+				limitDir = limitVer
 			down:
 				position.y += moveDistance
 				$headSprite.rotation = deg_to_rad(90)   
 				$headSprite.flip_h = false
-				limitHor = false
+				limitDir = limitVer
 			left:
 				position.x -= moveDistance
 				$headSprite.rotation = deg_to_rad(0)  
 				$headSprite.flip_h = true
-				limitHor = true
+				limitDir = limitHor
 			right:
 				position.x += moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
-				limitHor = true
+				limitDir = limitHor
 
 		# saves position to arrays after move
 		if direction != stop:
