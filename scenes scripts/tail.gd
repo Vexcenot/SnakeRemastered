@@ -55,8 +55,8 @@ func rotation():
 				flip_h = false
 				flip_v = false
 			else:
-				global_rotation = deg_to_rad(0)
-				flip_h = true
+				global_rotation = deg_to_rad(90)
+				flip_h = false
 				flip_v = false
 		if direction == left:
 			if nextDirection == up:

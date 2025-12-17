@@ -8,7 +8,7 @@ var tail = preload("res://scenes scripts/tail.tscn")
 
 var finalTime : float = 1
 var time : float = 0
-var moveDistance : int = 6
+var moveDistance : int = 4
 var eat : int = 0
 var limitDir : int = limitLeft
 
