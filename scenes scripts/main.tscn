@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://djmp2arl0h67y"]
+[gd_scene load_steps=3 format=3 uid="uid://djmp2arl0h67y"]
 
 [ext_resource type="PackedScene" uid="uid://qsxibdu7sd4e" path="res://scenes scripts/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="2_737ep"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(588, 302)
+position = Vector2(584, 304)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(588.00006, 300)
 scale = Vector2(-0.6993882, 0.7050316)
 zoom = Vector2(5.85, 5.85)
+
+[node name="Sprite2D" parent="." instance=ExtResource("2_737ep")]
+position = Vector2(608, 304)

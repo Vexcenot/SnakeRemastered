@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://chuyydvfgw31t"]
+
+[ext_resource type="Texture2D" uid="uid://cs8ytl8rpxdct" path="res://sprites/food.png" id="1_8txok"]
+[ext_resource type="Script" uid="uid://dp7rdaxnt8kij" path="res://scenes scripts/food.gd" id="2_4c3ow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pohk7"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_8txok")
+script = ExtResource("2_4c3ow")
+
+[node name="food" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="food"]
+scale = Vector2(-0.20000017, -0.20000017)
+shape = SubResource("RectangleShape2D_pohk7")
+
+[connection signal="area_entered" from="food" to="." method="_on_food_area_entered"]

@@ -10,48 +10,80 @@ var finalTime : float = 1
 var time : float = 0
 var moveDistance : int = 4
 var eat : int = 0
+var startLength : int = 3
+var openJaw : int = 0
 var limitDir : int = limitLeft
+var upBlocked : bool = false
+var dnBlocked : bool = false
+var rtBlocked : bool = false
+var lfBlocked : bool = false
 
 var positionHistory : Array = []
 var moveOrders : Array = []
 var tailSegments : Array = [] 
 var directionHistory : Array = []
 var turnHistory : Array = []
+var eatHistory : Array = []
 
 
 
 func _ready() -> void:
-	moveOrders.append(right)
-	positionHistory.append(global_position)
-	directionHistory.append(direction)
-	turnHistory.append(0)
 	Global.tick.connect(update)
+	#teleport()
+	#positionHistory.append(global_position)
+	#directionHistory.append(direction)
+	#turnHistory.append(0)
+	
+func _process(delta: float) -> void:
+	if openJaw >= 1:
+		$headSprite.frame = 5
+	else:
+		$headSprite.frame = 2
 
+#spawns tail on game start
+#FIX THIS
+func teleport():
+	position.x -= moveDistance*startLength
+	for i in startLength:
+		eat += 1
+		update()
+		#updateTailPositions()
+		position.x += moveDistance
+		updateArrays()
 
 func update():
-	move()
-	updateTailPositions()
+	colCheck()
 	spawnTail()
-	print("tur ", turnHistory)
-	print("dir ", directionHistory)
+	updateTail()
+	move()
 
 
 
+	#print("tur ", turnHistory)
+	#print("dir ", directionHistory)
+
+
+
+#sheesh make this better ffs with 2d vectors or some shit
 func _input(event: InputEvent) -> void:
 	# append move orders (only if not Global.reversing)
 	if moveOrders.size() < 4 and !Global.reversing:
 		if event.is_action_pressed("ui_up"):
 			if moveOrders.back() != up:
 				moveOrders.append(up)
+				Global.moveStart = true
 		if event.is_action_pressed("ui_down"):
 			if moveOrders.back() != down:
 				moveOrders.append(down)
+				Global.moveStart = true
 		if event.is_action_pressed("ui_left"):
 			if moveOrders.back() != left:
 				moveOrders.append(left)
+				Global.moveStart = true
 		if event.is_action_pressed("ui_right"):
 			if moveOrders.back() != right:
 				moveOrders.append(right)
+				Global.moveStart = true
 		# debug
 	if event.is_action_pressed("action"):
 		eat += 1
@@ -74,11 +106,14 @@ func spawnTail():
 		#sets last tail
 		if tailSegments.size() <= 1:
 			tailSegments.back().lastTail = true
+		eatHistory.append(true)
 
+	else:
+		eatHistory.append(false)
 
-#update this shit to be less stupid VVVV
+#REALLY FIX THIS
 # Moves tails
-func updateTailPositions():
+func updateTail():
 	# Each tail segment follows the head's position from (i+1) steps ago
 	for i in range(tailSegments.size()):
 		var stepsAgo = i + 1
@@ -99,6 +134,12 @@ func updateTailPositions():
 			if turIndex >= 0:
 				var segmentTurn = directionHistory[turIndex]
 				tailSegments[i].nextDirection = segmentTurn
+				
+			#full tail
+			var eatIndex = eatHistory.size() - stepsAgo
+			if eatIndex >= 0:
+				var segmentEat = eatHistory[eatIndex]
+				tailSegments[i].full = segmentEat
 
 #AAAAAAAAA end
 
@@ -126,7 +167,6 @@ func move():
 				if positionHistory.size() > 1:
 					positionHistory.pop_back()
 					turnHistory.pop_back()
-
 
 	else:
 		# Normal foward movement
@@ -167,38 +207,70 @@ func updateArrays():
 	directionHistory.append(direction)
 	
 	
-	
+#turns and flips sprite
 func orientator():
 	match direction:
 		up:
-			position.y -= moveDistance
-			$headSprite.rotation = deg_to_rad(-90) 
-			$headSprite.flip_h = false
-			$headSprite.flip_v = false
-			limitDir = limitVer
+			if upBlocked:
+				hurt()
+			else:
+				position.y -= moveDistance
+				$headSprite.rotation = deg_to_rad(-90) 
+				$headSprite.flip_h = false
+				$headSprite.flip_v = false
+				limitDir = limitVer
 		down:
-			position.y += moveDistance
-			$headSprite.rotation = deg_to_rad(90)   
-			$headSprite.flip_h = false
-			$headSprite.flip_v = true
-			limitDir = limitVer
-		left:
-			position.x -= moveDistance
-			$headSprite.rotation = deg_to_rad(0)  
-			$headSprite.flip_h = true
-			$headSprite.flip_v = false
-			limitDir = limitHor
+			if dnBlocked:
+				hurt()
+			else:
+				position.y += moveDistance
+				$headSprite.rotation = deg_to_rad(90)   
+				$headSprite.flip_h = false
+				$headSprite.flip_v = true
+				limitDir = limitVer
 		right:
-			position.x += moveDistance
-			$headSprite.rotation = deg_to_rad(0)
-			$headSprite.flip_h = false
-			$headSprite.flip_v = false
-			limitDir = limitHor
+			if rtBlocked:
+				hurt()
+			else:
+				position.x += moveDistance
+				$headSprite.rotation = deg_to_rad(0)
+				$headSprite.flip_h = false
+				$headSprite.flip_v = false
+				limitDir = limitHor
+		left:
+			if lfBlocked:
+				hurt()
+			else:
+				position.x -= moveDistance
+				$headSprite.rotation = deg_to_rad(0)  
+				$headSprite.flip_h = true
+				$headSprite.flip_v = false
+				limitDir = limitHor
+
+
+#snake killer
+func hurt():
+	get_tree().reload_current_scene()
 	
 	
-	
-	
-	
+#checks surrounding for collisions`
+func colCheck():
+	if $up.has_overlapping_bodies():
+		upBlocked = true
+	else:
+		upBlocked = false
+	if $down.has_overlapping_bodies():
+		dnBlocked = true
+	else:
+		dnBlocked = false
+	if $right.has_overlapping_bodies():
+		rtBlocked = true
+	else:
+		rtBlocked = false
+	if $left.has_overlapping_bodies():
+		lfBlocked = true
+	else:
+		lfBlocked = false
 	
 	
 	
@@ -220,3 +292,42 @@ func orientator():
 	#var maxPositions = tailSegments.size() + 10
 	#if positions.size() > maxPositions:
 		#positions.remove_at(0)
+
+
+func _on_up_area_entered(area: Area2D) -> void:
+	if area.name == "food":
+		openJaw += 1
+
+func _on_down_area_entered(area: Area2D) -> void:
+	if area.name == "food":
+		openJaw += 1
+
+func _on_right_area_entered(area: Area2D) -> void:
+	if area.name == "food":
+		openJaw += 1
+
+func _on_left_area_entered(area: Area2D) -> void:
+	if area.name == "food":
+		openJaw += 1
+
+
+func _on_up_area_exited(area: Area2D) -> void:
+	if area.name == "food" and openJaw > 0:
+		openJaw -= 1
+
+func _on_down_area_exited(area: Area2D) -> void:
+	if area.name == "food" and openJaw > 0:
+		openJaw -= 1
+
+func _on_right_area_exited(area: Area2D) -> void:
+	if area.name == "food" and openJaw > 0:
+		openJaw -= 1
+
+func _on_left_area_exited(area: Area2D) -> void:
+	if area.name == "food" and openJaw > 0:
+		openJaw -= 1
+
+
+func _on_head_area_area_entered(area: Area2D) -> void:
+	if area.name == "food":
+		eat += 1

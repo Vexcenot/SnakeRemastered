@@ -25,5 +25,6 @@ shape = SubResource("RectangleShape2D_5baly")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-scale = Vector2(0.39943987, 0.1014176)
+scale = Vector2(0.2394398, 0.1014176)
 shape = SubResource("RectangleShape2D_ured2")
+disabled = true

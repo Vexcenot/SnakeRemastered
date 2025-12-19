@@ -5,14 +5,20 @@ enum {stop, up, down, left, right}
 @export var direction : int
 @export var nextDirection : int
 @export var lastTail : bool = false
-var turning = false
+var turning : bool = false
+var activate : bool = false
+var full : bool = false
 
 func _ready() -> void:
 	Global.tick.connect(update)
  
 func update():
 	#print(direction, nextDirection)
-	visible = true
+	if !activate:
+		activate = true
+		visible = true
+		$StaticBody2D/CollisionShape2D.disabled = false
+	
 	if direction != nextDirection and direction != stop:
 		turning = true #true
 	else:
@@ -20,11 +26,15 @@ func update():
 	if turning:
 		if lastTail:
 			pass
+		elif full:
+			frame = 6
 		else:
 			frame = 3
 	else:
 		if lastTail:
 			frame = 0
+		elif full:
+			frame = 6
 		else:
 			frame = 1
 	rotation()
