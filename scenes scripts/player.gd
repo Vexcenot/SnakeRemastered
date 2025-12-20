@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 		$headSprite.frame = 5
 	else:
 		$headSprite.frame = 2
+	print(rtBlocked)
 
 #spawns tail on game start
 #FIX THIS
@@ -53,10 +54,10 @@ func teleport():
 
 func update():
 	colCheck()
+	move()
+	
 	spawnTail()
 	updateTail()
-	move()
-
 
 
 	#print("tur ", turnHistory)

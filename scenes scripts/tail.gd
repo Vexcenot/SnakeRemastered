@@ -15,9 +15,11 @@ func _ready() -> void:
 func update():
 	#print(direction, nextDirection)
 	if !activate:
-		activate = true
+		#activate = true
 		visible = true
 		$StaticBody2D/CollisionShape2D.disabled = false
+		#print(direction, nextDirection)
+		
 	
 	if direction != nextDirection and direction != stop:
 		turning = true #true
