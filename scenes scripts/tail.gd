@@ -6,21 +6,24 @@ enum {stop, up, down, left, right}
 @export var nextDirection : int
 @export var lastTail : bool = false
 var turning : bool = false
-var full : bool = true #make this true if cant update upon spawn on player script
+var full : bool = false #make this true if cant update upon spawn on player script
 
-func _process(delta: float) -> void:
-	print(global_position)
+#func _process(delta: float) -> void:
+	#print(global_position)
 
 func _ready() -> void:
 	Global.tick.connect(update)
 	update()
+	if lastTail:
+		$StaticBody2D/straightCol.disabled = true
+	else:
+		$StaticBody2D/straightCol.disabled = false
 
  
 func update():
 	
 	#print(direction, nextDirection)
 	visible = true
-	$StaticBody2D/CollisionShape2D.disabled = false
 		#print(direction, nextDirection)
 		
 	if direction != nextDirection and direction != stop:
@@ -28,6 +31,8 @@ func update():
 	else:
 		turning = false
 	if turning:
+		$StaticBody2D/turnCol.disabled = false
+		$StaticBody2D/straightCol.disabled = true
 		if lastTail:
 			pass
 		elif full:
@@ -35,6 +40,8 @@ func update():
 		else:
 			frame = 3
 	else:
+		$StaticBody2D/turnCol.disabled = true
+		$StaticBody2D/straightCol.disabled = false
 		if lastTail:
 			frame = 0
 		elif full:

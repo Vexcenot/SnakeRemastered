@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://djmp2arl0h67y"]
+[gd_scene load_steps=4 format=3 uid="uid://djmp2arl0h67y"]
 
 [ext_resource type="PackedScene" uid="uid://qsxibdu7sd4e" path="res://scenes scripts/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="2_737ep"]
 [ext_resource type="Texture2D" uid="uid://cgbcvkny0wfqg" path="res://sprites/icon.svg" id="3_5grs8"]
-[ext_resource type="PackedScene" uid="uid://c53plmxhqausf" path="res://scenes scripts/tail.tscn" id="4_ldica"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,6 +22,3 @@ zoom = Vector2(5.85, 5.85)
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_737ep")]
 position = Vector2(608, 304)
-
-[node name="tailSprite" parent="." instance=ExtResource("4_ldica")]
-position = Vector2(592, 328)

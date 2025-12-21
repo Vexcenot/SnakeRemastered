@@ -32,6 +32,8 @@ var eatHistory : Array = []
 func _ready() -> void:
 	Global.tick.connect(update)
 	startTeleport()
+	
+#have this when no starteleport
 	#positionHistory.append(global_position)
 	#positionHistory.append(global_position)
 	#directionHistory.append(direction)
@@ -53,6 +55,8 @@ func startTeleport():
 	position.x -= moveDistance*startLength
 	eat += startLength
 	direction = startDir
+	positionHistory.append(global_position)
+	positionHistory.append(global_position)
 	for i in startLength:
 		update()
 	direction = stop
@@ -66,6 +70,7 @@ func update():
 	move()
 	
 	spawnTail()
+	
 	updateTail()
 	print(tailSegments)
 	
@@ -120,6 +125,8 @@ func spawnTail():
 		#sets last tail
 		if tailSegments.size() <= 1:
 			spawn.lastTail = true
+		if readyStart:
+			spawn.full = true
 		get_parent().add_child(spawn)
 	#pushes empty stomach to array
 	else:
