@@ -17,7 +17,7 @@ position = Vector2(584, 304)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(588.00006, 300)
-scale = Vector2(-0.6993882, 0.7050316)
+scale = Vector2(-2.309336, 1.5162249)
 zoom = Vector2(5.85, 5.85)
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_737ep")]

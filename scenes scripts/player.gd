@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var startDir = right
 enum {stop, up, down, left, right}
 enum {limitHor, limitVer ,limitUp, limitDown, limitLeft, limitRight}
 var direction : int = stop
@@ -11,9 +11,10 @@ var finalTime : float = 1
 var time : float = 0
 var moveDistance : int = 4
 var eat : int = 0
-var startLength : int = 3
+var startLength : int = 6
 var openJaw : int = 0
 var limitDir : int = limitLeft
+var readyStart : bool = false
 var upBlocked : bool = false
 var dnBlocked : bool = false
 var rtBlocked : bool = false
@@ -30,39 +31,42 @@ var eatHistory : Array = []
 
 func _ready() -> void:
 	Global.tick.connect(update)
-	#teleport()
+
 	positionHistory.append(global_position)
 	positionHistory.append(global_position)
 	directionHistory.append(direction)
 	eatHistory.append(false)
-	turnHistory.append(0)
+	#turnHistory.append(0)
+	startTeleport()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	#see if you can make this on update
 	if openJaw >= 1:
 		$headSprite.frame = 5
 	else:
 		$headSprite.frame = 2
+
 #spawns tail on game start
 #FIX THIS
-func teleport():
+func startTeleport():
 	position.x -= moveDistance*startLength
+	eat += startLength
+	direction = startDir
 	for i in startLength:
-		eat += 1
 		update()
-		#updateTailPositions()
-		position.x += moveDistance
-		updateArrays()
+	direction = stop
+	limitDir = limitLeft
+	readyStart = true
 
 #runs every tick
 func update():
-
-	
 	colCheck()
 	
 	move()
 	
 	spawnTail()
 	updateTail()
+	print(tailSegments)
 	
 	#print("tur ", turnHistory)
 	#print("dir ", directionHistory)
@@ -105,17 +109,15 @@ func spawnTail():
 	if eat > 0 and direction != stop:
 		eat -= 1
 		eatHistory.append(true)
-		
+
 		var spawn = tail.instantiate() 
-		
 		spawn.global_position = global_position
 		tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
 		spawn.direction = directionHistory[-2]
 		spawn.nextDirection = directionHistory.back()
-		spawn.fuck = "on"
 		#sets last tail
 		if tailSegments.size() <= 1:
-			tailSegments.back().lastTail = true
+			spawn.lastTail = true
 		get_parent().add_child(spawn)
 	#pushes empty stomach to array
 	else:
@@ -150,7 +152,6 @@ func updateTail():
 			if eatIndex >= 0:
 				var segmentEat = eatHistory[eatIndex]
 				tailSegments[i].full = segmentEat
-			tailSegments[i].fuck = "on"
 
 #AAAAAAAAA end
 
@@ -168,14 +169,14 @@ func move():
 				direction = directionHistory[lastDirIndex]
 
 				# Update direction based on movement
-				if positionHistory.size() >= 2:
+				if positionHistory.size() > 0:
 					orientator()
 							
 					#this one is for tail segment
 					direction = directionHistory.pop_back()
 				
 				# Remove the current position from history (pop back)
-				if positionHistory.size() > 1:
+				if positionHistory.size() > 0:
 					positionHistory.pop_back()
 					turnHistory.pop_back()
 
@@ -304,7 +305,6 @@ func colCheck():
 	#if positions.size() > maxPositions:
 		#positions.remove_at(0)
 
-
 func _on_up_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		openJaw += 1
@@ -338,7 +338,7 @@ func _on_left_area_exited(area: Area2D) -> void:
 	if area.name == "food" and openJaw > 0:
 		openJaw -= 1
 
-
+#food detect
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1

@@ -1,5 +1,5 @@
 extends Node
-var originalTime = 1
+var originalTime = 0.1
 var finalTime : float = originalTime
 var time : float = originalTime
 var currentDirection : String = "where the player is currently facing"
@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 	if time >= finalTime and moveStart:
 		time = 0
 		tick.emit()
+	#print(time)
 
 
 func _input(event: InputEvent) -> void:

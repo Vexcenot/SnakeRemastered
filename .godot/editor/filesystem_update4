@@ -1,3 +1,4 @@
 res://scenes scripts/player.gd
+res://scenes scripts/global.gd
 res://scenes scripts/tail.tscn
 res://scenes scripts/tail.gd

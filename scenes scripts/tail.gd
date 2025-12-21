@@ -7,13 +7,14 @@ enum {stop, up, down, left, right}
 @export var lastTail : bool = false
 var turning : bool = false
 var full : bool = true #make this true if cant update upon spawn on player script
-var fuck : String = "off"
 
+func _process(delta: float) -> void:
+	print(global_position)
 
 func _ready() -> void:
-	print(direction,nextDirection)
 	Global.tick.connect(update)
 	update()
+
  
 func update():
 	
