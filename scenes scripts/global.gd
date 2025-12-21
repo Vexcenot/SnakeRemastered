@@ -1,5 +1,5 @@
 extends Node
-var originalTime = 0.1
+var originalTime = 0.2
 var finalTime : float = originalTime
 var time : float = originalTime
 var currentDirection : String = "where the player is currently facing"
@@ -11,7 +11,7 @@ signal reverse
 
 func _process(_delta: float) -> void:
 	time += _delta
-	if time >= finalTime and moveStart:
+	if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
 		time = 0
 		tick.emit()
 	#print(time)

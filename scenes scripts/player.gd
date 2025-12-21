@@ -31,13 +31,13 @@ var eatHistory : Array = []
 
 func _ready() -> void:
 	Global.tick.connect(update)
-
-	positionHistory.append(global_position)
-	positionHistory.append(global_position)
-	directionHistory.append(direction)
-	eatHistory.append(false)
-	#turnHistory.append(0)
 	startTeleport()
+	#positionHistory.append(global_position)
+	#positionHistory.append(global_position)
+	#directionHistory.append(direction)
+	#eatHistory.append(false)
+	#turnHistory.append(0)
+	
 	
 func _process(_delta: float) -> void:
 	#see if you can make this on update
@@ -49,6 +49,7 @@ func _process(_delta: float) -> void:
 #spawns tail on game start
 #FIX THIS
 func startTeleport():
+	await get_tree().process_frame
 	position.x -= moveDistance*startLength
 	eat += startLength
 	direction = startDir
@@ -70,8 +71,6 @@ func update():
 	
 	#print("tur ", turnHistory)
 	#print("dir ", directionHistory)
-
-
 
 #sheesh make this better ffs with 2d vectors or some shit
 func _input(event: InputEvent) -> void:
@@ -108,13 +107,16 @@ func spawnTail():
 	#pushes full sprite to array then spawn tails
 	if eat > 0 and direction != stop:
 		eat -= 1
-		eatHistory.append(true)
+		
+		if readyStart:
+			eatHistory.append(true)
 
 		var spawn = tail.instantiate() 
 		spawn.global_position = global_position
 		tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
-		spawn.direction = directionHistory[-2]
-		spawn.nextDirection = directionHistory.back()
+		if directionHistory.size() > 1:
+			spawn.direction = directionHistory[-2]
+			spawn.nextDirection = directionHistory[-1]
 		#sets last tail
 		if tailSegments.size() <= 1:
 			spawn.lastTail = true
@@ -342,16 +344,3 @@ func _on_left_area_exited(area: Area2D) -> void:
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1
-	#if area.name == "food":
-		##var fuller = full.instantiate()
-		##get_parent().add_child(full)
-		##full.global_position = global_position
-		##eatHistory.append(true)
-		#var spawn = tail.instantiate() 
-		#get_parent().add_child(spawn)
-		#spawn.global_position = global_position
-		#tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
-		#
-		##sets last tail
-		#if tailSegments.size() <= 1:
-			#tailSegments.back().lastTail = true
