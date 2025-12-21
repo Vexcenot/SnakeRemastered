@@ -6,21 +6,22 @@ enum {stop, up, down, left, right}
 @export var nextDirection : int
 @export var lastTail : bool = false
 var turning : bool = false
-var activate : bool = false
-var full : bool = false
+var full : bool = true #make this true if cant update upon spawn on player script
+var fuck : String = "off"
+
 
 func _ready() -> void:
+	print(direction,nextDirection)
 	Global.tick.connect(update)
+	update()
  
 func update():
+	
 	#print(direction, nextDirection)
-	if !activate:
-		#activate = true
-		visible = true
-		$StaticBody2D/CollisionShape2D.disabled = false
+	visible = true
+	$StaticBody2D/CollisionShape2D.disabled = false
 		#print(direction, nextDirection)
 		
-	
 	if direction != nextDirection and direction != stop:
 		turning = true #true
 	else:
@@ -29,7 +30,7 @@ func update():
 		if lastTail:
 			pass
 		elif full:
-			frame = 6
+			frame = 7
 		else:
 			frame = 3
 	else:

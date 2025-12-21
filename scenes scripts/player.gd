@@ -5,6 +5,7 @@ enum {stop, up, down, left, right}
 enum {limitHor, limitVer ,limitUp, limitDown, limitLeft, limitRight}
 var direction : int = stop
 var tail = preload("res://scenes scripts/tail.tscn")
+var full = preload("res://scenes scripts/fullArea.tscn")
 
 var finalTime : float = 1
 var time : float = 0
@@ -30,17 +31,17 @@ var eatHistory : Array = []
 func _ready() -> void:
 	Global.tick.connect(update)
 	#teleport()
-	#positionHistory.append(global_position)
-	#directionHistory.append(direction)
-	#turnHistory.append(0)
+	positionHistory.append(global_position)
+	positionHistory.append(global_position)
+	directionHistory.append(direction)
+	eatHistory.append(false)
+	turnHistory.append(0)
 	
 func _process(delta: float) -> void:
 	if openJaw >= 1:
 		$headSprite.frame = 5
 	else:
 		$headSprite.frame = 2
-	print(rtBlocked)
-
 #spawns tail on game start
 #FIX THIS
 func teleport():
@@ -52,14 +53,17 @@ func teleport():
 		position.x += moveDistance
 		updateArrays()
 
+#runs every tick
 func update():
+
+	
 	colCheck()
+	
 	move()
 	
 	spawnTail()
 	updateTail()
-
-
+	
 	#print("tur ", turnHistory)
 	#print("dir ", directionHistory)
 
@@ -97,18 +101,23 @@ func _input(event: InputEvent) -> void:
 
 # spawns tail at head current pos and adds it to array
 func spawnTail():
+	#pushes full sprite to array then spawn tails
 	if eat > 0 and direction != stop:
 		eat -= 1
+		eatHistory.append(true)
+		
 		var spawn = tail.instantiate() 
-		get_parent().add_child(spawn)
+		
 		spawn.global_position = global_position
 		tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
-		
+		spawn.direction = directionHistory[-2]
+		spawn.nextDirection = directionHistory.back()
+		spawn.fuck = "on"
 		#sets last tail
 		if tailSegments.size() <= 1:
 			tailSegments.back().lastTail = true
-		eatHistory.append(true)
-
+		get_parent().add_child(spawn)
+	#pushes empty stomach to array
 	else:
 		eatHistory.append(false)
 
@@ -141,6 +150,7 @@ func updateTail():
 			if eatIndex >= 0:
 				var segmentEat = eatHistory[eatIndex]
 				tailSegments[i].full = segmentEat
+			tailSegments[i].fuck = "on"
 
 #AAAAAAAAA end
 
@@ -332,3 +342,16 @@ func _on_left_area_exited(area: Area2D) -> void:
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1
+	#if area.name == "food":
+		##var fuller = full.instantiate()
+		##get_parent().add_child(full)
+		##full.global_position = global_position
+		##eatHistory.append(true)
+		#var spawn = tail.instantiate() 
+		#get_parent().add_child(spawn)
+		#spawn.global_position = global_position
+		#tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
+		#
+		##sets last tail
+		#if tailSegments.size() <= 1:
+			#tailSegments.back().lastTail = true
