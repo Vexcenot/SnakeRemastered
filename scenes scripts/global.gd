@@ -26,10 +26,10 @@ func _input(event: InputEvent) -> void:
 		reversing = false
 
 func hurt():
-	for i in range(3):
+	for i in range(4):
 		seeable = !seeable
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.15).timeout
 		seeable = !seeable
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.23).timeout
 
 	get_tree().reload_current_scene()
