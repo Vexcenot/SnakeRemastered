@@ -1,17 +1,17 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766456370
+::res://::1766491274
 README.md::TextFile::-1::1765171754::0::1::::<><><>0<>0<><>::
 test.tscn::PackedScene::2216078260444966356::1765976081::0::1::::<><><>0<>0<><>::uid://c53plmxhqausf::::res://scenes scripts/tail.tscn
-::res://scenes scripts/::1766398882
-food.gd::GDScript::8279192376186307673::1766161745::0::1::::<>Sprite2D<><>0<>0<><>::
-food.tscn::PackedScene::5306951085060773223::1766161747::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scenes scripts/food.gd
+::res://scenes scripts/::1766482204
+food.gd::GDScript::8279192376186307673::1766481774::0::1::::<>Sprite2D<><>0<>0<><>::
+food.tscn::PackedScene::5306951085060773223::1766482204::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scenes scripts/food.gd
 fullArea.tscn::PackedScene::5321567513985650059::1766254553::0::1::::<><><>0<>0<><>::
-global.gd::GDScript::2912662693220618486::1766323319::0::1::::<>Node<><>0<>0<><>::
+global.gd::GDScript::2912662693220618486::1766481686::0::1::::<>Node<><>0<>0<><>::
 main.tscn::PackedScene::7816693174992426300::1766398882::0::1::::<><><>0<>0<><>::uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://cgbcvkny0wfqg::::res://sprites/icon.svg
-player.gd::GDScript::3186466379993582715::1766398882::0::1::::<>Node2D<><>0<>0<><>::
+player.gd::GDScript::3186466379993582715::1766481720::0::1::::<>Node2D<><>0<>0<><>::
 player.tscn::PackedScene::1161591133076408506::1766324941::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-tail.gd::GDScript::6411427067770344382::1766326217::0::1::::<>Sprite2D<><>0<>0<><>::
-tail.tscn::PackedScene::6937240318415454553::1766324786::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+tail.gd::GDScript::6411427067770344382::1766478776::0::1::::<>Sprite2D<><>0<>0<><>::
+tail.tscn::PackedScene::6937240318415454553::1766481774::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
 ::res://sprites/::1766161854
 food.png::CompressedTexture2D::6105856786194097899::1766160809::1766160810::1::::<><><>0<>0<>b7bf0d85092908859dff58a80ba2efd4<>res://.godot/imported/food.png-eb902ed6894de1ba4df5e8591424d912.ctex::
 icon.svg::CompressedTexture2D::5196198289066680378::1765006013::1765006564::1::::<><><>0<>0<>7092596bd1aa04d49e5336b4ea392ee2<>res://.godot/imported/icon.svg-964d8c66fbd3bda40c44ca195472a8e1.ctex::

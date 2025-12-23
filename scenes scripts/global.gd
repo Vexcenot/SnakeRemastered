@@ -2,10 +2,12 @@ extends Node
 var originalTime = 0.2
 var finalTime : float = originalTime
 var time : float = originalTime
+var foodEaten : int = 0
 var currentDirection : String = "where the player is currently facing"
 var reversing : bool = false
 var moveStart : bool = false
 var seeable : bool = true
+var hurting : bool = false
 signal tick
 signal reverse
 
@@ -26,6 +28,7 @@ func _input(event: InputEvent) -> void:
 		reversing = false
 
 func hurt():
+	hurting = true
 	for i in range(4):
 		seeable = !seeable
 		await get_tree().create_timer(0.15).timeout

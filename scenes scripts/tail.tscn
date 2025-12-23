@@ -31,7 +31,6 @@ shape = SubResource("RectangleShape2D_5baly")
 position = Vector2(7.4505806e-08, 0)
 scale = Vector2(0.1594398, 0.1014176)
 shape = SubResource("RectangleShape2D_ured2")
-disabled = true
 
 [node name="turnCol" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.49999997, 0.49999997)

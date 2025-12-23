@@ -30,6 +30,8 @@ func update():
 		turning = true #true
 	else:
 		turning = false
+		
+	#changes collision shape when bending
 	if turning:
 		$StaticBody2D/turnCol.disabled = false
 		$StaticBody2D/straightCol.disabled = true

@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://qsxibdu7sd4e"]
+[gd_scene load_steps=7 format=3 uid="uid://qsxibdu7sd4e"]
 
 [ext_resource type="Script" uid="uid://blnsvu5y16aoh" path="res://scenes scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="2_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydash"]
+size = Vector2(21.345526, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndhvj"]
+size = Vector2(99.9998, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xomnv"]
+size = Vector2(17.020924, 17.330177)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0amtw"]
 
@@ -22,14 +27,22 @@ rotation = 1.5707964
 scale = Vector2(0.056443617, 0.056443617)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="headSprite/headArea"]
-scale = Vector2(3.3200011, 3.3200011)
+position = Vector2(3.3000108e-06, -1.0494779e-14)
+scale = Vector2(3.320002, 3.5471833)
 shape = SubResource("RectangleShape2D_ydash")
+
+[node name="head buffer" type="Area2D" parent="headSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="headSprite/head buffer"]
+position = Vector2(3.5762787e-07, 0)
+scale = Vector2(0.2000004, 0.2000004)
+shape = SubResource("RectangleShape2D_ndhvj")
 
 [node name="up" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="up"]
 position = Vector2(0, -3)
-scale = Vector2(-0.041508343, -0.04076763)
+scale = Vector2(0.1147974, 0.11274884)
 shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
@@ -38,7 +51,7 @@ debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="down"]
 position = Vector2(3.3881318e-21, 3)
 rotation = 3.1415927
-scale = Vector2(-0.042489383, -0.041731164)
+scale = Vector2(0.11751062, 0.11541365)
 shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
@@ -46,7 +59,7 @@ debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
 position = Vector2(3, 0)
-scale = Vector2(-0.042489383, -0.041731164)
+scale = Vector2(0.11751062, 0.11541365)
 shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
@@ -54,7 +67,7 @@ debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
 position = Vector2(-3, 0)
-scale = Vector2(-0.04248643, -0.04172826)
+scale = Vector2(0.11750245, 0.11540563)
 shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
@@ -66,6 +79,8 @@ scale = Vector2(0.60000014, 0.60000014)
 shape = SubResource("RectangleShape2D_0amtw")
 
 [connection signal="area_entered" from="headSprite/headArea" to="." method="_on_head_area_area_entered"]
+[connection signal="area_entered" from="headSprite/head buffer" to="." method="_on_head_buffer_area_entered"]
+[connection signal="area_exited" from="headSprite/head buffer" to="." method="_on_head_buffer_area_exited"]
 [connection signal="area_entered" from="up" to="." method="_on_up_area_entered"]
 [connection signal="area_exited" from="up" to="." method="_on_up_area_exited"]
 [connection signal="body_entered" from="up" to="." method="_on_up_body_entered"]

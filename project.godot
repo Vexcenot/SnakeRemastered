@@ -13,11 +13,19 @@ config_version=5
 config/name="new snaek"
 run/main_scene="uid://djmp2arl0h67y"
 config/features=PackedStringArray("4.5", "Forward Plus")
+run/max_fps=30
 config/icon="res://sprites/icon.svg"
 
 [autoload]
 
 Global="*res://scenes scripts/global.gd"
+
+[display]
+
+window/size/viewport_width=84
+window/size/viewport_height=48
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [input]
 

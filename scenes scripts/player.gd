@@ -11,7 +11,7 @@ var finalTime : float = 1
 var time : float = 0
 var moveDistance : int = 4
 var eat : int = 0
-var startLength : int = 6
+var startLength : int = 0
 var openJaw : int = 0
 var limitDir : int = limitLeft
 var readyStart : bool = false
@@ -167,7 +167,7 @@ func updateTail():
 
 # takes move orders and moves the player every tick
 func move():
-	if Global.reversing:
+	if Global.reversing and !Global.hurting:
 		# Reverse movement - move backwards through position history
 		if positionHistory.size() > 0:
 			# Get the last position from history (before current position)
@@ -316,40 +316,51 @@ func colCheck():
 	#if positions.size() > maxPositions:
 		#positions.remove_at(0)
 
-func _on_up_area_entered(area: Area2D) -> void:
-	if area.name == "food":
-		openJaw += 1
-
-func _on_down_area_entered(area: Area2D) -> void:
-	if area.name == "food":
-		openJaw += 1
-
-func _on_right_area_entered(area: Area2D) -> void:
-	if area.name == "food":
-		openJaw += 1
-
-func _on_left_area_entered(area: Area2D) -> void:
-	if area.name == "food":
-		openJaw += 1
-
-
-func _on_up_area_exited(area: Area2D) -> void:
-	if area.name == "food" and openJaw > 0:
-		openJaw -= 1
-
-func _on_down_area_exited(area: Area2D) -> void:
-	if area.name == "food" and openJaw > 0:
-		openJaw -= 1
-
-func _on_right_area_exited(area: Area2D) -> void:
-	if area.name == "food" and openJaw > 0:
-		openJaw -= 1
-
-func _on_left_area_exited(area: Area2D) -> void:
-	if area.name == "food" and openJaw > 0:
-		openJaw -= 1
+#func _on_up_area_entered(area: Area2D) -> void:
+	#if area.name == "food":
+		#openJaw += 1
+#
+#func _on_down_area_entered(area: Area2D) -> void:
+	#if area.name == "food":
+		#openJaw += 1
+#
+#func _on_right_area_entered(area: Area2D) -> void:
+	#if area.name == "food":
+		#openJaw += 1
+#
+#func _on_left_area_entered(area: Area2D) -> void:
+	#if area.name == "food":
+		#openJaw += 1
+#
+#
+#func _on_up_area_exited(area: Area2D) -> void:
+	#if area.name == "food" and openJaw > 0:
+		#openJaw -= 1
+#
+#func _on_down_area_exited(area: Area2D) -> void:
+	#if area.name == "food" and openJaw > 0:
+		#openJaw -= 1
+#
+#func _on_right_area_exited(area: Area2D) -> void:
+	#if area.name == "food" and openJaw > 0:
+		#openJaw -= 1
+#
+#func _on_left_area_exited(area: Area2D) -> void:
+	#if area.name == "food" and openJaw > 0:
+		#openJaw -= 1
 
 #food detect
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1
+
+
+func _on_head_buffer_area_entered(area: Area2D) -> void:
+	if area.name == "food":
+		openJaw += 1
+
+
+
+func _on_head_buffer_area_exited(area: Area2D) -> void:
+	if area.name == "food" and openJaw > 0:
+		openJaw -= 1
