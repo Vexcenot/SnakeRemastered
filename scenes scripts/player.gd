@@ -47,6 +47,7 @@ func _process(_delta: float) -> void:
 		$headSprite.frame = 5
 	else:
 		$headSprite.frame = 2
+	visible = Global.seeable
 
 #spawns tail on game start
 #FIX THIS
@@ -72,7 +73,6 @@ func update():
 	spawnTail()
 	
 	updateTail()
-	print(tailSegments)
 	
 	#print("tur ", turnHistory)
 	#print("dir ", directionHistory)
@@ -268,10 +268,12 @@ func orientator():
 				$headSprite.flip_v = false
 				limitDir = limitHor
 
-
+var seeable : bool = false
 #snake killer
 func hurt():
-	get_tree().reload_current_scene()
+	direction = stop
+	Global.hurt()
+	
 	
 	
 #checks surrounding for collisions`

@@ -5,6 +5,7 @@ var time : float = originalTime
 var currentDirection : String = "where the player is currently facing"
 var reversing : bool = false
 var moveStart : bool = false
+var seeable : bool = true
 signal tick
 signal reverse
 
@@ -23,3 +24,12 @@ func _input(event: InputEvent) -> void:
 		reverse.emit()
 	if event.is_action_released("action2"):
 		reversing = false
+
+func hurt():
+	for i in range(3):
+		seeable = !seeable
+		await get_tree().create_timer(0.3).timeout
+		seeable = !seeable
+		await get_tree().create_timer(0.3).timeout
+
+	get_tree().reload_current_scene()
