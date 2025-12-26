@@ -21,36 +21,36 @@ func _ready() -> void:
 
  
 func update():
-	
-	#print(direction, nextDirection)
-	visible = true
+	if !Global.hurting:
 		#print(direction, nextDirection)
-		
-	if direction != nextDirection and direction != stop:
-		turning = true #true
-	else:
-		turning = false
-		
-	#changes collision shape when bending
-	if turning:
-		$StaticBody2D/turnCol.disabled = false
-		$StaticBody2D/straightCol.disabled = true
-		if lastTail:
-			pass
-		elif full:
-			frame = 7
+		visible = true
+			#print(direction, nextDirection)
+			
+		if direction != nextDirection and direction != stop:
+			turning = true #true
 		else:
-			frame = 3
-	else:
-		$StaticBody2D/turnCol.disabled = true
-		$StaticBody2D/straightCol.disabled = false
-		if lastTail:
-			frame = 0
-		elif full:
-			frame = 6
+			turning = false
+			
+		#changes collision shape when bending
+		if turning:
+			$StaticBody2D/turnCol.disabled = false
+			$StaticBody2D/straightCol.disabled = true
+			if lastTail:
+				pass
+			elif full:
+				frame = 7
+			else:
+				frame = 3
 		else:
-			frame = 1
-	rotation()
+			$StaticBody2D/turnCol.disabled = true
+			$StaticBody2D/straightCol.disabled = false
+			if lastTail:
+				frame = 0
+			elif full:
+				frame = 6
+			else:
+				frame = 1
+		rotation()
 
 func rotation():
 	if turning and not lastTail:

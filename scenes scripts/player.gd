@@ -19,7 +19,7 @@ var upBlocked : bool = false
 var dnBlocked : bool = false
 var rtBlocked : bool = false
 var lfBlocked : bool = false
-
+var pain : bool = false
 
 var positionHistory : Array = []
 var moveOrders : Array = []
@@ -33,13 +33,6 @@ var eatHistory : Array = []
 func _ready() -> void:
 	Global.tick.connect(update)
 	startTeleport()
-	
-#have this when no starteleport
-	#positionHistory.append(global_position)
-	#positionHistory.append(global_position)
-	#directionHistory.append(direction)
-	#eatHistory.append(false)
-	#turnHistory.append(0)
 	
 	
 func _process(_delta: float) -> void:
@@ -281,9 +274,11 @@ func orientator():
 				$headSprite.flip_v = false
 				limitDir = limitHor
 
-var seeable : bool = false
+
 #snake killer
 func hurt():
+	pass
+	pain = true
 	direction = stop
 	Global.hurt()
 	
@@ -307,72 +302,16 @@ func colCheck():
 		lfBlocked = true
 	else:
 		lfBlocked = false
-	
-	
-	
-	
-	
-	
-	
-	
-	# NEW CODE: LIMIT DIRECTION HISTORY TO MATCH POSITIONS HISTORY
-	# Keep direction history in sync with positions history
-	# If we're limiting positions, we should also limit directionHistory
-	# (Uncomment if you uncomment the positions limiting code below)
-	#if directionHistory.size() > positions.size():
-		#directionHistory.remove_at(0)
-	# END NEW CODE
-	
-	# NEW: Optional: Limit position history to avoid memory issues
-	# Keep enough positions for all tail segments plus a buffer
-	#var maxPositions = tailSegments.size() + 10
-	#if positions.size() > maxPositions:
-		#positions.remove_at(0)
 
-#func _on_up_area_entered(area: Area2D) -> void:
-	#if area.name == "food":
-		#openJaw += 1
-#
-#func _on_down_area_entered(area: Area2D) -> void:
-	#if area.name == "food":
-		#openJaw += 1
-#
-#func _on_right_area_entered(area: Area2D) -> void:
-	#if area.name == "food":
-		#openJaw += 1
-#
-#func _on_left_area_entered(area: Area2D) -> void:
-	#if area.name == "food":
-		#openJaw += 1
-#
-#
-#func _on_up_area_exited(area: Area2D) -> void:
-	#if area.name == "food" and openJaw > 0:
-		#openJaw -= 1
-#
-#func _on_down_area_exited(area: Area2D) -> void:
-	#if area.name == "food" and openJaw > 0:
-		#openJaw -= 1
-#
-#func _on_right_area_exited(area: Area2D) -> void:
-	#if area.name == "food" and openJaw > 0:
-		#openJaw -= 1
-#
-#func _on_left_area_exited(area: Area2D) -> void:
-	#if area.name == "food" and openJaw > 0:
-		#openJaw -= 1
 
 #food detect
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1
 
-
 func _on_head_buffer_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		openJaw += 1
-
-
 
 func _on_head_buffer_area_exited(area: Area2D) -> void:
 	if area.name == "food" and openJaw > 0:

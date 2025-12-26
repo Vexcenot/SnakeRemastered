@@ -5,7 +5,8 @@ var minY : int = 2
 var maxY : int = 46
 var teleporting : bool = false
 
-
+func _ready() -> void:
+	teleport_random()
 
 #make it teleport to a grid
 func teleport_random():
