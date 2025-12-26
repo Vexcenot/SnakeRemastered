@@ -11,7 +11,7 @@ size = Vector2(10, 10)
 script = ExtResource("2_4c3ow")
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(-1, -1)
+position = Vector2(-1, -2)
 texture = ExtResource("1_8txok")
 
 [node name="4x4Test" type="Sprite2D" parent="sprite"]
