@@ -4,3 +4,4 @@ res://scenes scripts/player.tscn
 res://scenes scripts/food.tscn
 res://scenes scripts/tail.gd
 res://playerLayer.tscn
+res://scenes scripts/player.gd

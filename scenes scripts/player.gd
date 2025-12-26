@@ -23,7 +23,7 @@ var lfBlocked : bool = false
 
 var positionHistory : Array = []
 var moveOrders : Array = []
-var tailSegments : Array = [] 
+var tailSegments : Array = []
 var directionHistory : Array = []
 var turnHistory : Array = []
 var eatHistory : Array = []
@@ -117,6 +117,7 @@ func _input(event: InputEvent) -> void:
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 # spawns tail at head current pos and adds it to array
+# spawns tail at head current pos and adds it to array
 func spawnTail():
 	#pushes full sprite to array then spawn tails
 	if eat > 0 and direction != stop:
@@ -125,7 +126,7 @@ func spawnTail():
 		if readyStart:
 			eatHistory.append(true)
 
-		var spawn = tail.instantiate() 
+		var spawn = tail.instantiate()
 		spawn.global_position = global_position
 		tailSegments.push_front(spawn)  # Add new tail segment to array for tracking
 		if directionHistory.size() > 1:
@@ -136,7 +137,10 @@ func spawnTail():
 			spawn.lastTail = true
 		if readyStart:
 			spawn.full = true
-		get_parent().add_child(spawn)
+		
+		# Add as child of the player (this node) instead of get_parent()
+		add_child(spawn)
+		
 	#pushes empty stomach to array
 	else:
 		eatHistory.append(false)
@@ -245,7 +249,7 @@ func orientator():
 				hurt()
 			else:
 				position.y -= moveDistance
-				$headSprite.rotation = deg_to_rad(-90) 
+				$headSprite.rotation = deg_to_rad(-90)
 				$headSprite.flip_h = false
 				$headSprite.flip_v = false
 				limitDir = limitVer
@@ -254,7 +258,7 @@ func orientator():
 				hurt()
 			else:
 				position.y += moveDistance
-				$headSprite.rotation = deg_to_rad(90)   
+				$headSprite.rotation = deg_to_rad(90)
 				$headSprite.flip_h = false
 				$headSprite.flip_v = true
 				limitDir = limitVer
@@ -272,7 +276,7 @@ func orientator():
 				hurt()
 			else:
 				position.x -= moveDistance
-				$headSprite.rotation = deg_to_rad(0)  
+				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = true
 				$headSprite.flip_v = false
 				limitDir = limitHor
