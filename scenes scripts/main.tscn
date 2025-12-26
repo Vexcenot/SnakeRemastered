@@ -13,11 +13,11 @@ scale = Vector2(0.025736557, 0.025736557)
 texture = ExtResource("3_5grs8")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(32, 24)
+position = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(42.000004, 24)
 scale = Vector2(-2.309336, 1.5162249)
 
 [node name="food" parent="." instance=ExtResource("2_737ep")]
-position = Vector2(52, 24)
+position = Vector2(2, 2)

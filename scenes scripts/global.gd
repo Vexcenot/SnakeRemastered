@@ -34,5 +34,6 @@ func hurt():
 		await get_tree().create_timer(0.15).timeout
 		seeable = !seeable
 		await get_tree().create_timer(0.23).timeout
-
+	hurting = false
 	get_tree().reload_current_scene()
+	

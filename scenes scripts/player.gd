@@ -11,7 +11,7 @@ var finalTime : float = 1
 var time : float = 0
 var moveDistance : int = 4
 var eat : int = 0
-var startLength : int = 0
+var startLength : int = 6
 var openJaw : int = 0
 var limitDir : int = limitLeft
 var readyStart : bool = false
@@ -19,6 +19,7 @@ var upBlocked : bool = false
 var dnBlocked : bool = false
 var rtBlocked : bool = false
 var lfBlocked : bool = false
+
 
 var positionHistory : Array = []
 var moveOrders : Array = []
@@ -46,7 +47,9 @@ func _process(_delta: float) -> void:
 	if openJaw >= 1:
 		$headSprite.frame = 5
 	else:
-		$headSprite.frame = 2
+		await get_tree().create_timer(0.1).timeout
+		if openJaw <= 0:
+			$headSprite.frame = 2
 	visible = Global.seeable
 
 #spawns tail on game start
@@ -66,13 +69,14 @@ func startTeleport():
 
 #runs every tick
 func update():
-	colCheck()
-	
-	move()
-	
-	spawnTail()
-	
-	updateTail()
+	if !Global.hurting:
+		colCheck()
+		
+		move()
+		
+		spawnTail()
+		
+		updateTail()
 	
 	#print("tur ", turnHistory)
 	#print("dir ", directionHistory)
@@ -80,7 +84,7 @@ func update():
 #sheesh make this better ffs with 2d vectors or some shit
 func _input(event: InputEvent) -> void:
 	# append move orders (only if not Global.reversing)
-	if moveOrders.size() < 4 and !Global.reversing:
+	if moveOrders.size() < 4 and !Global.reversing and !Global.hurting:
 		if event.is_action_pressed("ui_up"):
 			if moveOrders.back() != up:
 				moveOrders.append(up)
@@ -103,6 +107,11 @@ func _input(event: InputEvent) -> void:
 	# Check for action2 button states
 	if event.is_action_pressed("action3"):
 		direction = stop
+	if event.is_action_pressed("sprint"):
+		Global.finalTime = Global.originalTime / 2
+	if event.is_action_released("sprint"):
+		Global.finalTime = Global.originalTime
+		
 
 
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

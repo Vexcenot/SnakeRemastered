@@ -8,7 +8,7 @@ enum {stop, up, down, left, right}
 var turning : bool = false
 var full : bool = false #make this true if cant update upon spawn on player script
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	visible = Global.seeable
 
 func _ready() -> void:
