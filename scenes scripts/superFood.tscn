@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d26166gmdh3d5"]
+
+[ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="1_4vn6m"]
+[ext_resource type="Script" uid="uid://c3fwc3tolb47e" path="res://scenes scripts/superFood.gd" id="2_cdoww"]
+[ext_resource type="Texture2D" uid="uid://bs0gkpi2r28wi" path="res://sprites/superfoods.png" id="3_2bgn1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vn6m"]
+size = Vector2(8, 4)
+
+[node name="superFood" instance=ExtResource("1_4vn6m")]
+script = ExtResource("2_cdoww")
+minX = 0
+maxX = 72
+minY = 0
+maxY = 42
+size = 8
+addEat = false
+
+[node name="sprite" parent="." index="0"]
+position = Vector2(4, 4)
+texture = ExtResource("3_2bgn1")
+hframes = 6
+
+[node name="CollisionShape2D" parent="food" index="0"]
+position = Vector2(4, 2)
+scale = Vector2(0.80083174, 0.19675255)
+
+[node name="CollisionShape2D" parent="detect" index="0"]
+position = Vector2(3, 2)
+scale = Vector2(0.80083174, 0.19675255)
+
+[node name="buffer" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buffer" index="0"]
+position = Vector2(4, 2)
+shape = SubResource("RectangleShape2D_4vn6m")

@@ -1,9 +1,8 @@
+res://scenes scripts/player.tscn
 res://scenes scripts/main.tscn
 res://scenes scripts/food.gd
-res://scenes scripts/player.tscn
+res://scenes scripts/superFood.tscn
 res://scenes scripts/food.tscn
-res://scenes scripts/tail.gd
-res://playerLayer.tscn
 res://scenes scripts/player.gd
-res://scenes scripts/tail.tscn
-res://playerRepositioned.tscn
+res://scenes scripts/superFood.gd
+res://scenes scripts/global.gd

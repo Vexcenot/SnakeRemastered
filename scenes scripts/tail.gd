@@ -16,8 +16,9 @@ func _ready() -> void:
 	update()
 	if lastTail:
 		$StaticBody2D/straightCol.disabled = true
-	else:
-		$StaticBody2D/straightCol.disabled = false
+		$finalbuffer/CollisionShape2D.disabled = false
+	#else:
+		#$StaticBody2D/straightCol.disabled = false
 
  
 func update():

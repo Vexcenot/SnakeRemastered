@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c53plmxhqausf"]
+[gd_scene load_steps=7 format=3 uid="uid://c53plmxhqausf"]
 
 [ext_resource type="Script" uid="uid://cxl0jc0rinrbq" path="res://scenes scripts/tail.gd" id="1_5baly"]
 [ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="1_e204m"]
@@ -10,6 +10,9 @@ size = Vector2(25.08784, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p171d"]
 size = Vector2(24.999676, 24.999676)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yufg"]
+size = Vector2(133.33281, 20)
 
 [node name="tailSprite" type="Sprite2D"]
 texture = ExtResource("1_e204m")
@@ -38,3 +41,11 @@ scale = Vector2(0.120001554, 0.120001554)
 shape = SubResource("RectangleShape2D_p171d")
 disabled = true
 debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="finalbuffer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finalbuffer"]
+position = Vector2(3.5762787e-07, 0)
+scale = Vector2(0.12000048, 0.20000064)
+shape = SubResource("RectangleShape2D_4yufg")
+disabled = true

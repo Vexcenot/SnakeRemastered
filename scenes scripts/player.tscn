@@ -7,7 +7,7 @@
 size = Vector2(21.345526, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndhvj"]
-size = Vector2(99.9998, 20)
+size = Vector2(79.99983, 19.0476)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xomnv"]
 size = Vector2(17.020924, 17.330177)
@@ -32,7 +32,6 @@ scale = Vector2(3.2870533, 3.51198)
 shape = SubResource("RectangleShape2D_ydash")
 
 [node name="detect" type="Area2D" parent="headSprite"]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="headSprite/detect"]

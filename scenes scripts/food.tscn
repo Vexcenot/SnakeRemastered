@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ofbqoxcr0qx2" path="res://sprites/4x4 test.png" id="3_fuc3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pohk7"]
-size = Vector2(10, 10)
+size = Vector2(10, 20.330105)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("2_4c3ow")
@@ -27,16 +27,15 @@ texture = ExtResource("1_8txok")
 [node name="food" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="food"]
-position = Vector2(-1, -1)
+position = Vector2(-1, -2)
 scale = Vector2(0.066666804, 0.066666804)
 shape = SubResource("RectangleShape2D_pohk7")
 
 [node name="detect" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect"]
-position = Vector2(-1, -1)
-rotation = 3.1415927
-scale = Vector2(-0.066666804, -0.066666804)
+position = Vector2(-1, -2)
+scale = Vector2(0.066666804, 0.066666804)
 shape = SubResource("RectangleShape2D_pohk7")
 
 [node name="4x4Test" type="Sprite2D" parent="."]
@@ -46,5 +45,3 @@ scale = Vector2(-0.4942261, -0.4942261)
 texture = ExtResource("3_fuc3b")
 
 [connection signal="area_entered" from="food" to="." method="_on_food_2_area_entered"]
-[connection signal="area_entered" from="detect" to="sprite" method="_on_detect_area_entered"]
-[connection signal="area_entered" from="detect" to="." method="_on_detect_area_entered"]

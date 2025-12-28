@@ -2,7 +2,8 @@ extends Node
 var originalTime = 0.2
 var finalTime : float = originalTime
 var time : float = originalTime
-var foodEaten : int = 0
+var foodEaten : int = 1
+var foodTime : float = 0
 var currentDirection : String = "where the player is currently facing"
 var reversing : bool = false
 var moveStart : bool = false
@@ -12,12 +13,13 @@ signal tick
 signal reverse
 
 
-func _process(_delta: float) -> void:
-	time += _delta
+func _process(delta: float) -> void:
+	time +=  delta
+	if foodTime > 0:
+		foodTime -= delta
 	if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
 		time = 0
 		tick.emit()
-	#print(time)
 
 
 func _input(event: InputEvent) -> void:
