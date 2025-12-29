@@ -1,5 +1,5 @@
 extends Node
-var originalTime = 1
+var originalTime = 0.3
 var finalTime : float = originalTime
 var time : float = originalTime
 var foodEaten : int = 1
@@ -12,6 +12,16 @@ var hurting : bool = false
 signal tick
 signal reverse
 
+func reset():
+	finalTime = originalTime
+	time = originalTime
+	foodEaten = 1
+	foodTime = 0
+	currentDirection = "where the player is currently facing"
+	reversing = false
+	moveStart = false
+	seeable = true
+	hurting = false
 
 func _process(delta: float) -> void:
 	time +=  delta
@@ -37,5 +47,6 @@ func hurt():
 		seeable = !seeable
 		await get_tree().create_timer(0.23).timeout
 	hurting = false
+	reset()
 	get_tree().reload_current_scene()
 	
