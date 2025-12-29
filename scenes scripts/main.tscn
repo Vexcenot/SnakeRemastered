@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://djmp2arl0h67y"]
+[gd_scene load_steps=11 format=4 uid="uid://djmp2arl0h67y"]
 
 [ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="2_737ep"]
+[ext_resource type="Texture2D" uid="uid://dcpxyuw3wquqi" path="res://sprites/wall.png" id="3_5grs8"]
+[ext_resource type="PackedScene" uid="uid://vyrhi7no52rc" path="res://scenes scripts/wall.tscn" id="4_4aj4u"]
 [ext_resource type="PackedScene" uid="uid://cybhpv2q42o51" path="res://scenes scripts/playerRepositioned.tscn" id="4_ldica"]
+[ext_resource type="Texture2D" uid="uid://clatlffq3gh6u" path="res://sprites/wall greemn.png" id="5_4aj4u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4aj4u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ldica"]
+texture = ExtResource("3_5grs8")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_u5fcb"]
+scenes/1/scene = ExtResource("4_4aj4u")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5fcb"]
+texture = ExtResource("5_4aj4u")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4aj4u"]
+tile_size = Vector2i(4, 4)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_4aj4u")
+sources/0 = SubResource("TileSetAtlasSource_ldica")
+sources/1 = SubResource("TileSetScenesCollectionSource_u5fcb")
+sources/2 = SubResource("TileSetAtlasSource_u5fcb")
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,5 +35,9 @@ scale = Vector2(-2.309336, 1.5162249)
 
 [node name="food" parent="." instance=ExtResource("2_737ep")]
 
-[node name="Node2D" parent="." instance=ExtResource("4_ldica")]
-position = Vector2(44, 20)
+[node name="PLAYER" parent="." instance=ExtResource("4_ldica")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-91, 2)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAQAAAAEAAQAAAAAAAQAAAAIAAQAAAAAAAQAAAAMAAQAAAAAAAQAAAAQAAQAAAAAAAQAAAAUAAQAAAAAAAQAAAAYAAQAAAAAAAQAAAAcAAQAAAAAAAQAAAAgAAQAAAAAAAQAAAAkAAQAAAAAAAQAAAAoAAQAAAAAAAQAAAAsAAQAAAAAAAQAUAAsAAQAAAAAAAQABAAsAAQAAAAAAAQACAAsAAQAAAAAAAQADAAsAAQAAAAAAAQAEAAsAAQAAAAAAAQAFAAsAAQAAAAAAAQAGAAsAAQAAAAAAAQAHAAsAAQAAAAAAAQAIAAsAAQAAAAAAAQAJAAsAAQAAAAAAAQAKAAsAAQAAAAAAAQALAAsAAQAAAAAAAQAMAAsAAQAAAAAAAQANAAsAAQAAAAAAAQAOAAsAAQAAAAAAAQAPAAsAAQAAAAAAAQAQAAsAAQAAAAAAAQARAAsAAQAAAAAAAQASAAsAAQAAAAAAAQATAAsAAQAAAAAAAQAUAAoAAQAAAAAAAQAUAAkAAQAAAAAAAQAUAAgAAQAAAAAAAQAUAAcAAQAAAAAAAQAUAAYAAQAAAAAAAQAUAAUAAQAAAAAAAQAUAAQAAQAAAAAAAQAUAAMAAQAAAAAAAQAUAAIAAQAAAAAAAQAUAAEAAQAAAAAAAQAUAAAAAQAAAAAAAQATAAAAAQAAAAAAAQASAAAAAQAAAAAAAQARAAAAAQAAAAAAAQAQAAAAAQAAAAAAAQAPAAAAAQAAAAAAAQAOAAAAAQAAAAAAAQANAAAAAQAAAAAAAQAMAAAAAQAAAAAAAQALAAAAAQAAAAAAAQAKAAAAAQAAAAAAAQAJAAAAAQAAAAAAAQAIAAAAAQAAAAAAAQAHAAAAAQAAAAAAAQAGAAAAAQAAAAAAAQAFAAAAAQAAAAAAAQAEAAAAAQAAAAAAAQADAAAAAQAAAAAAAQACAAAAAQAAAAAAAQABAAAAAQAAAAAAAQA=")
+tile_set = SubResource("TileSet_4aj4u")

@@ -1,5 +1,5 @@
 extends Node
-var originalTime = 0.2
+var originalTime = 1
 var finalTime : float = originalTime
 var time : float = originalTime
 var foodEaten : int = 1

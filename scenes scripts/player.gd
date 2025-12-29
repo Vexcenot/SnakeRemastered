@@ -20,6 +20,7 @@ var upBlocked : bool = false
 var dnBlocked : bool = false
 var rtBlocked : bool = false
 var lfBlocked : bool = false
+var teleport : bool = false
 var pain : bool = false
 
 var positionHistory : Array = []
@@ -45,6 +46,8 @@ func _process(_delta: float) -> void:
 		if openJaw <= 0:
 			$headSprite.frame = 2
 	visible = Global.seeable
+	
+
 
 #spawns tail on game start
 #FIX THIS
@@ -63,6 +66,30 @@ func startTeleport():
 
 #runs every tick
 func update():
+	print($left.global_position)
+	#teleports snake out of bounds
+	#current problems:
+	#snake stuck oob for 1 turn before teleporting
+	#snake is nudged off pixel by 2 after teleporting
+	#fix this with using areas to detect oob on next move?
+	#handle teleportation to not be fucky with pos
+	
+	#it seems teleportation has to be offset by 2
+	
+	#make this run instead of a move if area is oob
+	#if readyStart:
+		#if global_position.x > 84:
+			#global_position.x = 2
+#
+		#elif global_position.x < 0:
+			#global_position.x = 86
+		#
+		#elif global_position.y > 48:
+			#global_position.y = 2
+#
+		#elif global_position.y < 0:
+			#global_position.y = 46
+	
 	if !Global.hurting:
 		colCheck()
 		
@@ -186,7 +213,7 @@ func move():
 
 				# Update direction based on movement
 				if positionHistory.size() > 0:
-					orientator()
+					posRot()
 							
 					#this one is for tail segment
 					direction = directionHistory.pop_back()
@@ -218,7 +245,7 @@ func move():
 				direction = storedMove
 		
 		#Apply position & direction
-		orientator()
+		posRot()
 
 		# saves position to arrays after move
 		if direction != stop:
@@ -235,13 +262,15 @@ func updateArrays():
 	directionHistory.append(direction)
 	
 	
-#turns and flips sprite
-func orientator():
+#moves and flip and turns
+func posRot():
 	match direction:
 		up:
 			if upBlocked:
 				hurt()
 			else:
+				if $up.global_position.y <= 2:
+					global_position.y = 50
 				position.y -= moveDistance
 				$headSprite.rotation = deg_to_rad(-90)
 				$headSprite.flip_h = false
@@ -251,6 +280,8 @@ func orientator():
 			if dnBlocked:
 				hurt()
 			else:
+				if $down.global_position.y >= 46:
+					global_position.y = -2
 				position.y += moveDistance
 				$headSprite.rotation = deg_to_rad(90)
 				$headSprite.flip_h = false
@@ -260,6 +291,8 @@ func orientator():
 			if rtBlocked:
 				hurt()
 			else:
+				if $right.global_position.x >= 80:
+					global_position.x = -2
 				position.x += moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
@@ -269,6 +302,8 @@ func orientator():
 			if lfBlocked:
 				hurt()
 			else:
+				if $left.global_position.x <= 2:
+					global_position.x = 86
 				position.x -= moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = true
