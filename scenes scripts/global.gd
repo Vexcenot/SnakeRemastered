@@ -9,6 +9,8 @@ var reversing : bool = false
 var moveStart : bool = false
 var seeable : bool = true
 var hurting : bool = false
+var multiplayerMode : bool = true
+
 signal tick
 signal reverse
 

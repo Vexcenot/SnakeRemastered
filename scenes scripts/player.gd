@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var player2 : bool = false
 @export var startDir = right
 enum {stop, up, down, left, right}
 enum {limitHor, limitVer ,limitUp, limitDown, limitLeft, limitRight}
@@ -33,6 +34,8 @@ var eatHistory : Array = []
 
 
 func _ready() -> void:
+	if !Global.multiplayerMode and player2:
+		queue_free()
 	Global.tick.connect(update)
 	startTeleport()
 	
@@ -66,29 +69,6 @@ func startTeleport():
 
 #runs every tick
 func update():
-	print($left.global_position)
-	#teleports snake out of bounds
-	#current problems:
-	#snake stuck oob for 1 turn before teleporting
-	#snake is nudged off pixel by 2 after teleporting
-	#fix this with using areas to detect oob on next move?
-	#handle teleportation to not be fucky with pos
-	
-	#it seems teleportation has to be offset by 2
-	
-	#make this run instead of a move if area is oob
-	#if readyStart:
-		#if global_position.x > 84:
-			#global_position.x = 2
-#
-		#elif global_position.x < 0:
-			#global_position.x = 86
-		#
-		#elif global_position.y > 48:
-			#global_position.y = 2
-#
-		#elif global_position.y < 0:
-			#global_position.y = 46
 	
 	if !Global.hurting:
 		colCheck()
@@ -104,24 +84,45 @@ func update():
 
 #sheesh make this better ffs with 2d vectors or some shit
 func _input(event: InputEvent) -> void:
-	# append move orders (only if not Global.reversing)
+	# make it swap controls if 2p mode enabled
 	if moveOrders.size() < 4 and !Global.reversing and !Global.hurting:
-		if event.is_action_pressed("ui_up"):
+		
+		if (
+		event.is_action_pressed("up") and !player2 or
+		event.is_action_pressed("up2") and !Global.multiplayerMode or
+		event.is_action_pressed("up2") and player2
+		):
 			if moveOrders.back() != up:
 				moveOrders.append(up)
 				Global.moveStart = true
-		if event.is_action_pressed("ui_down"):
+				
+		if (
+		event.is_action_pressed("down") and !player2 or
+		event.is_action_pressed("down2") and !Global.multiplayerMode or
+		event.is_action_pressed("down2") and player2
+		):
 			if moveOrders.back() != down:
 				moveOrders.append(down)
 				Global.moveStart = true
-		if event.is_action_pressed("ui_left"):
+				
+		if (
+		event.is_action_pressed("left") and !player2 or
+		event.is_action_pressed("left2") and !Global.multiplayerMode or
+		event.is_action_pressed("left2") and player2
+		):
 			if moveOrders.back() != left:
 				moveOrders.append(left)
 				Global.moveStart = true
-		if event.is_action_pressed("ui_right"):
+				
+		if (
+		event.is_action_pressed("right") and !player2 or
+		event.is_action_pressed("right2") and !Global.multiplayerMode or
+		event.is_action_pressed("right2") and player2
+		):
 			if moveOrders.back() != right:
 				moveOrders.append(right)
 				Global.moveStart = true
+
 		# debug
 	if event.is_action_pressed("action"):
 		eat += 1

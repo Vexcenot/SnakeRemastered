@@ -1,9 +1,9 @@
+Node2D
+ColorRect
 TileMapLayer
 Area2D
 StaticBody2D
 CollisionShape2D
-ColorRect
-Node2D
 Sprite2D
 Node
 Camera2D
