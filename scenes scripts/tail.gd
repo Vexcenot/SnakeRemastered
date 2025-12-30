@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 enum {stop, up, down, left, right}
 @export var turn : int
@@ -15,8 +15,8 @@ func _ready() -> void:
 	Global.tick.connect(update)
 	update()
 	if lastTail:
-		$StaticBody2D/straightCol.disabled = true
-		$finalbuffer/CollisionShape2D.disabled = false
+		$tailSprite/StaticBody2D/straightCol.disabled = true
+		$tailSprite/finalArea/CollisionShape2D.disabled = false
 	#else:
 		#$StaticBody2D/straightCol.disabled = false
 
@@ -34,81 +34,81 @@ func update():
 			
 		#changes collision shape when bending
 		if turning:
-			$StaticBody2D/turnCol.disabled = false
-			$StaticBody2D/straightCol.disabled = true
+			$tailSprite/StaticBody2D/turnCol.disabled = false
+			$tailSprite/StaticBody2D/straightCol.disabled = true
 			if lastTail:
 				pass
 			elif full:
-				frame = 7
+				$tailSprite.frame = 7
 			else:
-				frame = 3
+				$tailSprite.frame = 3
 		else:
-			$StaticBody2D/turnCol.disabled = true
-			$StaticBody2D/straightCol.disabled = false
+			$tailSprite/StaticBody2D/turnCol.disabled = true
+			$tailSprite/StaticBody2D/straightCol.disabled = false
 			if lastTail:
-				frame = 0
+				$tailSprite.frame = 0
 			elif full:
-				frame = 6
+				$tailSprite.frame = 6
 			else:
-				frame = 1
+				$tailSprite.frame = 1
 		rotation()
 
 func rotation():
 	if turning and not lastTail:
 		if direction == up:
 			if nextDirection == left:
-				global_rotation = deg_to_rad(0)
-				flip_h = true
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(0)
+				$tailSprite.flip_h = true
+				$tailSprite.flip_v = false
 			else:
-				global_rotation = deg_to_rad(0)
-				flip_h = false
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(0)
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = false
 		if direction == down:
 			if nextDirection == left:
-				global_rotation = deg_to_rad(180)
-				flip_h = false
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(180)
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = false
 			else:
-				global_rotation = deg_to_rad(0)
-				flip_h = false
-				flip_v = true
+				$tailSprite.global_rotation = deg_to_rad(0)
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = true
 		if direction == right:
 			if nextDirection == up:
-				global_rotation = deg_to_rad(90)
-				flip_h = true
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(90)
+				$tailSprite.flip_h = true
+				$tailSprite.flip_v = false
 			else:
-				global_rotation = deg_to_rad(90)
-				flip_h = false
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(90)
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = false
 		if direction == left:
 			if nextDirection == up:
-				global_rotation = deg_to_rad(-90)
-				flip_h = false
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(-90)
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = false
 			else:
-				global_rotation = deg_to_rad(90)
-				flip_h = false
-				flip_v = true
+				$tailSprite.global_rotation = deg_to_rad(90)
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = true
 	else:
 		match nextDirection:
 			up:
-				global_rotation = deg_to_rad(-90) 
-				flip_h = false
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(-90) 
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = false
 
 			down:
-				global_rotation = deg_to_rad(90)   
-				flip_h = false
-				flip_v = true
+				$tailSprite.global_rotation = deg_to_rad(90)   
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = true
 
 			left:
-				global_rotation = deg_to_rad(0)  
-				flip_h = true
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(0)  
+				$tailSprite.flip_h = true
+				$tailSprite.flip_v = false
 
 			right:
-				global_rotation = deg_to_rad(0)
-				flip_h = false
-				flip_v = false
+				$tailSprite.global_rotation = deg_to_rad(0)
+				$tailSprite.flip_h = false
+				$tailSprite.flip_v = false

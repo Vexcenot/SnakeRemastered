@@ -271,7 +271,7 @@ func posRot():
 				hurt()
 			else:
 				if $up.global_position.y <= 2:
-					global_position.y = 50
+					global_position.y = 48
 				position.y -= moveDistance
 				$headSprite.rotation = deg_to_rad(-90)
 				$headSprite.flip_h = false
@@ -282,7 +282,7 @@ func posRot():
 				hurt()
 			else:
 				if $down.global_position.y >= 46:
-					global_position.y = -2
+					global_position.y = -4
 				position.y += moveDistance
 				$headSprite.rotation = deg_to_rad(90)
 				$headSprite.flip_h = false
@@ -293,7 +293,7 @@ func posRot():
 				hurt()
 			else:
 				if $right.global_position.x >= 80:
-					global_position.x = -2
+					global_position.x = -4
 				position.x += moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
@@ -304,7 +304,7 @@ func posRot():
 				hurt()
 			else:
 				if $left.global_position.x <= 2:
-					global_position.x = 86
+					global_position.x = 84
 				position.x -= moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = true
