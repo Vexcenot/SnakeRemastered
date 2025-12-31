@@ -47,6 +47,8 @@ func update():
 			$tailSprite/StaticBody2D/straightCol.disabled = false
 			if lastTail:
 				$tailSprite.frame = 0
+				$tailSprite/StaticBody2D/straightCol.disabled = true
+				$tailSprite/finalArea/CollisionShape2D.disabled = false
 			elif full:
 				$tailSprite.frame = 6
 			else:

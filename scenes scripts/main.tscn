@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://djmp2arl0h67y"]
+[gd_scene load_steps=12 format=4 uid="uid://djmp2arl0h67y"]
 
 [ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="2_737ep"]
 [ext_resource type="Texture2D" uid="uid://dcpxyuw3wquqi" path="res://sprites/wall.png" id="3_5grs8"]
 [ext_resource type="PackedScene" uid="uid://vyrhi7no52rc" path="res://scenes scripts/wall.tscn" id="4_4aj4u"]
 [ext_resource type="Texture2D" uid="uid://clatlffq3gh6u" path="res://sprites/wall greemn.png" id="5_4aj4u"]
+[ext_resource type="PackedScene" uid="uid://d26166gmdh3d5" path="res://scenes scripts/superFood.tscn" id="6_r428f"]
 [ext_resource type="PackedScene" uid="uid://qsxibdu7sd4e" path="res://scenes scripts/player.tscn" id="6_u5fcb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4aj4u"]
@@ -51,3 +52,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("6_u5fcb")]
 position = Vector2(44, 24)
+
+[node name="superFood" parent="." instance=ExtResource("6_r428f")]
+addEat = false
+
+[node name="Node2D" parent="." instance=ExtResource("2_737ep")]
+position = Vector2(44, 12)

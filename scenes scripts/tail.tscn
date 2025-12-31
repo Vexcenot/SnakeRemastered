@@ -51,4 +51,3 @@ debug_color = Color(0, 0, 0, 0.41960785)
 position = Vector2(3.5762787e-07, 0)
 scale = Vector2(0.12000048, 0.20000064)
 shape = SubResource("RectangleShape2D_4yufg")
-disabled = true

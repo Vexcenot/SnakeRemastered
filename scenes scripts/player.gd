@@ -69,7 +69,7 @@ func startTeleport():
 
 #runs every tick
 func update():
-	
+	print(Global.foodEaten)
 	if !Global.hurting:
 		colCheck()
 		
@@ -138,7 +138,6 @@ func _input(event: InputEvent) -> void:
 
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
-# spawns tail at head current pos and adds it to array
 # spawns tail at head current pos and adds it to array
 func spawnTail():
 	#pushes full sprite to array then spawn tails
@@ -345,11 +344,11 @@ func colCheck():
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1
-		if Global.foodEaten >= 5:
-			var scene = sFood.instantiate()  # This creates the instance
-			# Add it to the scene tree instead of calling instantiate() again
-			get_parent().add_child(scene)  # Or whatever parent node you want
-		print(Global.foodEaten)
+		#if Global.foodEaten >= 5:
+			#var scene = sFood.instantiate()  # This creates the instance
+			## Add it to the scene tree instead of calling instantiate() again
+			#get_parent().add_child(scene)  # Or whatever parent node you want
+		#print(Global.foodEaten)
 
 func _on_head_buffer_area_entered(area: Area2D) -> void:
 	if area.name == "food":
