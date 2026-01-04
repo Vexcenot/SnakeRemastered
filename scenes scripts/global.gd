@@ -2,7 +2,7 @@ extends Node
 var originalTime = 0.3
 var finalTime : float = originalTime
 var time : float = originalTime
-var foodEaten : int = 1
+var foodEaten : int = 0
 var foodTime : float = 0
 var currentDirection : String = "where the player is currently facing"
 var reversing : bool = false
@@ -33,8 +33,9 @@ func _process(delta: float) -> void:
 	if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
 		time = 0
 		tick.emit()
-		if foodEaten >= 5:
-			startSFood()
+		#if foodEaten >= 6:
+			#startSFood()
+			#print("fuck1")
 
 
 func _input(event: InputEvent) -> void:

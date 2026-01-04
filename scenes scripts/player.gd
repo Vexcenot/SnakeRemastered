@@ -69,7 +69,7 @@ func startTeleport():
 
 #runs every tick
 func update():
-	print(Global.foodEaten)
+	#print(Global.foodEaten)
 	if !Global.hurting:
 		colCheck()
 		

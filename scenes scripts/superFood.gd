@@ -4,19 +4,34 @@ extends food
 var randFrame = randi() % 6
 
 func _ready() -> void:
+	deactivate()
 	Global.sFood.connect(activate)
-	teleport_random()
 	$sprite.frame = randFrame
+	
+
+func _process(delta: float) -> void:
+	if Global.foodEaten >= 5:
+		activate()
+	if Global.foodTime <= 0:
+		deactivate()
+
 
 func activate():
-	visible = true
+	$sprite.visible = true
 	$food/CollisionShape2D.disabled = false
+	$food.monitorable = true
+	Global.foodTime = 15
+	Global.foodEaten = 0
+	print("fuck2")
 	
+
 func deactivate():
-	#visible = false
+	$sprite.visible = false
 	$food/CollisionShape2D.disabled = true
+	$food.monitorable = false
 	teleport_random()
 	
+
 func _on_food_2_area_entered(area: Area2D) -> void:
 	if area.name == "headArea":
 		deactivate()

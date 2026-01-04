@@ -22,12 +22,12 @@ hframes = 6
 
 [node name="CollisionShape2D" parent="food" index="0"]
 position = Vector2(4, 2)
-scale = Vector2(0.80083174, 0.27675316)
+scale = Vector2(0.5608354, 0.11675377)
 
 [node name="CollisionShape2D" parent="detect" index="0"]
 position = Vector2(4, 2)
 rotation = 3.1415927
-scale = Vector2(0.89839494, 0.27615613)
+scale = Vector2(1.1410903, 0.3716914)
 
 [node name="buffer" type="Area2D" parent="." index="4"]
 collision_layer = 2

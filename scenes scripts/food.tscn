@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ofbqoxcr0qx2" path="res://sprites/4x4 test.png" id="3_fuc3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pohk7"]
-size = Vector2(10, 20.330105)
+size = Vector2(10.344823, 20.571384)
 
 [node name="Food" type="Node2D"]
 script = ExtResource("2_4c3ow")
@@ -31,12 +31,13 @@ collision_layer = 2
 position = Vector2(-1, -2)
 scale = Vector2(0.066666804, 0.066666804)
 shape = SubResource("RectangleShape2D_pohk7")
+disabled = true
 
 [node name="detect" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect"]
-position = Vector2(-1.0000001, -2)
+position = Vector2(-1, -2)
 scale = Vector2(0.38666683, 0.19444485)
 shape = SubResource("RectangleShape2D_pohk7")
 
