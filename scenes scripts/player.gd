@@ -2,6 +2,10 @@ extends Node2D
 
 @export var player2 : bool = false
 @export var startDir = right
+@export var minX = 4
+@export var minY = 13
+@export var maxX = 80
+@export var maxY = 44
 enum {stop, up, down, left, right}
 enum {limitHor, limitVer ,limitUp, limitDown, limitLeft, limitRight}
 var direction : int = stop
@@ -269,8 +273,9 @@ func posRot():
 			if upBlocked:
 				hurt()
 			else:
-				if $up.global_position.y <= 2:
-					global_position.y = 48
+				#teleports down if to up
+				if global_position.y <= minY: 
+					global_position.y = maxY + 4
 				position.y -= moveDistance
 				$headSprite.rotation = deg_to_rad(-90)
 				$headSprite.flip_h = false
@@ -280,8 +285,9 @@ func posRot():
 			if dnBlocked:
 				hurt()
 			else:
-				if $down.global_position.y >= 46:
-					global_position.y = -4
+				#teleports up if too down
+				if global_position.y >= maxY: 
+					global_position.y = minY - 5
 				position.y += moveDistance
 				$headSprite.rotation = deg_to_rad(90)
 				$headSprite.flip_h = false
@@ -291,8 +297,9 @@ func posRot():
 			if rtBlocked:
 				hurt()
 			else:
-				if $right.global_position.x >= 80:
-					global_position.x = -4
+				#teleports left if too right
+				if global_position.x >= maxX:
+					global_position.x = minX - 4
 				position.x += moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
@@ -302,8 +309,9 @@ func posRot():
 			if lfBlocked:
 				hurt()
 			else:
-				if $left.global_position.x <= 2:
-					global_position.x = 84
+				#teleports right if too left
+				if global_position.x <= minX: 
+					global_position.x = maxX + 4
 				position.x -= moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = true

@@ -1,5 +1,5 @@
 extends Node
-var originalTime = 0.3
+var originalTime = 0.5
 var finalTime : float = originalTime
 var time : float = originalTime
 var foodEaten : int = 0
@@ -33,9 +33,9 @@ func _process(delta: float) -> void:
 	if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
 		time = 0
 		tick.emit()
-		#if foodEaten >= 6:
-			#startSFood()
-			#print("fuck1")
+		if foodEaten >= 5:
+			startSFood()
+			print("fuck1")
 
 
 func _input(event: InputEvent) -> void:
@@ -58,6 +58,6 @@ func hurt():
 	
 	
 func startSFood():
-	foodTime = 15
-	foodEaten = 0
+	#foodTime = 15
+	#foodEaten = 0
 	sFood.emit()

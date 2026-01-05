@@ -10,8 +10,8 @@ size = Vector2(8, 4)
 [node name="superFood" instance=ExtResource("1_4vn6m")]
 script = ExtResource("2_cdoww")
 minX = 0
-maxX = 76
 minY = 0
+maxX = 76
 maxY = 44
 size = 8
 
@@ -21,11 +21,12 @@ texture = ExtResource("3_2bgn1")
 hframes = 6
 
 [node name="CollisionShape2D" parent="food" index="0"]
-position = Vector2(4, 2)
-scale = Vector2(0.5608354, 0.11675377)
+position = Vector2(3, 0)
+scale = Vector2(0.4008342, 0.036754392)
+disabled = false
 
 [node name="CollisionShape2D" parent="detect" index="0"]
-position = Vector2(4, 2)
+position = Vector2(3.0000005, 0)
 rotation = 3.1415927
 scale = Vector2(1.1410903, 0.3716914)
 

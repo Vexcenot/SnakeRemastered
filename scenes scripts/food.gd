@@ -1,8 +1,10 @@
 class_name food
 extends Node2D
-@export var minX : int = 2
+
+signal spawnSfood
+@export var minX : int = 6
+@export var minY : int = 14
 @export var maxX : int = 82
-@export var minY : int = 2
 @export var maxY : int = 46
 @export var size : int = 4
 @export var addEat : bool = true

@@ -9,7 +9,7 @@ func _ready() -> void:
 	$sprite.frame = randFrame
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Global.foodEaten >= 5:
 		activate()
 	if Global.foodTime <= 0:
@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 
 func activate():
 	$sprite.visible = true
-	$food/CollisionShape2D.disabled = false
 	$food.monitorable = true
 	Global.foodTime = 15
 	Global.foodEaten = 0
@@ -27,7 +26,6 @@ func activate():
 
 func deactivate():
 	$sprite.visible = false
-	$food/CollisionShape2D.disabled = true
 	$food.monitorable = false
 	teleport_random()
 	
