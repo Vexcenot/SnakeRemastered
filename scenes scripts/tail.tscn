@@ -25,12 +25,14 @@ frame = 1
 [node name="tail" type="Node2D" parent="tailSprite"]
 
 [node name="finalArea" type="Area2D" parent="tailSprite"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tailSprite/finalArea"]
 scale = Vector2(0.10119358, 0.10119358)
 shape = SubResource("RectangleShape2D_5baly")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tailSprite"]
+visible = false
 
 [node name="straightCol" type="CollisionShape2D" parent="tailSprite/StaticBody2D"]
 position = Vector2(7.4505806e-08, 0)
@@ -45,6 +47,7 @@ disabled = true
 debug_color = Color(0, 0, 0, 0.41960785)
 
 [node name="finalbuffer" type="Area2D" parent="tailSprite"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tailSprite/finalbuffer"]
 position = Vector2(3.5762787e-07, 0)

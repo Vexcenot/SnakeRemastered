@@ -23,6 +23,7 @@ hframes = 10
 frame = 2
 
 [node name="headArea" type="Area2D" parent="headSprite"]
+visible = false
 rotation = 1.5707964
 scale = Vector2(0.056443617, 0.056443617)
 collision_mask = 3
@@ -33,6 +34,7 @@ scale = Vector2(3.2870533, 3.51198)
 shape = SubResource("RectangleShape2D_ydash")
 
 [node name="detect" type="Area2D" parent="headSprite"]
+visible = false
 collision_layer = 2
 collision_mask = 3
 
@@ -50,6 +52,7 @@ scale = Vector2(0.2000004, 0.20000064)
 shape = SubResource("RectangleShape2D_ndhvj")
 
 [node name="up" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="up"]
 position = Vector2(0, -2.5)
@@ -58,6 +61,7 @@ shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
 [node name="down" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="down"]
 position = Vector2(0, 2.5)
@@ -67,6 +71,7 @@ shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
 [node name="right" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
 position = Vector2(2.5, 0)
@@ -75,6 +80,7 @@ shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
 
 [node name="left" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
 position = Vector2(-2.5, 0)

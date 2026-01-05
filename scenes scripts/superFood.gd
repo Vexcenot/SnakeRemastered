@@ -5,19 +5,19 @@ var randFrame = randi() % 6
 
 func _ready() -> void:
 	deactivate()
-	Global.sFood.connect(activate)
 	$sprite.frame = randFrame
 	
 
 func _process(_delta: float) -> void:
 	if Global.foodEaten >= 5:
-		activate()
+		teleport_random()
 	if Global.foodTime <= 0:
 		deactivate()
 
 
 func activate():
 	$sprite.visible = true
+	$food/CollisionShape2D.disabled = false
 	$food.monitorable = true
 	Global.foodTime = 15
 	Global.foodEaten = 0
@@ -25,9 +25,9 @@ func activate():
 	
 
 func deactivate():
-	$sprite.visible = false
+	$food/CollisionShape2D.disabled = true
 	$food.monitorable = false
-	teleport_random()
+	$sprite.visible = false
 	
 
 func _on_food_2_area_entered(area: Area2D) -> void:
@@ -50,5 +50,4 @@ func teleport_random():
 	if $detect.has_overlapping_areas() or $detect.has_overlapping_bodies():
 		teleport_random()
 	else:
-		visible = true
-		$food/CollisionShape2D.disabled = false
+		activate()

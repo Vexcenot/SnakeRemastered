@@ -352,11 +352,6 @@ func colCheck():
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1
-		#if Global.foodEaten >= 5:
-			#var scene = sFood.instantiate()  # This creates the instance
-			## Add it to the scene tree instead of calling instantiate() again
-			#get_parent().add_child(scene)  # Or whatever parent node you want
-		#print(Global.foodEaten)
 
 func _on_head_buffer_area_entered(area: Area2D) -> void:
 	if area.name == "food":

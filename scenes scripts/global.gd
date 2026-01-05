@@ -13,7 +13,6 @@ var multiplayerMode : bool = false
 
 signal tick
 signal reverse
-signal sFood
 
 func reset():
 	finalTime = originalTime
@@ -33,9 +32,6 @@ func _process(delta: float) -> void:
 	if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
 		time = 0
 		tick.emit()
-		if foodEaten >= 5:
-			startSFood()
-			print("fuck1")
 
 
 func _input(event: InputEvent) -> void:
@@ -55,9 +51,3 @@ func hurt():
 	hurting = false
 	reset()
 	get_tree().reload_current_scene()
-	
-	
-func startSFood():
-	#foodTime = 15
-	#foodEaten = 0
-	sFood.emit()

@@ -16,21 +16,28 @@ maxY = 44
 size = 8
 
 [node name="sprite" parent="." index="0"]
-position = Vector2(4, 4)
+position = Vector2(0, 2)
 texture = ExtResource("3_2bgn1")
 hframes = 6
 
+[node name="food" parent="." index="1"]
+position = Vector2(-3, 0)
+monitorable = false
+
 [node name="CollisionShape2D" parent="food" index="0"]
 position = Vector2(3, 0)
-scale = Vector2(0.4008342, 0.036754392)
-disabled = false
+scale = Vector2(0.72600245, 0.121)
+
+[node name="detect" parent="." index="2"]
+position = Vector2(-3, 0)
 
 [node name="CollisionShape2D" parent="detect" index="0"]
 position = Vector2(3.0000005, 0)
 rotation = 3.1415927
-scale = Vector2(1.1410903, 0.3716914)
+scale = Vector2(1.301089, 0.45169157)
 
 [node name="buffer" type="Area2D" parent="." index="4"]
+position = Vector2(-4, -2)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buffer" index="0"]
