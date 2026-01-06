@@ -34,7 +34,7 @@ position = Vector2(-3, 0)
 [node name="CollisionShape2D" parent="detect" index="0"]
 position = Vector2(3.0000005, 0)
 rotation = 3.1415927
-scale = Vector2(1.301089, 0.45169157)
+scale = Vector2(1.4610895, 0.53169173)
 
 [node name="buffer" type="Area2D" parent="." index="4"]
 position = Vector2(-4, -2)

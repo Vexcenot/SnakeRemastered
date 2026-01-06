@@ -3,6 +3,7 @@ var originalTime = 0.5
 var finalTime : float = originalTime
 var time : float = originalTime
 var foodEaten : int = 0
+var score : int = 4
 var foodTime : float = 0
 var currentDirection : String = "where the player is currently facing"
 var reversing : bool = false

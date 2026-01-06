@@ -1,6 +1,5 @@
-res://scenes scripts/superFood.tscn
-res://scenes scripts/main.tscn
-res://scenes scripts/superFood.gd
+res://ui.tscn
 res://scenes scripts/global.gd
-res://scenes scripts/player.tscn
-res://scenes scripts/tail.tscn
+res://ui.gd
+res://scenes scripts/main.tscn
+res://scenes scripts/ui.tscn

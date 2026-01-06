@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://djmp2arl0h67y"]
+[gd_scene load_steps=14 format=4 uid="uid://djmp2arl0h67y"]
 
 [ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="2_737ep"]
 [ext_resource type="Texture2D" uid="uid://dcpxyuw3wquqi" path="res://sprites/wall.png" id="3_5grs8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d26166gmdh3d5" path="res://scenes scripts/superFood.tscn" id="6_r428f"]
 [ext_resource type="PackedScene" uid="uid://qsxibdu7sd4e" path="res://scenes scripts/player.tscn" id="6_u5fcb"]
 [ext_resource type="Texture2D" uid="uid://clsgicc6rciet" path="res://sprites/level border.png" id="7_r428f"]
+[ext_resource type="PackedScene" uid="uid://bcwndhiw26dmq" path="res://scenes scripts/ui.tscn" id="8_04w48"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4aj4u"]
 
@@ -70,3 +71,5 @@ addEat = false
 [node name="LevelBorder" type="Sprite2D" parent="."]
 position = Vector2(42, 24)
 texture = ExtResource("7_r428f")
+
+[node name="Control" parent="." instance=ExtResource("8_04w48")]
