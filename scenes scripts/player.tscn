@@ -43,7 +43,6 @@ scale = Vector2(0.2000004, 0.84000087)
 shape = SubResource("RectangleShape2D_ndhvj")
 
 [node name="buffer" type="Area2D" parent="headSprite"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="headSprite/buffer"]
 position = Vector2(3.5762787e-07, 0)

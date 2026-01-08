@@ -90,6 +90,8 @@ func update():
 		spawnTail()
 		
 		updateTail()
+		
+	Global.playerX = global_position.x
 	
 	#print("tur ", turnHistory)
 	#print("dir ", directionHistory)
