@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcwndhiw26dmq"]
+[gd_scene load_steps=4 format=3 uid="uid://bcwndhiw26dmq"]
 
 [ext_resource type="Script" uid="uid://sq76bvau60dn" path="res://scenes scripts/ui.gd" id="1_rweab"]
 [ext_resource type="FontFile" uid="uid://f1l3e1j13yb3" path="res://font.ttf" id="2_weaf0"]
+[ext_resource type="Texture2D" uid="uid://bs0gkpi2r28wi" path="res://sprites/superfoods.png" id="3_weaf0"]
 
-[node name="Control" type="Control"]
+[node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rweab")
 
-[node name="Label" type="Label" parent="."]
+[node name="score" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -20,3 +21,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_weaf0")
 theme_override_font_sizes/font_size = 6
 text = "0000"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Timer" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 77.0
+offset_right = 117.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_weaf0")
+theme_override_font_sizes/font_size = 6
+text = "00"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(71, 5)
+texture = ExtResource("3_weaf0")
+hframes = 6

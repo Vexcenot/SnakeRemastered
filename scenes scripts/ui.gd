@@ -6,4 +6,10 @@ func _ready():
 
 # Update label
 func update(): 
-	$Label.text = "%04d" %Global.score
+	$score.text = "%04d" %Global.score
+	if Global.foodTime > 1:
+		$Control/Sprite2D.frame = Global.spriteFrame
+		$Control/Timer.text = "%02d" %Global.foodTime
+		$Control.visible = true
+	else:
+		$Control.visible = false

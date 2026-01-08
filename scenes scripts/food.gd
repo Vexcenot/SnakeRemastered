@@ -40,3 +40,4 @@ func _on_food_2_area_entered(area: Area2D) -> void:
 		teleport_random()
 		if addEat:
 			Global.foodEaten += 1
+		Global.score += 1

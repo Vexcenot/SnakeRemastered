@@ -1,3 +1,6 @@
+Sprite2D
+Control
+AudioStreamPlayer
 Label      - Matches the "text" keyword.
 TextEdit
 Node2D
@@ -6,7 +9,6 @@ TileMapLayer
 Area2D
 StaticBody2D
 CollisionShape2D
-Sprite2D
 Node
 Camera2D
 CharacterBody2D

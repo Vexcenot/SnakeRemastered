@@ -61,11 +61,9 @@ color = Color(0, 0, 0, 1)
 position = Vector2(4, 12)
 
 [node name="superFood" parent="." instance=ExtResource("6_r428f")]
-position = Vector2(77, 43)
-minX = 7
-minY = 13
-maxX = 77
-maxY = 43
+position = Vector2(5, 12)
+minX = 4
+minY = 12
 addEat = false
 
 [node name="LevelBorder" type="Sprite2D" parent="."]

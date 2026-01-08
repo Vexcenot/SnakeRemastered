@@ -55,6 +55,14 @@ func _process(_delta: float) -> void:
 	visible = Global.seeable
 	
 
+	#if $headSprite/detect.get_overlapping_areas():
+		#if $headSprite/detect.name == "food":
+			#openJaw = 1
+		#else:
+			#openJaw = 0
+		
+	
+
 
 #spawns tail on game start
 #FIX THIS

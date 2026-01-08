@@ -1,5 +1,7 @@
-res://ui.tscn
-res://scenes scripts/global.gd
-res://ui.gd
-res://scenes scripts/main.tscn
 res://scenes scripts/ui.tscn
+res://scenes scripts/ui.gd
+res://scenes scripts/superFood.tscn
+res://scenes scripts/superFood.gd
+res://scenes scripts/global.gd
+res://scenes scripts/main.tscn
+res://scenes scripts/tail.tscn

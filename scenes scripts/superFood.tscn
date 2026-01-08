@@ -16,32 +16,34 @@ maxY = 44
 size = 8
 
 [node name="sprite" parent="." index="0"]
-position = Vector2(0, 2)
+position = Vector2(2, 2)
 texture = ExtResource("3_2bgn1")
 hframes = 6
 
 [node name="food" parent="." index="1"]
-position = Vector2(-3, 0)
+position = Vector2(-1, 0)
 monitorable = false
 
 [node name="CollisionShape2D" parent="food" index="0"]
 position = Vector2(3, 0)
-scale = Vector2(0.72600245, 0.121)
+scale = Vector2(-0.4739945, 0.121)
 
 [node name="detect" parent="." index="2"]
-position = Vector2(-3, 0)
+position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" parent="detect" index="0"]
 position = Vector2(3.0000005, 0)
 rotation = 3.1415927
-scale = Vector2(1.4610895, 0.53169173)
+scale = Vector2(1.5410895, 0.53169173)
 
 [node name="buffer" type="Area2D" parent="." index="4"]
-position = Vector2(-4, -2)
+position = Vector2(-2, -2)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buffer" index="0"]
 position = Vector2(4, 2)
 shape = SubResource("RectangleShape2D_4vn6m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
 
 [connection signal="area_entered" from="detect" to="." method="_on_detect_area_entered"]

@@ -1,10 +1,12 @@
 extends Node
-var originalTime = 0.5
+var originalTime : float = 0.1
 var finalTime : float = originalTime
 var time : float = originalTime
 var foodEaten : int = 0
-var score : int = 4
+var score : int = 0
+var spriteFrame : int = 0
 var foodTime : float = 0
+var setTime : float = 20
 var currentDirection : String = "where the player is currently facing"
 var reversing : bool = false
 var moveStart : bool = false
@@ -33,6 +35,8 @@ func _process(delta: float) -> void:
 	if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
 		time = 0
 		tick.emit()
+		if foodTime <= 0:
+			spriteFrame = randi() % 6
 
 
 func _input(event: InputEvent) -> void:
