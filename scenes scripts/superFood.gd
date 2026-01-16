@@ -6,7 +6,7 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
-	if Global.foodEaten >= 1 :
+	if Global.foodEaten >= 5:
 		teleport_random()
 	if Global.foodTime <= 0:
 		deactivate()

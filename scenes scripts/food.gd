@@ -38,6 +38,6 @@ func _on_food_2_area_entered(area: Area2D) -> void:
 	if area.name == "headArea":
 		teleporting = true
 		teleport_random()
-		if addEat:
+		if addEat and Global.foodTime <= 0:
 			Global.foodEaten += 1
 		Global.score += 1

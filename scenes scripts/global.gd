@@ -21,7 +21,7 @@ signal reverse
 func reset():
 	finalTime = originalTime
 	time = originalTime
-	foodEaten = 1
+	foodEaten = 0
 	foodTime = 0
 	currentDirection = "where the player is currently facing"
 	reversing = false

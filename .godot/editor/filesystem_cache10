@@ -1,26 +1,32 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1767842789
-font.ttf::FontFile::405336179648591550::1767709393::1767709404::1::::<><><>0<>0<>534cdc4be50c3660aac4fcb3b361365a<>res://.godot/imported/font.ttf-7ba3e8c1ec355f88f1af089917a76c36.fontdata::
+::res://::1768556795
+ghosting.gdshader::Shader::7308559689671904524::1768548721::0::1::::<><><>0<>0<><>::
+menu.gd::GDScript::5982383314909508277::1767885172::0::1::::<>Control<><>0<>0<><>::
+menu.tscn::PackedScene::4322291186704717420::1767885172::0::1::::<><><>0<>0<><>::uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://crh58j548l86l::::res://menu.gd
+numbers.ttf::FontFile::405336179648591550::1767709393::1767867905::1::::<><><>0<>0<>a33a379e2614747b68ec6e717f53f2fd<>res://.godot/imported/numbers.ttf-863eb0e0cfd18a275f569f4debe51ded.fontdata::
 README.md::TextFile::-1::1765171754::0::1::::<><><>0<>0<><>::
 test.tscn::PackedScene::2216078260444966356::1765976081::0::1::::<><><>0<>0<><>::uid://c53plmxhqausf::::res://scenes scripts/tail.tscn
-::res://scenes scripts/::1767793256
-food.gd::GDScript::8279192376186307673::1767792994::0::1::::food<>Node2D<><>0<>0<><>::
-food.tscn::PackedScene::5306951085060773223::1767620458::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scenes scripts/food.gd<>uid://ofbqoxcr0qx2::::res://sprites/4x4 test.png
+visghost.tres::VisualShader::6706754900172755249::1768554749::0::1::::<><><>0<>0<><>::
+::res://scenes scripts/::1768556769
+food.gd::GDScript::8279192376186307673::1767885451::0::1::::food<>Node2D<><>0<>0<><>::
+food.tscn::PackedScene::5306951085060773223::1767857321::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scenes scripts/food.gd<>uid://ofbqoxcr0qx2::::res://sprites/4x4 test.png
 fullArea.tscn::PackedScene::5321567513985650059::1766254553::0::1::::<><><>0<>0<><>::
-global.gd::GDScript::2912662693220618486::1767792543::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::7816693174992426300::1767792677::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://dcpxyuw3wquqi::::res://sprites/wall.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn<>uid://clatlffq3gh6u::::res://sprites/wall greemn.png<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn
-player.gd::GDScript::3186466379993582715::1767760507::0::1::::<>Node2D<><>0<>0<><>::
-player.tscn::PackedScene::1161591133076408506::1767793256::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-superFood.gd::GDScript::6749791724106037232::1767792994::0::1::::superFood<>food<><>0<>0<><>::
-superFood.tscn::PackedScene::9119992179147233116::1767765597::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://c3fwc3tolb47e::::res://scenes scripts/superFood.gd<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
+game.tscn::PackedScene::7816693174992426300::1768549240::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://dcpxyuw3wquqi::::res://sprites/wall.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn<>uid://clatlffq3gh6u::::res://sprites/wall greemn.png<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn
+global.gd::GDScript::2912662693220618486::1768489679::0::1::::<>Node<><>0<>0<><>::
+main.tscn::PackedScene::3142776912330984527::1768556769::0::1::::<><><>0<>0<><>::uid://b5qol50nevhjg::::res://sprites/green bg.png<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn
+player.gd::GDScript::3186466379993582715::1768549087::0::1::::<>Node2D<><>0<>0<><>::
+player.tscn::PackedScene::1161591133076408506::1768534315::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+superFood.gd::GDScript::6749791724106037232::1768488552::0::1::::superFood<>food<><>0<>0<><>::
+superFood.tscn::PackedScene::9119992179147233116::1767857429::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://c3fwc3tolb47e::::res://scenes scripts/superFood.gd<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
 tail.gd::GDScript::6411427067770344382::1767190146::0::1::::<>Node2D<><>0<>0<><>::
-tail.tscn::PackedScene::6937240318415454553::1767626265::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-ui.gd::GDScript::1298427617921334991::1767712495::0::1::::<>Control<><>0<>0<><>::
-ui.tscn::PackedScene::2573009740904928668::1767712691::0::1::::<><><>0<>0<><>::uid://sq76bvau60dn::::res://scenes scripts/ui.gd<>uid://f1l3e1j13yb3::::res://font.ttf
+tail.tscn::PackedScene::6937240318415454553::1767856662::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+ui.gd::GDScript::1298427617921334991::1767852877::0::1::::<>Control<><>0<>0<><>::
+ui.tscn::PackedScene::2573009740904928668::1767867904::0::1::::<><><>0<>0<><>::uid://sq76bvau60dn::::res://scenes scripts/ui.gd<>uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
 wall.tscn::PackedScene::1524555942161601440::1766912573::0::1::::<><><>0<>0<><>::uid://dcpxyuw3wquqi::::res://sprites/wall.png
-::res://sprites/::1767709404
+::res://sprites/::1768537645
 4x4 test.png::CompressedTexture2D::993055760369991105::1766723417::1766723417::1::::<><><>0<>0<>4924e706f4644043da82082a8b1da935<>res://.godot/imported/4x4 test.png-13ae390db226b01b653c55beb0bfc550.ctex::
 food.png::CompressedTexture2D::6105856786194097899::1766160809::1766160810::1::::<><><>0<>0<>b7bf0d85092908859dff58a80ba2efd4<>res://.godot/imported/food.png-eb902ed6894de1ba4df5e8591424d912.ctex::
+green bg.png::CompressedTexture2D::4525987333448167708::1768537644::1768537645::1::::<><><>0<>0<>0067c84bb567387a0e32f9b30c750ea5<>res://.godot/imported/green bg.png-43d7374c639db6f73558b248e3ead448.ctex::
 icon.svg::CompressedTexture2D::5196198289066680378::1765006013::1765006564::1::::<><><>0<>0<>7092596bd1aa04d49e5336b4ea392ee2<>res://.godot/imported/icon.svg-964d8c66fbd3bda40c44ca195472a8e1.ctex::
 level border.png::CompressedTexture2D::5582456144853085243::1767613607::1767613607::1::::<><><>0<>0<>9ddd86a1aa6da3b86cf92071dd3336a7<>res://.godot/imported/level border.png-7d591a50e34b94b87d60b32c9cfe7646.ctex::
 numbers.png::CompressedTexture2D::1997091666292756686::1767701163::1767701163::1::::<><><>0<>0<>79b744025ee075b480bdb73618c947a5<>res://.godot/imported/numbers.png-52ad183ab298c830de74ee443ffdddc1.ctex::

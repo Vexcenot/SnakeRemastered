@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcwndhiw26dmq"]
 
 [ext_resource type="Script" uid="uid://sq76bvau60dn" path="res://scenes scripts/ui.gd" id="1_rweab"]
-[ext_resource type="FontFile" uid="uid://f1l3e1j13yb3" path="res://font.ttf" id="2_weaf0"]
+[ext_resource type="FontFile" uid="uid://f1l3e1j13yb3" path="res://numbers.ttf" id="2_weaf0"]
 [ext_resource type="Texture2D" uid="uid://bs0gkpi2r28wi" path="res://sprites/superfoods.png" id="3_weaf0"]
 
 [node name="UI" type="Control"]

@@ -52,7 +52,7 @@ shape = SubResource("RectangleShape2D_ndhvj")
 [node name="up" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="up"]
-position = Vector2(0, -2.5)
+position = Vector2(0, -2)
 scale = Vector2(0.1, 0.11383725)
 shape = SubResource("RectangleShape2D_xomnv")
 debug_color = Color(0.6913287, 0.32144278, 0.9462736, 0.41960785)
