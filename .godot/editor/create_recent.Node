@@ -1,14 +1,14 @@
+Control
+ColorRect
+CanvasLayer
+WorldEnvironment
+AnimationPlayer
+AnimationTree
 SubViewport
 SubViewportContainer
-CanvasLayer
-ColorRect
-Control
 Camera2D
 VBoxContainer
 Button
 Sprite2D
 AudioStreamPlayer
 Label      - Matches the "text" keyword.
-TextEdit
-Node2D
-TileMapLayer
