@@ -284,8 +284,8 @@ func posRot():
 				hurt()
 			else:
 				#teleports down if to up
-				if global_position.y <= minY: 
-					global_position.y = maxY + 4
+				if position.y <= minY: 
+					position.y = maxY + 4
 				position.y -= moveDistance
 				$headSprite.rotation = deg_to_rad(-90)
 				$headSprite.flip_h = false
@@ -296,8 +296,8 @@ func posRot():
 				hurt()
 			else:
 				#teleports up if too down
-				if global_position.y >= maxY: 
-					global_position.y = minY - 5
+				if position.y >= maxY: 
+					position.y = minY - 5
 				position.y += moveDistance
 				$headSprite.rotation = deg_to_rad(90)
 				$headSprite.flip_h = false
@@ -308,8 +308,8 @@ func posRot():
 				hurt()
 			else:
 				#teleports left if too right
-				if global_position.x >= maxX:
-					global_position.x = minX - 4
+				if position.x >= maxX:
+					position.x = minX - 4
 				position.x += moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
@@ -320,8 +320,8 @@ func posRot():
 				hurt()
 			else:
 				#teleports right if too left
-				if global_position.x <= minX: 
-					global_position.x = maxX + 4
+				if position.x <= minX: 
+					position.x = maxX + 4
 				position.x -= moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = true

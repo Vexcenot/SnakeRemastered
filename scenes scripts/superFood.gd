@@ -2,6 +2,7 @@ class_name superFood
 extends food
 
 func _ready() -> void:
+	await get_tree().process_frame
 	deactivate()
 	
 

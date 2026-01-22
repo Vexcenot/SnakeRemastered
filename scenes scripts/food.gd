@@ -11,7 +11,6 @@ signal spawnSfood
 var teleporting : bool = false
 
 func _ready() -> void:
-	await get_tree().process_frame
 	teleport_random()
 
 #make it teleport to a grid

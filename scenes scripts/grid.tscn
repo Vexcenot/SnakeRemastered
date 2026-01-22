@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://b17gx24w6v77v"]
+
+[ext_resource type="PackedScene" uid="uid://b1r54dhcwj62y" path="res://scenes scripts/bg.tscn" id="1_ebq2e"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" parent="." instance=ExtResource("1_ebq2e")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1.0
+offset_top = -1.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="background2" parent="." instance=ExtResource("1_ebq2e")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 0.9999962
+offset_bottom = 1.0
+grow_horizontal = 1
+grow_vertical = 1
