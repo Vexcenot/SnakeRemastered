@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c348kpimmyx7h"]
+
+[ext_resource type="Texture2D" uid="uid://10k7wa118dq0" path="res://sprites/grid test.png" id="1_5rf6w"]
+
+[node name="mask" type="Node2D"]
+
+[node name="GridTest" type="Sprite2D" parent="."]
+position = Vector2(1079.995, 983.665)
+scale = Vector2(1.832, 1.832)
+texture = ExtResource("1_5rf6w")

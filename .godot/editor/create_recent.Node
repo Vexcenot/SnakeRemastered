@@ -1,14 +1,14 @@
-Camera2D
-TileMapLayer
-TileMap
-ColorRect
 CanvasLayer
-SubViewport
+CanvasGroup
 SubViewportContainer
+SubViewport
+ColorRect
+TextureRect
 Control
 WorldEnvironment
-AnimationPlayer
-AnimationTree
+Camera2D
 VBoxContainer
 Button
 Sprite2D
+AudioStreamPlayer
+Label      - Matches the "text" keyword.

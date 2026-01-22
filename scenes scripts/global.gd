@@ -28,16 +28,20 @@ func reset():
 	moveStart = false
 	seeable = true
 	hurting = false
+	score = 0
 
 func _process(delta: float) -> void:
 	time +=  delta
 	if foodTime > 0:
 		foodTime -= delta
-	if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
-		time = 0
-		tick.emit()
-		if foodTime <= 0:
-			spriteFrame = randi() % 6
+	if !hurting:
+		if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
+			time = 0
+			tick.emit()
+			if foodTime > 0:
+				foodTime -= 1
+			if foodTime <= 0:
+				spriteFrame = randi() % 6
 
 
 func _input(event: InputEvent) -> void:
@@ -55,5 +59,8 @@ func hurt():
 		seeable = !seeable
 		await get_tree().create_timer(0.23).timeout
 	hurting = false
+	
+#make this go back to title screen after showing score screen
 	reset()
 	get_tree().reload_current_scene()
+	#get_tree().change_scene_to_file("res://scenes scripts/TitleScreen.tscn")

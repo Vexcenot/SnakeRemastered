@@ -1,17 +1,23 @@
 class_name food
 extends Node2D
 
-signal spawnSfood
+
 @export var minX : int = 6
 @export var minY : int = 14
 @export var maxX : int = 82
 @export var maxY : int = 46
+@export var avoidX : int = 0
+@export var avoidY : int = 0
 @export var size : int = 4
 @export var addEat : bool = true
+
 var teleporting : bool = false
+var start : bool = false
 
 func _ready() -> void:
+	await get_tree().process_frame 
 	teleport_random()
+	start = true
 
 #make it teleport to a grid
 func teleport_random():
@@ -23,7 +29,10 @@ func teleport_random():
 	# Round to nearest 4-pixel increment
 	randX = round(randX / size) * size
 	randY = round(randY / size) * size
-	
+	#if start:
+		#if randY == avoidY or randX == avoidX:
+			#teleport_random()
+	#else:
 	global_position = Vector2(randX, randY)
 	await get_tree().process_frame 
 	if $detect.has_overlapping_areas() or $detect.has_overlapping_bodies():

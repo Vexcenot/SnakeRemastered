@@ -283,7 +283,7 @@ func posRot():
 			if upBlocked:
 				hurt()
 			else:
-				#teleports down if to up
+				#teleports down if too up
 				if position.y <= minY: 
 					position.y = maxY + 4
 				position.y -= moveDistance

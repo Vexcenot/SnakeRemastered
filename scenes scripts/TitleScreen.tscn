@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwyuv6vwxco54"]
+
+[ext_resource type="Script" uid="uid://bp53ogoj3pvx5" path="res://Title.gd" id="1_pkhjh"]
+[ext_resource type="Texture2D" uid="uid://by1v1iymak6n" path="res://sprites/title screen.png" id="2_1xr1c"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pkhjh")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1xr1c")

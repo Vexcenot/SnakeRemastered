@@ -8,6 +8,7 @@
 size = Vector2(8, 4)
 
 [node name="superFood" instance=ExtResource("1_4vn6m")]
+visible = false
 script = ExtResource("2_cdoww")
 minX = 0
 minY = 0
