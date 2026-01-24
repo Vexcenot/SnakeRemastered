@@ -34,8 +34,8 @@ func update():
 			
 		#changes collision shape when bending
 		if turning:
-			$tailSprite/StaticBody2D/turnCol.disabled = false
-			$tailSprite/StaticBody2D/straightCol.disabled = true
+			#$tailSprite/StaticBody2D/turnCol.disabled = false
+			#$tailSprite/StaticBody2D/straightCol.disabled = true
 			if lastTail:
 				pass
 			elif full:
@@ -43,8 +43,8 @@ func update():
 			else:
 				$tailSprite.frame = 3
 		else:
-			$tailSprite/StaticBody2D/turnCol.disabled = true
-			$tailSprite/StaticBody2D/straightCol.disabled = false
+			#$tailSprite/StaticBody2D/turnCol.disabled = true
+			#$tailSprite/StaticBody2D/straightCol.disabled = false
 			if lastTail:
 				$tailSprite.frame = 0
 				$tailSprite/StaticBody2D/straightCol.disabled = true
@@ -54,6 +54,7 @@ func update():
 			else:
 				$tailSprite.frame = 1
 		rotation()
+
 
 func rotation():
 	if turning and not lastTail:

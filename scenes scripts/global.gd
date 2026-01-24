@@ -14,6 +14,7 @@ var seeable : bool = true
 var hurting : bool = false
 var multiplayerMode : bool = false
 var playerX : float = 0
+var sFoodActive : bool = false
 
 signal tick
 signal reverse

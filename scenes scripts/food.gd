@@ -1,7 +1,6 @@
 class_name food
 extends Node2D
 
-
 @export var minX : int = 6
 @export var minY : int = 14
 @export var maxX : int = 82
