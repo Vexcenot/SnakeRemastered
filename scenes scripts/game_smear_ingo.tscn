@@ -16,15 +16,15 @@ shader_parameter/color_mix = Color(0.15686275, 0.15686275, 0.15686275, 0.7843137
 shader_parameter/last_frame = Array[Texture2D]([])
 shader_parameter/ready = false
 shader_parameter/enable_mask = true
-shader_parameter/grid_size = Vector2(87.319, 49.088)
-shader_parameter/line_thickness = 0.08000000310148
-shader_parameter/edge_softness = 0.0
+shader_parameter/grid_size_px = Vector2(8, 8)
+shader_parameter/line_thickness_px = 0.5
+shader_parameter/edge_softness_px = 0.0
 shader_parameter/invert_grid = false
-shader_parameter/mask_offset = Vector2(0.061, 0.01)
-shader_parameter/mask_opacity = 0.090000004275
+shader_parameter/mask_offset_px = Vector2(0, 0)
+shader_parameter/mask_opacity = 0.1200000057
 shader_parameter/enable_shadow = true
 shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.1882353)
-shader_parameter/shadow_offset = Vector2(-0.002, 0.004)
+shader_parameter/shadow_offset_px = Vector2(2, 3)
 shader_parameter/object_opacity = 1.0
 
 [sub_resource type="Environment" id="Environment_ac8or"]
@@ -45,7 +45,7 @@ adjustment_saturation = 1.24
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0yu0k"]
 shader = ExtResource("4_u7v3r")
-shader_parameter/blur_radius = 0.10000000475
+shader_parameter/blur_radius = 0.2000000095
 shader_parameter/blur_quality = 3
 
 [node name="Main_Ingo" type="Control"]
@@ -95,23 +95,30 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -35.0
+offset_bottom = -322.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.04, 1.04)
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(1920, 1080)
+size = Vector2i(675, 388)
 render_target_update_mode = 4
 
 [node name="game" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_0ud63")]
+scale = Vector2(8, 8)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ac8or")
 
 [node name="Vignette" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.361, 0.57, 0, 0.02745098)
 material = SubResource("CanvasItemMaterial_vr3wf")
 layout_mode = 1

@@ -46,7 +46,7 @@ func teleport_random():
 	randX = round(randX / size) * size
 	randY = round(randY / size) * size
 	
-	global_position = Vector2(randX, randY)
+	position = Vector2(randX, randY)
 	await get_tree().process_frame 
 	await get_tree().process_frame 
 	if $detect.has_overlapping_areas() or $detect.has_overlapping_bodies():

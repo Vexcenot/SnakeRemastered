@@ -31,12 +31,7 @@ sources/1 = SubResource("TileSetScenesCollectionSource_u5fcb")
 sources/2 = SubResource("TileSetAtlasSource_u5fcb")
 
 [node name="game" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(42.000004, 24)
-rotation = -3.1415927
-scale = Vector2(2.309336, -1.5162249)
-zoom = Vector2(22, 22)
+texture_filter = 1
 
 [node name="food" parent="." instance=ExtResource("2_737ep")]
 minX = 4

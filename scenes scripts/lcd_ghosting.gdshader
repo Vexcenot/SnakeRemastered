@@ -8,21 +8,23 @@ uniform vec4 color_mix : source_color = vec4(1.0);
 uniform sampler2D last_frame[4];
 uniform bool ready = false;
 
-/* === GRID / MASK CONTROLS === */
+/* === GRID / MASK CONTROLS (PIXELS) === */
 uniform bool enable_mask = true;
-uniform vec2 grid_size = vec2(16.0, 16.0);
-uniform float line_thickness : hint_range(0.01, 0.49) = 0.08;
-uniform float edge_softness : hint_range(0.0, 0.1) = 0.02;
+uniform vec2 grid_size_px = vec2(16.0, 16.0);
+uniform float line_thickness_px : hint_range(0.5, 10.0) = 2.0;
+uniform float edge_softness_px : hint_range(0.0, 5.0) = 1.0;
 uniform bool invert_grid = false;
 
+/* === MASK OFFSET (PIXELS) === */
+uniform vec2 mask_offset_px = vec2(0.0);
+
 /* === MASK OPACITY === */
-uniform vec2 mask_offset = vec2(0.0, 0.0);
 uniform float mask_opacity : hint_range(0.0, 1.0) = 1.0;
 
-/* === SHADOW CONTROLS === */
+/* === SHADOW CONTROLS (PIXELS) === */
 uniform bool enable_shadow = true;
 uniform vec4 drop_shadow_color : source_color = vec4(vec3(0.0), 0.5);
-uniform vec2 shadow_offset = vec2(0.0, 0.1);
+uniform vec2 shadow_offset_px = vec2(0.0, 4.0);
 
 /* === OBJECT OPACITY === */
 uniform float object_opacity : hint_range(0.0, 1.0) = 1.0;
@@ -44,23 +46,24 @@ vec4 mixcolor(vec4 base, vec4 over) {
 
 void fragment() {
 
-	/* === BASE COLOR === */
 	vec2 uv = UV;
+	vec2 pixel_uv = uv / TEXTURE_PIXEL_SIZE;
+
+	/* === BASE COLOR === */
 	vec4 base_tex = sample_texture_safe(TEXTURE, uv);
 	base_tex.a *= object_opacity;
 
-	/* === SHADOW (DOES NOT MOVE BASE) === */
+	/* === SHADOW (PIXEL OFFSET, BASE STAYS PUT) === */
 	if (enable_shadow) {
+		vec2 shadow_uv = uv - shadow_offset_px * TEXTURE_PIXEL_SIZE;
 		vec4 shadow = vec4(
 			drop_shadow_color.rgb,
-			sample_texture_safe(TEXTURE, uv - shadow_offset).a * drop_shadow_color.a
+			sample_texture_safe(TEXTURE, shadow_uv).a * drop_shadow_color.a
 		);
 
-		if (shadow.a > 0.0) {
-			COLOR = mixcolor(shadow, base_tex);
-		} else {
-			COLOR = base_tex;
-		}
+		COLOR = shadow.a > 0.0
+			? mixcolor(shadow, base_tex)
+			: base_tex;
 	} else {
 		COLOR = base_tex;
 	}
@@ -68,7 +71,7 @@ void fragment() {
 	/* === SMEAR ACCUMULATION === */
 	vec4 smear_color = vec4(0.0);
 	for (int i = 0; i < smear_frames; i++) {
-		smear_color = mix(smear_color, texture(last_frame[i], UV), mix_factor);
+		smear_color = mix(smear_color, texture(last_frame[i], uv), mix_factor);
 	}
 
 	vec4 final_color = ready
@@ -77,20 +80,19 @@ void fragment() {
 
 	final_color *= color_mix;
 
-	/* === GRID MASK === */
+	/* === GRID MASK (PIXEL PERFECT) === */
 	float grid_mask = 1.0;
 
 	if (enable_mask) {
-		vec2 mask_uv = UV + mask_offset;
-		vec2 grid_uv = fract(mask_uv * grid_size);
+		vec2 grid_uv = fract((pixel_uv + mask_offset_px) / grid_size_px);
 
-		float dist_x = min(grid_uv.x, 1.0 - grid_uv.x);
-		float dist_y = min(grid_uv.y, 1.0 - grid_uv.y);
+		float dist_x = min(grid_uv.x, 1.0 - grid_uv.x) * grid_size_px.x;
+		float dist_y = min(grid_uv.y, 1.0 - grid_uv.y) * grid_size_px.y;
 		float dist = min(dist_x, dist_y);
 
 		grid_mask = smoothstep(
-			line_thickness,
-			line_thickness + edge_softness,
+			line_thickness_px,
+			line_thickness_px + edge_softness_px,
 			dist
 		);
 

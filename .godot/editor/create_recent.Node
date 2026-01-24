@@ -1,12 +1,13 @@
+HBoxContainer
+Camera2D
+Control
 CanvasLayer
 CanvasGroup
 SubViewportContainer
 SubViewport
 ColorRect
 TextureRect
-Control
 WorldEnvironment
-Camera2D
 VBoxContainer
 Button
 Sprite2D
