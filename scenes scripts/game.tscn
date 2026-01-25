@@ -34,6 +34,7 @@ sources/2 = SubResource("TileSetAtlasSource_u5fcb")
 texture_filter = 1
 
 [node name="food" parent="." instance=ExtResource("2_737ep")]
+position = Vector2(-9, -9)
 minX = 4
 minY = 12
 maxX = 81

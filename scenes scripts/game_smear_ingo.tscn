@@ -1,31 +1,30 @@
-[gd_scene load_steps=13 format=3 uid="uid://b08jw0msxfl4x"]
+[gd_scene load_steps=12 format=3 uid="uid://b08jw0msxfl4x"]
 
 [ext_resource type="Script" uid="uid://cewu4bx04fpgq" path="res://game_smear_controller.gd" id="1_xjaai"]
 [ext_resource type="Shader" uid="uid://daqddq80s6d0r" path="res://scenes scripts/lcd_ghosting.gdshader" id="3_1n4fr"]
 [ext_resource type="PackedScene" uid="uid://djmp2arl0h67y" path="res://scenes scripts/game.tscn" id="4_0ud63"]
 [ext_resource type="Shader" uid="uid://c405ma3uyb6yd" path="res://scenes scripts/blur.gdshader" id="4_u7v3r"]
+[ext_resource type="Script" uid="uid://ybwu1xedccsp" path="res://scenes scripts/sub_viewport_container.gd" id="5_0yu0k"]
 [ext_resource type="Texture2D" uid="uid://cwybr1u0suvhj" path="res://vignette.png" id="5_u7v3r"]
-[ext_resource type="Texture2D" uid="uid://cyincdf6re117" path="res://sprites/nokia overlay.png" id="6_yk76l"]
 [ext_resource type="Texture2D" uid="uid://bwt3yllfh1rbu" path="res://sprites/sharp grian.png" id="7_1n4fr"]
-[ext_resource type="Texture2D" uid="uid://fcakbf5yr4hh" path="res://sprites/black grid.png" id="9_u7v3r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ugsd"]
 shader = ExtResource("3_1n4fr")
-shader_parameter/mix_factor = 0.30000001099011997
-shader_parameter/color_mix = Color(0.15686275, 0.15686275, 0.15686275, 0.78431374)
+shader_parameter/mix_factor = 0.25000000861512
+shader_parameter/color_mix = Color(0, 0, 0, 1)
 shader_parameter/last_frame = Array[Texture2D]([])
 shader_parameter/ready = false
 shader_parameter/enable_mask = true
-shader_parameter/grid_size_px = Vector2(8, 8)
-shader_parameter/line_thickness_px = 0.5
-shader_parameter/edge_softness_px = 0.0
+shader_parameter/grid_size_px = Vector2(14.028, 14.028)
+shader_parameter/line_thickness_px = 0.5170000008075
+shader_parameter/edge_softness_px = 1.50000007125
 shader_parameter/invert_grid = false
-shader_parameter/mask_offset_px = Vector2(0, 0)
-shader_parameter/mask_opacity = 0.110000005225
+shader_parameter/mask_offset_px = Vector2(1.266, 5.625)
+shader_parameter/mask_opacity = 0.2000000095
 shader_parameter/enable_shadow = true
 shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.1882353)
 shader_parameter/shadow_offset_px = Vector2(2, 3)
-shader_parameter/object_opacity = 1.0
+shader_parameter/object_opacity = 0.70000003325
 
 [sub_resource type="Environment" id="Environment_ac8or"]
 background_mode = 3
@@ -64,64 +63,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.1254902, 0.15294118, 0.12156863, 1)
-
-[node name="red test" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.48326677, 0, 0.08821053, 1)
-
-[node name="NokiaOverlay2" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.6627451)
-position = Vector2(1197, 596)
-scale = Vector2(1.605, 1.605)
-texture = ExtResource("6_yk76l")
-
-[node name="SharpGrian" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.5921569)
-position = Vector2(960, 540)
-texture = ExtResource("7_1n4fr")
+color = Color(0.1882353, 0.21960784, 0.19215687, 1)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_6ugsd")
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -35.0
-offset_bottom = -322.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -640.0
+offset_right = -50.0
+offset_bottom = -30.0
 scale = Vector2(1.04, 1.04)
 stretch = true
+script = ExtResource("5_0yu0k")
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(675, 388)
+size = Vector2i(1230, 690)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="game" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_0ud63")]
-scale = Vector2(8, 8)
+position = Vector2(27, 9)
+scale = Vector2(14.02319, 14.02319)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ac8or")
 
-[node name="Vignette" type="TextureRect" parent="."]
-visible = false
-modulate = Color(0.361, 0.57, 0, 0.02745098)
+[node name="ignore fx" type="CanvasLayer" parent="."]
+
+[node name="Grain" type="TextureRect" parent="ignore fx"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0000008, 1.0000008)
+texture = ExtResource("7_1n4fr")
+expand_mode = 1
+
+[node name="Vignette" type="TextureRect" parent="ignore fx"]
+modulate = Color(0, 0, 0, 0.10980392)
 material = SubResource("CanvasItemMaterial_vr3wf")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -129,20 +117,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_u7v3r")
 
-[node name="NokiaOverlay" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.7137255)
-position = Vector2(960, 540)
-texture = ExtResource("6_yk76l")
-
-[node name="GridTest" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1079.995, 983.665)
-scale = Vector2(1.832, 1.832)
-texture = ExtResource("9_u7v3r")
-
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="ignore fx"]
 material = SubResource("ShaderMaterial_0yu0k")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

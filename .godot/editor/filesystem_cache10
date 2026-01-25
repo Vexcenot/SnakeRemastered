@@ -1,52 +1,54 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1769229631
-game_smear_controller.gd::GDScript::5100279269634923120::1769227826::0::1::::<>Control<><>0<>0<><>::
-menu.gd::GDScript::5982383314909508277::1768557213::0::1::::<>Control<><>0<>0<><>::
-menu.tscn::PackedScene::4322291186704717420::1768557213::0::1::::<><><>0<>0<><>::uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://crh58j548l86l::::res://menu.gd
-numbers.ttf::FontFile::405336179648591550::1768557213::1768557213::1::::<><><>0<>0<>a33a379e2614747b68ec6e717f53f2fd<>res://.godot/imported/numbers.ttf-863eb0e0cfd18a275f569f4debe51ded.fontdata::
-README.md::TextFile::-1::1768557213::0::1::::<><><>0<>0<><>::
-test.tscn::PackedScene::2216078260444966356::1768557213::0::1::::<><><>0<>0<><>::uid://c53plmxhqausf::::res://scenes scripts/tail.tscn
-Title.gd::GDScript::3502910085011823192::1769063007::0::1::::<>Control<><>0<>0<><>::
-vignette.png::CompressedTexture2D::6366633466673441195::1768563491::1768563492::1::::<><><>0<>0<>fd7f695da9a69f9233a03588ef5f7908<>res://.godot/imported/vignette.png-48412b5bf0b5fe2d7510f7e52aa8e2c9.ctex::
-::res://scenes scripts/::1769229436
-blur.gdshader::Shader::6861770260245868471::1769222210::0::1::::<><><>0<>0<><>::
-food.gd::GDScript::8279192376186307673::1769223660::0::1::::food<>Node2D<><>0<>0<><>::
-food.tscn::PackedScene::5306951085060773223::1769057474::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scenes scripts/food.gd<>uid://ofbqoxcr0qx2::::res://sprites/4x4 test.png
-fullArea.tscn::PackedScene::5321567513985650059::1768557213::0::1::::<><><>0<>0<><>::
-game.tscn::PackedScene::7816693174992426300::1769224966::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://dcpxyuw3wquqi::::res://sprites/wall.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn<>uid://clatlffq3gh6u::::res://sprites/wall greemn.png<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn
-game_smear_ingo.tscn::PackedScene::4209853313398879349::1769229436::0::1::::<><><>0<>0<><>::uid://cewu4bx04fpgq::::res://game_smear_controller.gd<>uid://daqddq80s6d0r::::res://scenes scripts/lcd_ghosting.gdshader<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn<>uid://c405ma3uyb6yd::::res://scenes scripts/blur.gdshader<>uid://cwybr1u0suvhj::::res://vignette.png<>uid://cyincdf6re117::::res://sprites/nokia overlay.png<>uid://bwt3yllfh1rbu::::res://sprites/sharp grian.png<>uid://fcakbf5yr4hh::::res://sprites/black grid.png
-ghostpost.gdshader::Shader::896760964806403455::1769222210::0::1::::<><><>0<>0<><>::
-global.gd::GDScript::2912662693220618486::1769087967::0::1::::<>Node<><>0<>0<><>::
-grid mask.tscn::PackedScene::6800018263590104227::1769005465::0::1::::<><><>0<>0<><>::uid://10k7wa118dq0::::res://sprites/grid test.png
-lcd_ghosting.gdshader::Shader::7192480496017584103::1769222421::0::1::::<><><>0<>0<><>::
-main.tscn::PackedScene::3142776912330984527::1768892037::0::1::::<><><>0<>0<><>::uid://b5qol50nevhjg::::res://sprites/green bg.png<>uid://cgbcvkny0wfqg::::res://sprites/icon.svg<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn<>uid://daqddq80s6d0r::::res://scenes scripts/lcd_ghosting.gdshader
-Master.tscn::PackedScene::1769526995390188184::1769227656::0::1::::<><><>0<>0<><>::uid://b08jw0msxfl4x::::res://scenes scripts/game_smear_ingo.tscn
-player.gd::GDScript::3186466379993582715::1769054840::0::1::::<>Node2D<><>0<>0<><>::
-player.tscn::PackedScene::1161591133076408506::1768557213::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-superFood.gd::GDScript::6749791724106037232::1769224182::0::1::::superFood<>food<><>0<>0<><>::
-superFood.tscn::PackedScene::9119992179147233116::1768999058::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://c3fwc3tolb47e::::res://scenes scripts/superFood.gd<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
-tail.gd::GDScript::6411427067770344382::1768557213::0::1::::<>Node2D<><>0<>0<><>::
-tail.tscn::PackedScene::6937240318415454553::1769089917::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-TitleScreen.tscn::PackedScene::6367794496742839377::1769063016::0::1::::<><><>0<>0<><>::uid://bp53ogoj3pvx5::::res://Title.gd<>uid://by1v1iymak6n::::res://sprites/title screen.png
-ui.gd::GDScript::1298427617921334991::1768557213::0::1::::<>Control<><>0<>0<><>::
-ui.tscn::PackedScene::2573009740904928668::1768557213::0::1::::<><><>0<>0<><>::uid://sq76bvau60dn::::res://scenes scripts/ui.gd<>uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
-wall.tscn::PackedScene::1524555942161601440::1768557213::0::1::::<><><>0<>0<><>::uid://dcpxyuw3wquqi::::res://sprites/wall.png
-::res://sprites/::1769062842
-4x4 test.png::CompressedTexture2D::993055760369991105::1768557213::1768557213::1::::<><><>0<>0<>4924e706f4644043da82082a8b1da935<>res://.godot/imported/4x4 test.png-13ae390db226b01b653c55beb0bfc550.ctex::
-black grid.png::CompressedTexture2D::355090893280539377::1769005948::1769005949::1::::<><><>0<>0<>f2c7003aa2c5f96bfffcb958db13aeb6<>res://.godot/imported/black grid.png-b634209de87c4e215c739d0a96fc6358.ctex::
-food.png::CompressedTexture2D::6105856786194097899::1768999537::1768999537::1::::<><><>0<>0<>b7bf0d85092908859dff58a80ba2efd4<>res://.godot/imported/food.png-eb902ed6894de1ba4df5e8591424d912.ctex::
-green bg.png::CompressedTexture2D::4525987333448167708::1768988304::1768988304::1::::<><><>0<>0<>0067c84bb567387a0e32f9b30c750ea5<>res://.godot/imported/green bg.png-43d7374c639db6f73558b248e3ead448.ctex::
-grid test.png::CompressedTexture2D::1877184850504027693::1769005899::1769005230::1::::<><><>0<>0<>126053ccd55e732eb951c30bca74ed4e<>res://.godot/imported/grid test.png-269fd5d8de3100c48bb8657fbecc87c1.ctex::
-icon.svg::CompressedTexture2D::5196198289066680378::1768557213::1768557213::1::::<><><>0<>0<>7092596bd1aa04d49e5336b4ea392ee2<>res://.godot/imported/icon.svg-964d8c66fbd3bda40c44ca195472a8e1.ctex::
-level border.png::CompressedTexture2D::5582456144853085243::1768557213::1768557213::1::::<><><>0<>0<>9ddd86a1aa6da3b86cf92071dd3336a7<>res://.godot/imported/level border.png-7d591a50e34b94b87d60b32c9cfe7646.ctex::
-nokia overlay.png::CompressedTexture2D::6474681695950707916::1768976637::1768976646::1::::<><><>0<>0<>82008d93227c723c72eaf500e2b23100<>res://.godot/imported/nokia overlay.png-80472e8515011938e12e8248afaf9023.ctex::
-numbers.png::CompressedTexture2D::1997091666292756686::1768557213::1768557213::1::::<><><>0<>0<>79b744025ee075b480bdb73618c947a5<>res://.godot/imported/numbers.png-52ad183ab298c830de74ee443ffdddc1.ctex::
-sharp grian.png::CompressedTexture2D::3971541950895400986::1768988340::1768988340::1::::<><><>0<>0<>6485674d75d3262d2bf4c38d873bfb46<>res://.godot/imported/sharp grian.png-9546f02f53e48a30ac5278082c986f10.ctex::
-smol snake.png::CompressedTexture2D::2018758259578512898::1768557213::1768557213::1::::<><><>0<>0<>8527168551ede85c88c77a9194551364<>res://.godot/imported/smol snake.png-89f2216305dfd51397e20ba77ff81a8e.ctex::
-superfoods.png::CompressedTexture2D::3701812274384087872::1768557213::1768557213::1::::<><><>0<>0<>b462af1da162be818a932575bdac8d7a<>res://.godot/imported/superfoods.png-6a5d5bbed77ed06d058f12000e91df15.ctex::
-title screen.png::CompressedTexture2D::121351432291435795::1769062841::1769062842::1::::<><><>0<>0<>ed7d6ea7fa6bc21b7c5df1e1e2917a2b<>res://.godot/imported/title screen.png-baaf48b526bb4281665a9e14381ac5cb.ctex::
-wall greemn.png::CompressedTexture2D::5546092185105476990::1768557213::1768557213::1::::<><><>0<>0<>5745cb76068346865cbf083feef483e9<>res://.godot/imported/wall greemn.png-3cda3c27ead8dbdd5896b344673f75ae.ctex::
-wall.png::CompressedTexture2D::7332045840308554584::1768557213::1768557213::1::::<><><>0<>0<>8cf4e381b60154ce396748b95f990cdc<>res://.godot/imported/wall.png-202f71260357ef04e6e8c2cec090a94e.ctex::
-::res://sprites/shit/::1769005938
-black grid.png::CompressedTexture2D::8677947514686737483::1769005937::1769005938::1::::<><><>0<>0<>2a43c015c3305671f59c428c929478ed<>res://.godot/imported/black grid.png-7790c3c55a2f0272cc4015bfc258953f.ctex::
-smol snake.png::CompressedTexture2D::3061767327793457863::1768557213::1768557213::1::::<><><>0<>0<>3cc2cd9e9780b1855c492a658d61d18b<>res://.godot/imported/smol snake.png-0ade032e913cf6711a276ceced3d20b4.ctex::
+::res://::1769334955
+game_smear_controller.gd::GDScript::5100279269634923120::1769332435::0::1::::<>Control<><>0<>0<><>::
+menu.gd::GDScript::5982383314909508277::1769238675::0::1::::<>Control<><>0<>0<><>::
+menu.tscn::PackedScene::4322291186704717420::1769238675::0::1::::<><><>0<>0<><>::uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://crh58j548l86l::::res://menu.gd
+node_2d.tscn::PackedScene::5840157334064964210::1769269538::0::1::::<><><>0<>0<><>::uid://cgbcvkny0wfqg::::res://sprites/icon.svg
+numbers.ttf::FontFile::405336179648591550::1769238675::1769238675::1::::<><><>0<>0<>a33a379e2614747b68ec6e717f53f2fd<>res://.godot/imported/numbers.ttf-863eb0e0cfd18a275f569f4debe51ded.fontdata::
+README.md::TextFile::-1::1769238675::0::1::::<><><>0<>0<><>::
+test.tscn::PackedScene::2216078260444966356::1769238675::0::1::::<><><>0<>0<><>::uid://c53plmxhqausf::::res://scenes scripts/tail.tscn
+Title.gd::GDScript::3502910085011823192::1769238675::0::1::::<>Control<><>0<>0<><>::
+vignette.png::CompressedTexture2D::6366633466673441195::1769238675::1769238675::1::::<><><>0<>0<>fd7f695da9a69f9233a03588ef5f7908<>res://.godot/imported/vignette.png-48412b5bf0b5fe2d7510f7e52aa8e2c9.ctex::
+::res://scenes scripts/::1769334824
+blur.gdshader::Shader::6861770260245868471::1769334014::0::1::::<><><>0<>0<><>::
+food.gd::GDScript::8279192376186307673::1769238675::0::1::::food<>Node2D<><>0<>0<><>::
+food.tscn::PackedScene::5306951085060773223::1769238675::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scenes scripts/food.gd<>uid://ofbqoxcr0qx2::::res://sprites/4x4 test.png
+fullArea.tscn::PackedScene::5321567513985650059::1769238675::0::1::::<><><>0<>0<><>::
+game.tscn::PackedScene::7816693174992426300::1769333107::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://dcpxyuw3wquqi::::res://sprites/wall.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn<>uid://clatlffq3gh6u::::res://sprites/wall greemn.png<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn
+game_smear_ingo.tscn::PackedScene::4209853313398879349::1769334824::0::1::::<><><>0<>0<><>::uid://cewu4bx04fpgq::::res://game_smear_controller.gd<>uid://daqddq80s6d0r::::res://scenes scripts/lcd_ghosting.gdshader<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn<>uid://c405ma3uyb6yd::::res://scenes scripts/blur.gdshader<>uid://ybwu1xedccsp::::res://scenes scripts/sub_viewport_container.gd<>uid://cwybr1u0suvhj::::res://vignette.png<>uid://bwt3yllfh1rbu::::res://sprites/sharp grian.png
+ghostpost.gdshader::Shader::896760964806403455::1769334014::0::1::::<><><>0<>0<><>::
+global.gd::GDScript::2912662693220618486::1769238675::0::1::::<>Node<><>0<>0<><>::
+grid mask.tscn::PackedScene::6800018263590104227::1769238675::0::1::::<><><>0<>0<><>::uid://10k7wa118dq0::::res://sprites/grid test.png
+lcd_ghosting.gdshader::Shader::7192480496017584103::1769334014::0::1::::<><><>0<>0<><>::
+main.tscn::PackedScene::3142776912330984527::1769238675::0::1::::<><><>0<>0<><>::uid://b5qol50nevhjg::::res://sprites/green bg.png<>uid://cgbcvkny0wfqg::::res://sprites/icon.svg<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn<>uid://daqddq80s6d0r::::res://scenes scripts/lcd_ghosting.gdshader
+Master.tscn::PackedScene::1769526995390188184::1769238675::0::1::::<><><>0<>0<><>::uid://b08jw0msxfl4x::::res://scenes scripts/game_smear_ingo.tscn
+player.gd::GDScript::3186466379993582715::1769238675::0::1::::<>Node2D<><>0<>0<><>::
+player.tscn::PackedScene::1161591133076408506::1769238675::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+sub_viewport_container.gd::GDScript::1687969516109234683::1769268328::0::1::::<>SubViewportContainer<><>0<>0<><>::
+superFood.gd::GDScript::6749791724106037232::1769238675::0::1::::superFood<>food<><>0<>0<><>::
+superFood.tscn::PackedScene::9119992179147233116::1769238675::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://c3fwc3tolb47e::::res://scenes scripts/superFood.gd<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
+tail.gd::GDScript::6411427067770344382::1769333107::0::1::::<>Node2D<><>0<>0<><>::
+tail.tscn::PackedScene::6937240318415454553::1769238675::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scenes scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
+TitleScreen.tscn::PackedScene::6367794496742839377::1769238675::0::1::::<><><>0<>0<><>::uid://bp53ogoj3pvx5::::res://Title.gd<>uid://by1v1iymak6n::::res://sprites/title screen.png
+ui.gd::GDScript::1298427617921334991::1769238675::0::1::::<>Control<><>0<>0<><>::
+ui.tscn::PackedScene::2573009740904928668::1769238675::0::1::::<><><>0<>0<><>::uid://sq76bvau60dn::::res://scenes scripts/ui.gd<>uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
+wall.tscn::PackedScene::1524555942161601440::1769238675::0::1::::<><><>0<>0<><>::uid://dcpxyuw3wquqi::::res://sprites/wall.png
+::res://sprites/::1769238675
+4x4 test.png::CompressedTexture2D::993055760369991105::1769238675::1769238675::1::::<><><>0<>0<>4924e706f4644043da82082a8b1da935<>res://.godot/imported/4x4 test.png-13ae390db226b01b653c55beb0bfc550.ctex::
+black grid.png::CompressedTexture2D::355090893280539377::1769238675::1769238675::1::::<><><>0<>0<>f2c7003aa2c5f96bfffcb958db13aeb6<>res://.godot/imported/black grid.png-b634209de87c4e215c739d0a96fc6358.ctex::
+food.png::CompressedTexture2D::6105856786194097899::1769238675::1769238675::1::::<><><>0<>0<>b7bf0d85092908859dff58a80ba2efd4<>res://.godot/imported/food.png-eb902ed6894de1ba4df5e8591424d912.ctex::
+green bg.png::CompressedTexture2D::4525987333448167708::1769238675::1769238675::1::::<><><>0<>0<>0067c84bb567387a0e32f9b30c750ea5<>res://.godot/imported/green bg.png-43d7374c639db6f73558b248e3ead448.ctex::
+grid test.png::CompressedTexture2D::1877184850504027693::1769238675::1769238675::1::::<><><>0<>0<>126053ccd55e732eb951c30bca74ed4e<>res://.godot/imported/grid test.png-269fd5d8de3100c48bb8657fbecc87c1.ctex::
+icon.svg::CompressedTexture2D::5196198289066680378::1769238675::1769238675::1::::<><><>0<>0<>7092596bd1aa04d49e5336b4ea392ee2<>res://.godot/imported/icon.svg-964d8c66fbd3bda40c44ca195472a8e1.ctex::
+level border.png::CompressedTexture2D::5582456144853085243::1769238675::1769238675::1::::<><><>0<>0<>9ddd86a1aa6da3b86cf92071dd3336a7<>res://.godot/imported/level border.png-7d591a50e34b94b87d60b32c9cfe7646.ctex::
+nokia overlay.png::CompressedTexture2D::6474681695950707916::1769238675::1769238675::1::::<><><>0<>0<>82008d93227c723c72eaf500e2b23100<>res://.godot/imported/nokia overlay.png-80472e8515011938e12e8248afaf9023.ctex::
+numbers.png::CompressedTexture2D::1997091666292756686::1769238675::1769238675::1::::<><><>0<>0<>79b744025ee075b480bdb73618c947a5<>res://.godot/imported/numbers.png-52ad183ab298c830de74ee443ffdddc1.ctex::
+sharp grian.png::CompressedTexture2D::3971541950895400986::1769238675::1769238675::1::::<><><>0<>0<>6485674d75d3262d2bf4c38d873bfb46<>res://.godot/imported/sharp grian.png-9546f02f53e48a30ac5278082c986f10.ctex::
+smol snake.png::CompressedTexture2D::2018758259578512898::1769238675::1769238675::1::::<><><>0<>0<>8527168551ede85c88c77a9194551364<>res://.godot/imported/smol snake.png-89f2216305dfd51397e20ba77ff81a8e.ctex::
+superfoods.png::CompressedTexture2D::3701812274384087872::1769238675::1769238675::1::::<><><>0<>0<>b462af1da162be818a932575bdac8d7a<>res://.godot/imported/superfoods.png-6a5d5bbed77ed06d058f12000e91df15.ctex::
+title screen.png::CompressedTexture2D::121351432291435795::1769238675::1769238675::1::::<><><>0<>0<>ed7d6ea7fa6bc21b7c5df1e1e2917a2b<>res://.godot/imported/title screen.png-baaf48b526bb4281665a9e14381ac5cb.ctex::
+wall greemn.png::CompressedTexture2D::5546092185105476990::1769238675::1769238675::1::::<><><>0<>0<>5745cb76068346865cbf083feef483e9<>res://.godot/imported/wall greemn.png-3cda3c27ead8dbdd5896b344673f75ae.ctex::
+wall.png::CompressedTexture2D::7332045840308554584::1769238675::1769238675::1::::<><><>0<>0<>8cf4e381b60154ce396748b95f990cdc<>res://.godot/imported/wall.png-202f71260357ef04e6e8c2cec090a94e.ctex::
+::res://sprites/shit/::1769238675
+black grid.png::CompressedTexture2D::8677947514686737483::1769238675::1769238675::1::::<><><>0<>0<>2a43c015c3305671f59c428c929478ed<>res://.godot/imported/black grid.png-7790c3c55a2f0272cc4015bfc258953f.ctex::
+smol snake.png::CompressedTexture2D::3061767327793457863::1769238675::1769238675::1::::<><><>0<>0<>3cc2cd9e9780b1855c492a658d61d18b<>res://.godot/imported/smol snake.png-0ade032e913cf6711a276ceced3d20b4.ctex::

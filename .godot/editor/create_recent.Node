@@ -1,15 +1,14 @@
+CanvasLayer
+TextureRect
+Control
+CanvasGroup
 HBoxContainer
 Camera2D
-Control
-CanvasLayer
-CanvasGroup
+Container
+Label
+ColorRect
 SubViewportContainer
 SubViewport
-ColorRect
-TextureRect
 WorldEnvironment
 VBoxContainer
 Button
-Sprite2D
-AudioStreamPlayer
-Label      - Matches the "text" keyword.

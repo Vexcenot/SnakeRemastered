@@ -2,11 +2,3 @@ res://scenes scripts/game_smear_ingo.tscn
 res://scenes scripts/lcd_ghosting.gdshader
 res://scenes scripts/blur.gdshader
 res://scenes scripts/ghostpost.gdshader
-res://scenes scripts/superFood.gd
-res://scenes scripts/tail.gd
-res://scenes scripts/game.tscn
-res://scenes scripts/ui.tscn
-res://scenes scripts/food.gd
-res://scenes scripts/ui.gd
-res://scenes scripts/global.gd
-res://scenes scripts/TitleScreen.tscn

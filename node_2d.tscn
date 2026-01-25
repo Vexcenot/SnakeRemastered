@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cphasj75yn2gs"]
+
+[ext_resource type="Texture2D" uid="uid://cgbcvkny0wfqg" path="res://sprites/icon.svg" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+position = Vector2(-68, -72)
+texture = ExtResource("1_wtcfe")
