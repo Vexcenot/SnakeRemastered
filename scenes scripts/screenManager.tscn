@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwd4eaj1y7l7i"]
+
+[ext_resource type="Script" uid="uid://cawxnoj058oyu" path="res://scenes scripts/screen_manager.gd" id="1_758ym"]
+[ext_resource type="PackedScene" uid="uid://djmp2arl0h67y" path="res://scenes scripts/game.tscn" id="2_758ym"]
+
+[node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_758ym")
+
+[node name="game" parent="." instance=ExtResource("2_758ym")]
+layout_mode = 0
+scale = Vector2(14.471995, 14.471995)

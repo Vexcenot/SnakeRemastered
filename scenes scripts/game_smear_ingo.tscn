@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b08jw0msxfl4x"]
+[gd_scene load_steps=13 format=3 uid="uid://b08jw0msxfl4x"]
 
 [ext_resource type="Script" uid="uid://cewu4bx04fpgq" path="res://game_smear_controller.gd" id="1_xjaai"]
+[ext_resource type="PackedScene" uid="uid://b2t0rfa8toa6o" path="res://scenes scripts/menu.tscn" id="2_0ud63"]
 [ext_resource type="Shader" uid="uid://daqddq80s6d0r" path="res://scenes scripts/lcd_ghosting.gdshader" id="3_1n4fr"]
 [ext_resource type="PackedScene" uid="uid://djmp2arl0h67y" path="res://scenes scripts/game.tscn" id="4_0ud63"]
 [ext_resource type="Shader" uid="uid://c405ma3uyb6yd" path="res://scenes scripts/blur.gdshader" id="4_u7v3r"]
@@ -20,11 +21,11 @@ shader_parameter/line_thickness_px = 0.5170000008075
 shader_parameter/edge_softness_px = 1.50000007125
 shader_parameter/invert_grid = false
 shader_parameter/mask_offset_px = Vector2(1.266, 5.625)
-shader_parameter/mask_opacity = 0.2000000095
+shader_parameter/mask_opacity = 0.150000007125
 shader_parameter/enable_shadow = true
 shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.1882353)
 shader_parameter/shadow_offset_px = Vector2(2, 3)
-shader_parameter/object_opacity = 0.70000003325
+shader_parameter/object_opacity = 0.800000038
 
 [sub_resource type="Environment" id="Environment_ac8or"]
 background_mode = 3
@@ -55,6 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xjaai")
+scene_2 = ExtResource("2_0ud63")
 
 [node name="bg color" type="ColorRect" parent="."]
 layout_mode = 1

@@ -15,9 +15,12 @@ var hurting : bool = false
 var multiplayerMode : bool = false
 var playerX : float = 0
 var sFoodActive : bool = false
+var sceneDir
 
 signal tick
 signal reverse
+signal spawnScene
+signal changeScene
 
 func reset():
 	finalTime = originalTime
@@ -31,20 +34,26 @@ func reset():
 	hurting = false
 	score = 0
 
+#tick system
 func _process(delta: float) -> void:
+	#makes time goes up
 	time +=  delta
-	if foodTime > 0:
-		foodTime -= delta
+	
 	if !hurting:
+		#resets timer and emit tick signal
 		if time >= finalTime and moveStart or reversing and time >= finalTime / 2:
 			time = 0
 			tick.emit()
+			
+			#counts down special food timer
 			if foodTime > 0:
 				foodTime -= 1
+			
+			#sets special food sprite frame
 			if foodTime <= 0:
 				spriteFrame = randi() % 6
 
-
+#activates reverse
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action2"):
 		reversing = true
@@ -52,6 +61,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("action2"):
 		reversing = false
 
+#runs when snake dies
 func hurt():
 	hurting = true
 	for i in range(4):
@@ -60,8 +70,6 @@ func hurt():
 		seeable = !seeable
 		await get_tree().create_timer(0.23).timeout
 	hurting = false
+	changeScene.emit()
+	reset()	
 	
-#make this go back to title screen after showing score screen
-	reset()
-	get_tree().reload_current_scene()
-	#get_tree().change_scene_to_file("res://scenes scripts/TitleScreen.tscn")

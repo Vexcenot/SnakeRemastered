@@ -1,27 +1,28 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1769334955
+::res://::1769391491
 game_smear_controller.gd::GDScript::5100279269634923120::1769332435::0::1::::<>Control<><>0<>0<><>::
-menu.gd::GDScript::5982383314909508277::1769238675::0::1::::<>Control<><>0<>0<><>::
-menu.tscn::PackedScene::4322291186704717420::1769238675::0::1::::<><><>0<>0<><>::uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://crh58j548l86l::::res://menu.gd
+menu.gd::GDScript::5982383314909508277::1769391461::0::1::::<>Control<><>0<>0<><>::
 node_2d.tscn::PackedScene::5840157334064964210::1769269538::0::1::::<><><>0<>0<><>::uid://cgbcvkny0wfqg::::res://sprites/icon.svg
 numbers.ttf::FontFile::405336179648591550::1769238675::1769238675::1::::<><><>0<>0<>a33a379e2614747b68ec6e717f53f2fd<>res://.godot/imported/numbers.ttf-863eb0e0cfd18a275f569f4debe51ded.fontdata::
 README.md::TextFile::-1::1769238675::0::1::::<><><>0<>0<><>::
+screenManager.tscn::PackedScene::3938536328075744244::1769391268::0::1::::<><><>0<>0<><>::uid://b2t0rfa8toa6o::::res://scenes scripts/menu.tscn
 test.tscn::PackedScene::2216078260444966356::1769238675::0::1::::<><><>0<>0<><>::uid://c53plmxhqausf::::res://scenes scripts/tail.tscn
 Title.gd::GDScript::3502910085011823192::1769238675::0::1::::<>Control<><>0<>0<><>::
 vignette.png::CompressedTexture2D::6366633466673441195::1769238675::1769238675::1::::<><><>0<>0<>fd7f695da9a69f9233a03588ef5f7908<>res://.godot/imported/vignette.png-48412b5bf0b5fe2d7510f7e52aa8e2c9.ctex::
-::res://scenes scripts/::1769334824
-blur.gdshader::Shader::6861770260245868471::1769334014::0::1::::<><><>0<>0<><>::
+::res://scenes scripts/::1769391467
+blur.gdshader::Shader::6861770260245868471::1769391268::0::1::::<><><>0<>0<><>::
 food.gd::GDScript::8279192376186307673::1769238675::0::1::::food<>Node2D<><>0<>0<><>::
 food.tscn::PackedScene::5306951085060773223::1769238675::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scenes scripts/food.gd<>uid://ofbqoxcr0qx2::::res://sprites/4x4 test.png
 fullArea.tscn::PackedScene::5321567513985650059::1769238675::0::1::::<><><>0<>0<><>::
 game.tscn::PackedScene::7816693174992426300::1769333107::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://dcpxyuw3wquqi::::res://sprites/wall.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn<>uid://clatlffq3gh6u::::res://sprites/wall greemn.png<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn
-game_smear_ingo.tscn::PackedScene::4209853313398879349::1769334824::0::1::::<><><>0<>0<><>::uid://cewu4bx04fpgq::::res://game_smear_controller.gd<>uid://daqddq80s6d0r::::res://scenes scripts/lcd_ghosting.gdshader<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn<>uid://c405ma3uyb6yd::::res://scenes scripts/blur.gdshader<>uid://ybwu1xedccsp::::res://scenes scripts/sub_viewport_container.gd<>uid://cwybr1u0suvhj::::res://vignette.png<>uid://bwt3yllfh1rbu::::res://sprites/sharp grian.png
-ghostpost.gdshader::Shader::896760964806403455::1769334014::0::1::::<><><>0<>0<><>::
+game_smear_ingo.tscn::PackedScene::4209853313398879349::1769345407::0::1::::<><><>0<>0<><>::uid://cewu4bx04fpgq::::res://game_smear_controller.gd<>uid://daqddq80s6d0r::::res://scenes scripts/lcd_ghosting.gdshader<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn<>uid://c405ma3uyb6yd::::res://scenes scripts/blur.gdshader<>uid://ybwu1xedccsp::::res://scenes scripts/sub_viewport_container.gd<>uid://cwybr1u0suvhj::::res://vignette.png<>uid://bwt3yllfh1rbu::::res://sprites/sharp grian.png
+ghostpost.gdshader::Shader::896760964806403455::1769391268::0::1::::<><><>0<>0<><>::
 global.gd::GDScript::2912662693220618486::1769238675::0::1::::<>Node<><>0<>0<><>::
 grid mask.tscn::PackedScene::6800018263590104227::1769238675::0::1::::<><><>0<>0<><>::uid://10k7wa118dq0::::res://sprites/grid test.png
-lcd_ghosting.gdshader::Shader::7192480496017584103::1769334014::0::1::::<><><>0<>0<><>::
+lcd_ghosting.gdshader::Shader::7192480496017584103::1769391268::0::1::::<><><>0<>0<><>::
 main.tscn::PackedScene::3142776912330984527::1769238675::0::1::::<><><>0<>0<><>::uid://b5qol50nevhjg::::res://sprites/green bg.png<>uid://cgbcvkny0wfqg::::res://sprites/icon.svg<>uid://djmp2arl0h67y::::res://scenes scripts/game.tscn<>uid://daqddq80s6d0r::::res://scenes scripts/lcd_ghosting.gdshader
 Master.tscn::PackedScene::1769526995390188184::1769238675::0::1::::<><><>0<>0<><>::uid://b08jw0msxfl4x::::res://scenes scripts/game_smear_ingo.tscn
+menu.tscn::PackedScene::4322291186704717420::1769391467::0::1::::<><><>0<>0<><>::uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://crh58j548l86l::::res://menu.gd
 player.gd::GDScript::3186466379993582715::1769238675::0::1::::<>Node2D<><>0<>0<><>::
 player.tscn::PackedScene::1161591133076408506::1769238675::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scenes scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
 sub_viewport_container.gd::GDScript::1687969516109234683::1769268328::0::1::::<>SubViewportContainer<><>0<>0<><>::

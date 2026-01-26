@@ -48,3 +48,7 @@ func _process_frames() -> void:
 		sub_viewport_container.material.set_shader_parameter("ready", true);
 		sub_viewport_container.material.set_shader_parameter("last_frame", image_buffer);
 		image_buffer.pop_front();
+
+
+
+	

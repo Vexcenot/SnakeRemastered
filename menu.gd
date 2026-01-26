@@ -1,5 +1,13 @@
 extends Control
 
+# Preload the scene at compile time
+const game = preload("res://scenes scripts/game.tscn")
+
+func spawn_enemy():
+	var gameInstance = game.instantiate()
+	get_tree().root.add_child(gameInstance)
+
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes scripts/main.tscn")
+	Global.changeScene.emit()
+	queue_free()

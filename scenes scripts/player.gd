@@ -53,16 +53,6 @@ func _process(_delta: float) -> void:
 		if openJaw <= 0:
 			$headSprite.frame = 2
 	visible = Global.seeable
-	
-
-	#if $headSprite/detect.get_overlapping_areas():
-		#if $headSprite/detect.name == "food":
-			#openJaw = 1
-		#else:
-			#openJaw = 0
-		
-	
-
 
 #spawns tail on game start
 #FIX THIS
@@ -84,13 +74,9 @@ func update():
 	#print(Global.foodEaten)
 	if !Global.hurting:
 		colCheck()
-		
 		move()
-		
 		spawnTail()
-		
 		updateTail()
-		
 	Global.playerX = global_position.x
 	
 	#print("tur ", turnHistory)
@@ -151,7 +137,6 @@ func _input(event: InputEvent) -> void:
 
 
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
 # spawns tail at head current pos and adds it to array
 func spawnTail():
 	#pushes full sprite to array then spawn tails
