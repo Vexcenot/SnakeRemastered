@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="FontFile" uid="uid://f1l3e1j13yb3" path="res://numbers.ttf" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://crh58j548l86l" path="res://menu.gd" id="1_ouk20"]
+[ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
 

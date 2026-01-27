@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c53plmxhqausf"]
 
-[ext_resource type="Script" uid="uid://cxl0jc0rinrbq" path="res://scenes scripts/tail.gd" id="1_5baly"]
+[ext_resource type="Script" uid="uid://cxl0jc0rinrbq" path="res://scripts/tail.gd" id="1_5baly"]
 [ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="1_e204m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5baly"]

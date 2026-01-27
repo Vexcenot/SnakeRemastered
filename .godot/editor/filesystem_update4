@@ -11,3 +11,4 @@ res://scenes scripts/game.tscn
 res://scenes scripts/menu.tscn
 res://scenes scripts/superFood.gd
 res://scenes scripts/ui.gd
+res://scenes scripts/TitleScreen.tscn

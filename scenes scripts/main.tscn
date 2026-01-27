@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b5qol50nevhjg" path="res://sprites/green bg.png" id="1_737ep"]
 [ext_resource type="Texture2D" uid="uid://cgbcvkny0wfqg" path="res://sprites/icon.svg" id="2_4aj4u"]
 [ext_resource type="PackedScene" uid="uid://djmp2arl0h67y" path="res://scenes scripts/game.tscn" id="2_5grs8"]
-[ext_resource type="Shader" uid="uid://daqddq80s6d0r" path="res://scenes scripts/lcd_ghosting.gdshader" id="2_ldica"]
+[ext_resource type="Shader" uid="uid://daqddq80s6d0r" path="res://scripts/lcd_ghosting.gdshader" id="2_ldica"]
 
 [sub_resource type="GDScript" id="GDScript_5grs8"]
 

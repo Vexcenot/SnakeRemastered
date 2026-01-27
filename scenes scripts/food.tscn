@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chuyydvfgw31t"]
 
 [ext_resource type="Texture2D" uid="uid://cs8ytl8rpxdct" path="res://sprites/food.png" id="1_8txok"]
-[ext_resource type="Script" uid="uid://dp7rdaxnt8kij" path="res://scenes scripts/food.gd" id="2_4c3ow"]
+[ext_resource type="Script" uid="uid://dp7rdaxnt8kij" path="res://scripts/food.gd" id="2_4c3ow"]
 [ext_resource type="Texture2D" uid="uid://ofbqoxcr0qx2" path="res://sprites/4x4 test.png" id="3_fuc3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pohk7"]
