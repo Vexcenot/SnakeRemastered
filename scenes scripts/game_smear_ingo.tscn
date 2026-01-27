@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bwd4eaj1y7l7i" path="res://scenes scripts/screenManager.tscn" id="4_0yu0k"]
 [ext_resource type="Shader" uid="uid://c405ma3uyb6yd" path="res://scenes scripts/blur.gdshader" id="4_u7v3r"]
 [ext_resource type="Script" uid="uid://ybwu1xedccsp" path="res://scenes scripts/sub_viewport_container.gd" id="5_0yu0k"]
-[ext_resource type="Texture2D" uid="uid://cwybr1u0suvhj" path="res://vignette.png" id="5_u7v3r"]
+[ext_resource type="Texture2D" uid="uid://cwybr1u0suvhj" path="res://sprites/vignette.png" id="5_u7v3r"]
 [ext_resource type="Texture2D" uid="uid://bwt3yllfh1rbu" path="res://sprites/sharp grian.png" id="7_1n4fr"]
 
 [sub_resource type="Environment" id="Environment_ac8or"]
@@ -25,7 +25,7 @@ adjustment_saturation = 1.24
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ugsd"]
 shader = ExtResource("3_1n4fr")
 shader_parameter/mix_factor = 0.25000000861512
-shader_parameter/color_mix = Color(0, 0, 0, 0.78039217)
+shader_parameter/color_mix = Color(0, 0, 0, 0.7254902)
 shader_parameter/last_frame = Array[Texture2D]([])
 shader_parameter/ready = false
 shader_parameter/enable_mask = true
@@ -44,7 +44,7 @@ shader_parameter/object_opacity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0yu0k"]
 shader = ExtResource("4_u7v3r")
-shader_parameter/blur_radius = 0.30000001425
+shader_parameter/blur_radius = 0.2000000095
 shader_parameter/blur_quality = 3
 
 [node name="Main_Ingo" type="Control"]
@@ -55,6 +55,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xjaai")
+smear_time = 2
 
 [node name="bg color" type="ColorRect" parent="."]
 layout_mode = 1
@@ -102,6 +103,7 @@ scale = Vector2(14.023, 14.023)
 [node name="ignore fx" type="CanvasLayer" parent="."]
 
 [node name="Grain" type="TextureRect" parent="ignore fx"]
+modulate = Color(1, 1, 1, 0.8627451)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -113,13 +115,18 @@ texture = ExtResource("7_1n4fr")
 expand_mode = 1
 
 [node name="Vignette" type="TextureRect" parent="ignore fx"]
-modulate = Color(0, 0, 0, 0.10980392)
+modulate = Color(0, 0, 0, 0.34901962)
 material = SubResource("CanvasItemMaterial_vr3wf")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -118.0
+offset_right = 520.0
+offset_bottom = 242.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8295121, 0.8295121)
 mouse_filter = 2
 texture = ExtResource("5_u7v3r")
 
