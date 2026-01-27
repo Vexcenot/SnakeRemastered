@@ -9,3 +9,5 @@ res://scenes scripts/game_smear_ingo.tscn
 res://game_smear_controller.gd
 res://scenes scripts/game.tscn
 res://scenes scripts/menu.tscn
+res://scenes scripts/superFood.gd
+res://scenes scripts/ui.gd

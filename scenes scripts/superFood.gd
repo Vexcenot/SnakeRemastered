@@ -54,6 +54,4 @@ func teleport_random():
 	if $detect.has_overlapping_areas() or $detect.has_overlapping_bodies():
 		teleport_random()
 	else:
-		await get_tree().process_frame 
-		await get_tree().process_frame 
 		activate()

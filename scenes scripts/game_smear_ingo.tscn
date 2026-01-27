@@ -24,8 +24,8 @@ adjustment_saturation = 1.24
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ugsd"]
 shader = ExtResource("3_1n4fr")
-shader_parameter/mix_factor = 0.25000000861512
-shader_parameter/color_mix = Color(0, 0, 0, 0.7254902)
+shader_parameter/mix_factor = 0.30000001099011997
+shader_parameter/color_mix = Color(0, 0, 0, 0.85490197)
 shader_parameter/last_frame = Array[Texture2D]([])
 shader_parameter/ready = false
 shader_parameter/enable_mask = true
@@ -34,7 +34,7 @@ shader_parameter/line_thickness_px = 0.5170000008075
 shader_parameter/edge_softness_px = 1.50000007125
 shader_parameter/invert_grid = false
 shader_parameter/mask_offset_px = Vector2(1.266, 5.625)
-shader_parameter/mask_opacity = 0.150000007125
+shader_parameter/mask_opacity = 0.130000006175
 shader_parameter/enable_shadow = true
 shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.1882353)
 shader_parameter/shadow_offset_px = Vector2(2, 3)
@@ -55,7 +55,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xjaai")
-smear_time = 2
 
 [node name="bg color" type="ColorRect" parent="."]
 layout_mode = 1
