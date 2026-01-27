@@ -1,11 +1,16 @@
 extends Control
 var game = preload("res://scenes scripts/game.tscn")
-var menu = preload("res://menu.gd")
+var menu = preload("res://scenes scripts/menu.tscn")
+
+
 
 func _ready():
 	Global.changeScene.connect(sceneing)
 	
 func sceneing():
-	for child in $".".get_children():
-		child.queue_free()
 	
+	# Instantiate it
+	var new_instance = Global.ScenetoSpawn.instantiate()
+
+	# Add to scene tree
+	add_child(new_instance)

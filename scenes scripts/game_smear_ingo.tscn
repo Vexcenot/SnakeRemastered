@@ -1,31 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://b08jw0msxfl4x"]
+[gd_scene load_steps=12 format=3 uid="uid://b08jw0msxfl4x"]
 
 [ext_resource type="Script" uid="uid://cewu4bx04fpgq" path="res://game_smear_controller.gd" id="1_xjaai"]
-[ext_resource type="PackedScene" uid="uid://b2t0rfa8toa6o" path="res://scenes scripts/menu.tscn" id="2_0ud63"]
 [ext_resource type="Shader" uid="uid://daqddq80s6d0r" path="res://scenes scripts/lcd_ghosting.gdshader" id="3_1n4fr"]
-[ext_resource type="PackedScene" uid="uid://djmp2arl0h67y" path="res://scenes scripts/game.tscn" id="4_0ud63"]
+[ext_resource type="PackedScene" uid="uid://bwd4eaj1y7l7i" path="res://scenes scripts/screenManager.tscn" id="4_0yu0k"]
 [ext_resource type="Shader" uid="uid://c405ma3uyb6yd" path="res://scenes scripts/blur.gdshader" id="4_u7v3r"]
 [ext_resource type="Script" uid="uid://ybwu1xedccsp" path="res://scenes scripts/sub_viewport_container.gd" id="5_0yu0k"]
 [ext_resource type="Texture2D" uid="uid://cwybr1u0suvhj" path="res://vignette.png" id="5_u7v3r"]
 [ext_resource type="Texture2D" uid="uid://bwt3yllfh1rbu" path="res://sprites/sharp grian.png" id="7_1n4fr"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ugsd"]
-shader = ExtResource("3_1n4fr")
-shader_parameter/mix_factor = 0.25000000861512
-shader_parameter/color_mix = Color(0, 0, 0, 1)
-shader_parameter/last_frame = Array[Texture2D]([])
-shader_parameter/ready = false
-shader_parameter/enable_mask = true
-shader_parameter/grid_size_px = Vector2(14.028, 14.028)
-shader_parameter/line_thickness_px = 0.5170000008075
-shader_parameter/edge_softness_px = 1.50000007125
-shader_parameter/invert_grid = false
-shader_parameter/mask_offset_px = Vector2(1.266, 5.625)
-shader_parameter/mask_opacity = 0.150000007125
-shader_parameter/enable_shadow = true
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.1882353)
-shader_parameter/shadow_offset_px = Vector2(2, 3)
-shader_parameter/object_opacity = 0.800000038
 
 [sub_resource type="Environment" id="Environment_ac8or"]
 background_mode = 3
@@ -41,11 +22,29 @@ adjustment_enabled = true
 adjustment_brightness = 1.72
 adjustment_saturation = 1.24
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ugsd"]
+shader = ExtResource("3_1n4fr")
+shader_parameter/mix_factor = 0.25000000861512
+shader_parameter/color_mix = Color(0, 0, 0, 0.78039217)
+shader_parameter/last_frame = Array[Texture2D]([])
+shader_parameter/ready = false
+shader_parameter/enable_mask = true
+shader_parameter/grid_size_px = Vector2(14.028, 14.028)
+shader_parameter/line_thickness_px = 0.5170000008075
+shader_parameter/edge_softness_px = 1.50000007125
+shader_parameter/invert_grid = false
+shader_parameter/mask_offset_px = Vector2(1.266, 5.625)
+shader_parameter/mask_opacity = 0.150000007125
+shader_parameter/enable_shadow = true
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.1882353)
+shader_parameter/shadow_offset_px = Vector2(2, 3)
+shader_parameter/object_opacity = 1.0
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vr3wf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0yu0k"]
 shader = ExtResource("4_u7v3r")
-shader_parameter/blur_radius = 0.2000000095
+shader_parameter/blur_radius = 0.30000001425
 shader_parameter/blur_quality = 3
 
 [node name="Main_Ingo" type="Control"]
@@ -56,7 +55,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xjaai")
-scene_2 = ExtResource("2_0ud63")
 
 [node name="bg color" type="ColorRect" parent="."]
 layout_mode = 1
@@ -66,6 +64,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1882353, 0.21960784, 0.19215687, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ac8or")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -80,6 +81,7 @@ offset_right = -50.0
 offset_bottom = -30.0
 scale = Vector2(1.04, 1.04)
 stretch = true
+mouse_target = true
 script = ExtResource("5_0yu0k")
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
@@ -90,12 +92,12 @@ size = Vector2i(1230, 690)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="game" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_0ud63")]
-position = Vector2(27, 9)
-scale = Vector2(14.02319, 14.02319)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ac8or")
+[node name="window" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_0yu0k")]
+offset_left = 27.0
+offset_top = 9.0
+offset_right = 27.0
+offset_bottom = 9.0
+scale = Vector2(14.023, 14.023)
 
 [node name="ignore fx" type="CanvasLayer" parent="."]
 
@@ -106,6 +108,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0000008, 1.0000008)
+mouse_filter = 2
 texture = ExtResource("7_1n4fr")
 expand_mode = 1
 
@@ -117,6 +120,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_u7v3r")
 
 [node name="Blur" type="ColorRect" parent="ignore fx"]
@@ -126,3 +130,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

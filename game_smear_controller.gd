@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
 #---------
 func _process_frames() -> void:
 	# Get subviewport texture, convert to ImageTexture and store it in buffer
-	var image: Image = $SubViewportContainer/SubViewport.get_texture().get_image();
+	var image: Image = sub_viewport.get_texture().get_image();
 	prev_tex = ImageTexture.create_from_image(image);
 	image_buffer.push_back(prev_tex);
 	

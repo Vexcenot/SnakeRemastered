@@ -37,6 +37,9 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_bpfs0")
 
+[node name="Control" parent="." instance=ExtResource("8_04w48")]
+layout_mode = 1
+
 [node name="food" parent="." instance=ExtResource("2_737ep")]
 position = Vector2(-9, -9)
 minX = 4
@@ -62,6 +65,3 @@ addEat = false
 [node name="LevelBorder" type="Sprite2D" parent="."]
 position = Vector2(42, 24)
 texture = ExtResource("7_r428f")
-
-[node name="Control" parent="." instance=ExtResource("8_04w48")]
-layout_mode = 1

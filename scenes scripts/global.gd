@@ -1,10 +1,15 @@
 extends Node
+var sceneGame = preload("res://scenes scripts/game.tscn")
+var sceneMenu = preload("res://scenes scripts/menu.tscn")
+var ScenetoSpawn = sceneMenu
+
 var originalTime : float = 0.1
 var finalTime : float = originalTime
 var time : float = originalTime
 var foodEaten : int = 0
 var score : int = 0
 var spriteFrame : int = 0
+var highScore : int
 var foodTime : float = 0
 var setTime : float = 20
 var currentDirection : String = "where the player is currently facing"
@@ -70,6 +75,9 @@ func hurt():
 		seeable = !seeable
 		await get_tree().create_timer(0.23).timeout
 	hurting = false
+	ScenetoSpawn = sceneMenu
 	changeScene.emit()
+	if score > highScore:
+		highScore = score
 	reset()	
 	
