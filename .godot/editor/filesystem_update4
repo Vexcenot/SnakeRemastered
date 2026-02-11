@@ -1,14 +1,4 @@
-res://scenes scripts/screenManager.tscn
-res://scenes scripts/lcd_ghosting.gdshader
-res://scenes scripts/blur.gdshader
-res://scenes scripts/ghostpost.gdshader
-res://menu.gd
-res://scenes scripts/screen_manager.gd
-res://scenes scripts/global.gd
 res://scenes scripts/game_smear_ingo.tscn
-res://game_smear_controller.gd
-res://scenes scripts/game.tscn
-res://scenes scripts/menu.tscn
-res://scenes scripts/superFood.gd
-res://scenes scripts/ui.gd
-res://scenes scripts/TitleScreen.tscn
+res://scripts/lcd_ghosting.gdshader
+res://scripts/blur.gdshader
+res://scripts/ghostpost.gdshader

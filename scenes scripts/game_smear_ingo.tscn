@@ -25,7 +25,7 @@ adjustment_saturation = 1.24
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ugsd"]
 shader = ExtResource("3_1n4fr")
 shader_parameter/mix_factor = 0.30000001099011997
-shader_parameter/color_mix = Color(0, 0, 0, 0.84313726)
+shader_parameter/color_mix = Color(0, 0, 0, 0.5921569)
 shader_parameter/last_frame = Array[Texture2D]([])
 shader_parameter/ready = false
 shader_parameter/enable_mask = true
@@ -63,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.1882353, 0.21960784, 0.19215687, 1)
+color = Color(0.22352941, 0.24705882, 0.21960784, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ac8or")
