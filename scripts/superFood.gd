@@ -33,10 +33,10 @@ func deactivate():
 
 func _on_food_2_area_entered(area: Area2D) -> void:
 	if area.name == "headArea":
+		Global.score += Global.speed * Global.foodTime
 		deactivate()
 		await get_tree().process_frame
 		deactivate()
-		Global.score += 64
 
 
 #FIX CONSTANT TELEPORTING

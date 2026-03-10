@@ -47,4 +47,4 @@ func _on_food_2_area_entered(area: Area2D) -> void:
 		teleport_random()
 		if addEat and Global.foodTime <= 0:
 			Global.foodEaten += 1
-		Global.score += 1
+		Global.score += Global.speed

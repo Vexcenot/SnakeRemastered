@@ -5,3 +5,6 @@ res://scripts/ghostpost.gdshader
 res://scenes scripts/menu.tscn
 res://scripts/player.gd
 res://scenes scripts/player.tscn
+res://scripts/global.gd
+res://scripts/food.gd
+res://scripts/superFood.gd
