@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qsxibdu7sd4e"]
+[gd_scene load_steps=8 format=3 uid="uid://qsxibdu7sd4e"]
 
 [ext_resource type="Script" uid="uid://blnsvu5y16aoh" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://305whs0fsehe" path="res://sprites/smol snake.png" id="2_i3pqv"]
@@ -13,6 +13,8 @@ size = Vector2(79.99983, 19.0476)
 size = Vector2(17.020924, 17.330177)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0amtw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_511js"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_onrkg")
@@ -89,6 +91,12 @@ visible = false
 scale = Vector2(0.60000014, 0.60000014)
 shape = SubResource("RectangleShape2D_0amtw")
 
+[node name="head inside" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head inside"]
+scale = Vector2(0.091191314, 0.091191314)
+shape = SubResource("RectangleShape2D_511js")
+
 [connection signal="area_entered" from="headSprite/headArea" to="." method="_on_head_area_area_entered"]
 [connection signal="area_entered" from="headSprite/detect" to="." method="_on_head_buffer_area_entered"]
 [connection signal="area_exited" from="headSprite/detect" to="." method="_on_head_buffer_area_exited"]
@@ -108,3 +116,4 @@ shape = SubResource("RectangleShape2D_0amtw")
 [connection signal="area_exited" from="left" to="." method="_on_left_area_exited"]
 [connection signal="body_entered" from="left" to="." method="_on_left_body_entered"]
 [connection signal="body_exited" from="left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="head inside" to="." method="_on_head_inside_body_entered"]

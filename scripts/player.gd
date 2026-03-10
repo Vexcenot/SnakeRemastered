@@ -17,7 +17,7 @@ var finalTime : float = 1
 var time : float = 0
 var moveDistance : int = 4
 var eat : int = 0
-var startLength : int = 6
+var startLength : int = 20 #6
 var openJaw : int = 0
 var limitDir : int = limitLeft
 var readyStart : bool = false
@@ -271,6 +271,8 @@ func posRot():
 				#teleports down if too up
 				if position.y <= minY: 
 					position.y = maxY + 4
+				
+				#normal movement
 				position.y -= moveDistance
 				$headSprite.rotation = deg_to_rad(-90)
 				$headSprite.flip_h = false
@@ -283,11 +285,15 @@ func posRot():
 				#teleports up if too down
 				if position.y >= maxY: 
 					position.y = minY - 5
+					
+					
+				#normal movement
 				position.y += moveDistance
 				$headSprite.rotation = deg_to_rad(90)
 				$headSprite.flip_h = false
 				$headSprite.flip_v = true
 				limitDir = limitVer
+
 		right:
 			if rtBlocked:
 				hurt()
@@ -295,6 +301,9 @@ func posRot():
 				#teleports left if too right
 				if position.x >= maxX:
 					position.x = minX - 4
+
+				
+				#normal movement
 				position.x += moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = false
@@ -307,6 +316,9 @@ func posRot():
 				#teleports right if too left
 				if position.x <= minX: 
 					position.x = maxX + 4
+
+				
+				#normal movement
 				position.x -= moveDistance
 				$headSprite.rotation = deg_to_rad(0)
 				$headSprite.flip_h = true
@@ -316,7 +328,6 @@ func posRot():
 
 #snake killer
 func hurt():
-	pass
 	pain = true
 	direction = stop
 	Global.hurt()
@@ -342,6 +353,18 @@ func colCheck():
 	else:
 		lfBlocked = false
 
+func colCheckTele():
+	if $up.has_overlapping_bodies():
+		hurt()
+
+	if $down.has_overlapping_bodies():
+		hurt()
+
+	if $right.has_overlapping_bodies():
+		hurt()
+
+	if $left.has_overlapping_bodies():
+		hurt()
 
 #food detect
 func _on_head_area_area_entered(area: Area2D) -> void:
@@ -355,3 +378,7 @@ func _on_head_buffer_area_entered(area: Area2D) -> void:
 func _on_head_buffer_area_exited(area: Area2D) -> void:
 	if area.name == "food" and openJaw > 0:
 		openJaw -= 1
+
+
+func _on_head_inside_body_entered(_body: Node2D) -> void:
+	hurt()
