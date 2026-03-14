@@ -14,3 +14,9 @@ func _on_button_pressed() ->  void:
 	Global.ScenetoSpawn = Global.sceneGame
 	Global.changeScene.emit()
 	queue_free()
+
+
+func _on_continue_button_up() -> void:
+	Global.ScenetoSpawn = Global.sceneGame
+	Global.changeScene.emit()
+	queue_free()

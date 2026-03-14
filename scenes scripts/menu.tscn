@@ -1,12 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=19 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
-[ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_yxum4"]
+[ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
+[ext_resource type="Texture2D" uid="uid://c63cntorc0l8l" path="res://sprites/button normal.png" id="2_ck6xg"]
+[ext_resource type="Texture2D" uid="uid://cowrgyx78ftji" path="res://sprites/button higlighted.png" id="2_yxum4"]
+[ext_resource type="Texture2D" uid="uid://dvqyne3v8hbcs" path="res://sprites/buttons/new game.png" id="4_jgdjs"]
+[ext_resource type="Texture2D" uid="uid://bxyytgxghgcyr" path="res://sprites/buttons/new game highlighted.png" id="5_2epkg"]
+[ext_resource type="Texture2D" uid="uid://c0e8s2ui4b3ht" path="res://sprites/buttons/level.png" id="6_0b3bo"]
+[ext_resource type="Texture2D" uid="uid://kisdatjqyjks" path="res://sprites/buttons/level highlighted.png" id="7_7tfu8"]
+[ext_resource type="Texture2D" uid="uid://c534652yirxjq" path="res://sprites/buttons/mazes.png" id="8_eeftm"]
+[ext_resource type="Texture2D" uid="uid://qvg745fv575b" path="res://sprites/buttons/mazes highlighted.png" id="9_dst00"]
+[ext_resource type="Texture2D" uid="uid://coc6faoyl0i55" path="res://sprites/buttons/instructions.png" id="10_eeftm"]
+[ext_resource type="Texture2D" uid="uid://dn6eijeh54cij" path="res://sprites/buttons/instructions highlighted.png" id="11_dst00"]
+[ext_resource type="Texture2D" uid="uid://larai2ryx8aa" path="res://sprites/buttons/select.png" id="13_pa2cx"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
+[sub_resource type="Theme" id="Theme_yxum4"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
-bg_color = Color(0, 0, 0, 0.78039217)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ck6xg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60p26"]
+atlas = ExtResource("2_ck6xg")
+region = Rect2(0, 0, 84, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgdjs"]
+atlas = ExtResource("2_yxum4")
+region = Rect2(0, 0, 78, 11)
+
+[sub_resource type="ImageTexture" id="ImageTexture_ewvr7"]
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -19,57 +39,85 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_ouk20")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 84.0
+offset_bottom = 48.0
+color = Color(1, 1, 1, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+text = "dwa"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_yxum4")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="continue" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_yxum4")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ouk20")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
-text = "New game"
-alignment = 0
+texture_normal = SubResource("AtlasTexture_60p26")
+texture_pressed = SubResource("AtlasTexture_jgdjs")
+texture_hover = SubResource("AtlasTexture_jgdjs")
+texture_focused = SubResource("AtlasTexture_jgdjs")
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="new Game" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_yxum4")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ouk20")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
-text = "Level"
-alignment = 0
+texture_normal = ExtResource("4_jgdjs")
+texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_hover = ExtResource("5_2epkg")
+texture_focused = ExtResource("5_2epkg")
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="level" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_yxum4")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ouk20")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
-text = "Mazes"
-alignment = 0
+texture_normal = ExtResource("6_0b3bo")
+texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_hover = ExtResource("7_7tfu8")
+texture_focused = ExtResource("7_7tfu8")
 
-[node name="Button4" type="Button" parent="VBoxContainer"]
+[node name="mazes" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_yxum4")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ouk20")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
-text = "Instructions"
-alignment = 0
+texture_normal = ExtResource("8_eeftm")
+texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_hover = ExtResource("9_dst00")
+texture_focused = ExtResource("9_dst00")
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_pressed"]
+[node name="instructions" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_eeftm")
+texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_hover = ExtResource("11_dst00")
+texture_focused = ExtResource("11_dst00")
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_pa2cx")
+
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/continue" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/new Game" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/level" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/mazes" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/instructions" to="." method="_on_continue_button_up"]
