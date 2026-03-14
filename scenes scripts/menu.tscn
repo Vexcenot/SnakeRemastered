@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=20 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
 [ext_resource type="Texture2D" uid="uid://c63cntorc0l8l" path="res://sprites/button normal.png" id="2_ck6xg"]
 [ext_resource type="Texture2D" uid="uid://cowrgyx78ftji" path="res://sprites/button higlighted.png" id="2_yxum4"]
+[ext_resource type="Texture2D" uid="uid://d0gx6gd6uvtbd" path="res://sprites/scroll bar.png" id="3_pa2cx"]
 [ext_resource type="Texture2D" uid="uid://dvqyne3v8hbcs" path="res://sprites/buttons/new game.png" id="4_jgdjs"]
 [ext_resource type="Texture2D" uid="uid://bxyytgxghgcyr" path="res://sprites/buttons/new game highlighted.png" id="5_2epkg"]
 [ext_resource type="Texture2D" uid="uid://c0e8s2ui4b3ht" path="res://sprites/buttons/level.png" id="6_0b3bo"]
@@ -59,7 +60,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4j3ub")
 theme_override_font_sizes/font_size = 8
-text = "dwa"
+text = "1-8-1"
+horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
@@ -69,14 +71,22 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="ScrollBar" type="Sprite2D" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer"]
+position = Vector2(81, -19)
+texture = ExtResource("3_pa2cx")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="continue" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="continue" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_60p26")
@@ -84,28 +94,28 @@ texture_pressed = SubResource("AtlasTexture_jgdjs")
 texture_hover = SubResource("AtlasTexture_jgdjs")
 texture_focused = SubResource("AtlasTexture_jgdjs")
 
-[node name="new Game" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="new Game" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_jgdjs")
 texture_pressed = SubResource("ImageTexture_ewvr7")
 texture_hover = ExtResource("5_2epkg")
 texture_focused = ExtResource("5_2epkg")
 
-[node name="level" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="level" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_0b3bo")
 texture_pressed = SubResource("ImageTexture_ewvr7")
 texture_hover = ExtResource("7_7tfu8")
 texture_focused = ExtResource("7_7tfu8")
 
-[node name="mazes" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="mazes" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_eeftm")
 texture_pressed = SubResource("ImageTexture_ewvr7")
 texture_hover = ExtResource("9_dst00")
 texture_focused = ExtResource("9_dst00")
 
-[node name="instructions" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="instructions" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("10_eeftm")
 texture_pressed = SubResource("ImageTexture_ewvr7")
@@ -116,8 +126,8 @@ texture_focused = ExtResource("11_dst00")
 layout_mode = 2
 texture_normal = ExtResource("13_pa2cx")
 
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/continue" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/new Game" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/level" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/mazes" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/VBoxContainer/instructions" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/level" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/mazes" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/instructions" to="." method="_on_continue_button_up"]
