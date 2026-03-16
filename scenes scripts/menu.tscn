@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=38 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://coc6faoyl0i55" path="res://sprites/buttons/instructions.png" id="10_eeftm"]
 [ext_resource type="Texture2D" uid="uid://dn6eijeh54cij" path="res://sprites/buttons/instructions highlighted.png" id="11_dst00"]
 [ext_resource type="Texture2D" uid="uid://larai2ryx8aa" path="res://sprites/buttons/select.png" id="13_pa2cx"]
+[ext_resource type="Texture2D" uid="uid://w27bnp11x8ke" path="res://sprites/buttons/arrow.png" id="15_eogbu"]
+[ext_resource type="Texture2D" uid="uid://b1353ka8uqtbm" path="res://sprites/buttons/wasd.png" id="16_efmc1"]
 [ext_resource type="Texture2D" uid="uid://brohw1pu18sfn" path="res://sprites/bars.png" id="16_k8css"]
 [ext_resource type="Texture2D" uid="uid://nku7qvuakqhg" path="res://sprites/buttons/vol brackets.png" id="16_xh7j4"]
 
@@ -171,7 +173,7 @@ theme_override_fonts/font = ExtResource("2_4j3ub")
 theme_override_font_sizes/font_size = 8
 text = "SnakeII Remaster
 by: Vexcenot
-P1 WASD P2 Arrow"
+P1            P2 "
 
 [node name="ok" type="Button" parent="ColorRect/Instructions/text"]
 custom_minimum_size = Vector2(0, -3.375)
@@ -202,6 +204,16 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_n7qjf"
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ybihx")
 text = "OK"
+
+[node name="Arrow" type="Sprite2D" parent="ColorRect/Instructions"]
+position = Vector2(60, 28)
+texture = ExtResource("15_eogbu")
+centered = false
+
+[node name="Wasd" type="Sprite2D" parent="ColorRect/Instructions"]
+position = Vector2(12, 28)
+texture = ExtResource("16_efmc1")
+centered = false
 
 [node name="Level" type="Control" parent="ColorRect"]
 visible = false
