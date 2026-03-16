@@ -2,5 +2,6 @@ res://scenes scripts/menu.tscn
 res://scripts/lcd_ghosting.gdshader
 res://scripts/blur.gdshader
 res://scripts/ghostpost.gdshader
-res://scenes scripts/game_smear_ingo.tscn
-res://scenes scripts/screenManager.tscn
+res://scripts/menu.gd
+res://scripts/global.gd
+res://scripts/player.gd

@@ -3,7 +3,7 @@ var sceneGame = preload("res://scenes scripts/game.tscn")
 var sceneMenu = preload("res://scenes scripts/menu.tscn")
 var ScenetoSpawn = sceneMenu
 
-var speed : int = 5
+var speed : int = 9#6
 var originalTime : float = 1 - (speed*0.1)
 var finalTime : float = originalTime
 var time : float = originalTime
@@ -21,10 +21,16 @@ var hurting : bool = false
 var multiplayerMode : bool = false
 var playerX : float = 0
 var sFoodActive : bool = false
+var levelFrame : int = 9
 
 signal tick
 signal reverse
 signal changeScene
+
+func updateTime():
+	originalTime = 1 - (speed*0.1)
+	finalTime = originalTime
+	time = originalTime
 
 func reset():
 	finalTime = originalTime

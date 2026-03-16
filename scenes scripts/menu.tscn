@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=36 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://coc6faoyl0i55" path="res://sprites/buttons/instructions.png" id="10_eeftm"]
 [ext_resource type="Texture2D" uid="uid://dn6eijeh54cij" path="res://sprites/buttons/instructions highlighted.png" id="11_dst00"]
 [ext_resource type="Texture2D" uid="uid://larai2ryx8aa" path="res://sprites/buttons/select.png" id="13_pa2cx"]
+[ext_resource type="Texture2D" uid="uid://brohw1pu18sfn" path="res://sprites/bars.png" id="16_k8css"]
+[ext_resource type="Texture2D" uid="uid://nku7qvuakqhg" path="res://sprites/buttons/vol brackets.png" id="16_xh7j4"]
 
 [sub_resource type="Theme" id="Theme_yxum4"]
 
@@ -28,6 +30,34 @@ atlas = ExtResource("2_yxum4")
 region = Rect2(0, 0, 78, 11)
 
 [sub_resource type="ImageTexture" id="ImageTexture_ewvr7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efmc1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6ycr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkj45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8c2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_grs6e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhf2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7qjf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jh7g4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybihx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8css"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xh7j4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eogbu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhk6r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjnfi"]
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -46,88 +76,282 @@ offset_right = 84.0
 offset_bottom = 48.0
 color = Color(1, 1, 1, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="main menu" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -1
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/main menu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4j3ub")
 theme_override_font_sizes/font_size = 8
-text = "1-8-1"
+text = "hiscore here"
 horizontal_alignment = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/main menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_yxum4")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
+vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/main menu/ScrollContainer"]
 layout_mode = 2
 
-[node name="ScrollBar" type="Sprite2D" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="ScrollBar" type="Sprite2D" parent="ColorRect/main menu/ScrollContainer/HBoxContainer"]
+visible = false
 position = Vector2(81, -19)
 texture = ExtResource("3_pa2cx")
 centered = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/main menu/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="continue" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="continue" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_60p26")
 texture_pressed = SubResource("AtlasTexture_jgdjs")
 texture_hover = SubResource("AtlasTexture_jgdjs")
+texture_disabled = SubResource("AtlasTexture_jgdjs")
 texture_focused = SubResource("AtlasTexture_jgdjs")
 
-[node name="new Game" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="new Game" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_jgdjs")
 texture_pressed = SubResource("ImageTexture_ewvr7")
 texture_hover = ExtResource("5_2epkg")
-texture_focused = ExtResource("5_2epkg")
+texture_disabled = ExtResource("5_2epkg")
 
-[node name="level" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="level" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_0b3bo")
-texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_pressed = ExtResource("7_7tfu8")
 texture_hover = ExtResource("7_7tfu8")
-texture_focused = ExtResource("7_7tfu8")
 
-[node name="mazes" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="mazes" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_eeftm")
-texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_pressed = ExtResource("9_dst00")
 texture_hover = ExtResource("9_dst00")
-texture_focused = ExtResource("9_dst00")
 
-[node name="instructions" type="TextureButton" parent="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="instructions" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("10_eeftm")
-texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_pressed = ExtResource("11_dst00")
 texture_hover = ExtResource("11_dst00")
-texture_focused = ExtResource("11_dst00")
 
-[node name="TextureButton" type="TextureButton" parent="ColorRect/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="ColorRect/main menu"]
 layout_mode = 2
 texture_normal = ExtResource("13_pa2cx")
 
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/level" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/mazes" to="." method="_on_continue_button_up"]
-[connection signal="button_up" from="ColorRect/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/instructions" to="." method="_on_continue_button_up"]
+[node name="Level" type="Control" parent="ColorRect"]
+visible = false
+anchors_preset = 0
+offset_left = 7.0
+offset_right = 75.0
+offset_bottom = 51.0
+
+[node name="title" type="Label" parent="ColorRect/Level"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+text = "Level:"
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/Level"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 68.0
+offset_bottom = 10.0
+
+[node name="VolBrackets" type="Sprite2D" parent="ColorRect/Level"]
+visible = false
+position = Vector2(0, 10)
+texture = ExtResource("16_xh7j4")
+centered = false
+
+[node name="ok" type="Button" parent="ColorRect/Level"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 0
+offset_top = 36.0
+offset_right = 68.0
+offset_bottom = 54.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efmc1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t6ycr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nkj45")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8c2m")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_grs6e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fhf2g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_n7qjf")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ybihx")
+text = "OK"
+
+[node name="VolBars" type="Sprite2D" parent="ColorRect/Level"]
+position = Vector2(-5, 12)
+texture = ExtResource("16_k8css")
+centered = false
+vframes = 9
+frame = 8
+
+[node name="VolBrackets2" type="Sprite2D" parent="ColorRect/Level"]
+position = Vector2(-5, 12)
+texture = ExtResource("16_xh7j4")
+centered = false
+
+[node name="Control" type="Node2D" parent="ColorRect/Level"]
+position = Vector2(-7, 1)
+
+[node name="1" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 9.0
+offset_bottom = 11.0
+scale = Vector2(1.24, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="2" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 11.0
+offset_top = 3.0
+offset_right = 19.0
+offset_bottom = 11.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="3" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 28.0
+offset_bottom = 11.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="4" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 29.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 11.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="5" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 46.0
+offset_bottom = 11.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="6" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 47.0
+offset_top = 4.0
+offset_right = 55.0
+offset_bottom = 12.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="7" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 56.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 12.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="8" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 65.0
+offset_top = 4.0
+offset_right = 73.0
+offset_bottom = 12.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[node name="9" type="Button" parent="ColorRect/Level/Control"]
+offset_left = 74.0
+offset_top = 4.0
+offset_right = 82.0
+offset_bottom = 12.0
+scale = Vector2(1.0806342, 4.3600006)
+theme_override_styles/normal = SubResource("StyleBoxTexture_k8css")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xh7j4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eogbu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
+
+[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_down"]
+[connection signal="button_up" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_up"]
+[connection signal="pressed" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_new_game_button_down"]
+[connection signal="button_up" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_continue_button_up"]
+[connection signal="pressed" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_new_game_pressed"]
+[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/level" to="." method="_on_level_button_down"]
+[connection signal="button_up" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/mazes" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/instructions" to="." method="_on_continue_button_up"]
+[connection signal="button_down" from="ColorRect/Level/ok" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="ColorRect/Level/Control/1" to="." method="_on__button_down"]
+[connection signal="button_down" from="ColorRect/Level/Control/2" to="." method="_on__button_down2"]
+[connection signal="button_down" from="ColorRect/Level/Control/3" to="." method="_on__button_down3"]
+[connection signal="button_down" from="ColorRect/Level/Control/4" to="." method="_on__button_down4"]
+[connection signal="button_down" from="ColorRect/Level/Control/5" to="." method="_on__button_down5"]
+[connection signal="button_down" from="ColorRect/Level/Control/6" to="." method="_on__button_down6"]
+[connection signal="button_down" from="ColorRect/Level/Control/7" to="." method="_on__button_down7"]
+[connection signal="button_down" from="ColorRect/Level/Control/8" to="." method="_on__button_down8"]
+[connection signal="button_down" from="ColorRect/Level/Control/9" to="." method="_on__button_down9"]

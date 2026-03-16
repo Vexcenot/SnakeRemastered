@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://2bc67q0u30n6"]
+
+[ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="1_oi3di"]
+[ext_resource type="Script" uid="uid://uysn76fy0jof" path="res://scenes scripts/level.gd" id="1_vwcnn"]
+[ext_resource type="Texture2D" uid="uid://nku7qvuakqhg" path="res://sprites/buttons/vol brackets.png" id="2_0b4ue"]
+[ext_resource type="Texture2D" uid="uid://da0ns2cmfx30r" path="res://sprites/buttons/bars.png" id="3_f2txt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi3di"]
+atlas = ExtResource("3_f2txt")
+region = Rect2(0, 0, 68.29, 23)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vwcnn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nsnf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oakfw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjse6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lloi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33h3a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_si6ch"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhw3f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40g0y"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vwcnn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.095, 1.2)
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Level" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 75.0
+offset_bottom = 51.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Level"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_oi3di")
+theme_override_font_sizes/font_size = 8
+text = "Level:"
+
+[node name="bars" type="TextureRect" parent="Level"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_oi3di")
+stretch_mode = 2
+
+[node name="VolBrackets" type="Sprite2D" parent="Level"]
+position = Vector2(35, 21)
+texture = ExtResource("2_0b4ue")
+
+[node name="Button" type="Button" parent="Level"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("1_oi3di")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vwcnn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1nsnf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oakfw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yjse6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2lloi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_33h3a")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_si6ch")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jhw3f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_40g0y")
+text = "OK"
+
+[connection signal="button_down" from="Level/Button" to="." method="_on_button_button_down"]
