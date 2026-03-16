@@ -39,6 +39,9 @@ func _input(event: InputEvent) -> void:
 		elif $ColorRect/Instructions.visible:
 			$ColorRect/Instructions.visible = false
 			$"ColorRect/main menu".visible = true
+		elif $ColorRect/Mazes.visible:
+			$ColorRect/Mazes.visible = false
+			$"ColorRect/main menu".visible = true
 
 
 func _on__button_down() -> void:
@@ -95,4 +98,14 @@ func _on_ok_button_down2() -> void:
 
 func _on_instructions_button_down() -> void:
 	$ColorRect/Instructions.visible = true
+	$"ColorRect/main menu".visible = false
+
+
+func _on_ok_button_down3() -> void:
+	$ColorRect/Mazes.visible = false
+	$"ColorRect/main menu".visible = true
+
+
+func _on_mazes_button_down() -> void:
+	$ColorRect/Mazes.visible = true
 	$"ColorRect/main menu".visible = false
