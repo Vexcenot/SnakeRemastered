@@ -46,6 +46,7 @@ func reset():
 
 #tick system
 func _process(delta: float) -> void:
+	print(speed)
 	#makes time goes up
 	time +=  delta
 	

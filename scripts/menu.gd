@@ -1,8 +1,11 @@
 extends Control
 
-func _process(delta: float) -> void:
-	$ColorRect/Level/VolBars.frame = Global.speed - 1
+func _process(_delta: float) -> void:
+	if $ColorRect/Level.visible:
+		Global.updateTime()
+		$ColorRect/Level/VolBars.frame = Global.speed - 1
 
+var level :bool = true
 
 func _on_new_game_button_down() -> void:
 	Global.ScenetoSpawn = Global.sceneGame
@@ -22,12 +25,19 @@ func _on_button_button_down() -> void:
 func _input(event: InputEvent) -> void:
 	#key presses if level screen active
 	if $ColorRect/Level.visible:
-		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left"):
-			pass
-		if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_right"):
-			pass
-		if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("ui_accept"):
+		if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_left"):
+			if Global.speed >= 2:
+				Global.speed -= 1
+		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_right"):
+			if Global.speed <= 8:
+				Global.speed += 1
+
+	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("ui_accept"):
+		if $ColorRect/Level.visible:
 			$ColorRect/Level.visible = false
+			$"ColorRect/main menu".visible = true
+		elif $ColorRect/Instructions.visible:
+			$ColorRect/Instructions.visible = false
 			$"ColorRect/main menu".visible = true
 
 
@@ -76,3 +86,13 @@ func _on__button_down9() -> void:
 	Global.speed = 9
 	$ColorRect/Level/VolBars.frame = 8
  
+
+
+func _on_ok_button_down2() -> void:
+	$ColorRect/Instructions.visible = false
+	$"ColorRect/main menu".visible = true
+
+
+func _on_instructions_button_down() -> void:
+	$ColorRect/Instructions.visible = true
+	$"ColorRect/main menu".visible = false
