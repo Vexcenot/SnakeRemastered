@@ -76,10 +76,9 @@ script = ExtResource("1_ouk20")
 layout_mode = 0
 offset_right = 84.0
 offset_bottom = 48.0
-color = Color(0, 0, 0, 0.30980393)
+color = Color(0, 0, 0, 0)
 
 [node name="main menu" type="VBoxContainer" parent="ColorRect"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -397,6 +396,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
 
 [node name="Mazes" type="Control" parent="ColorRect"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

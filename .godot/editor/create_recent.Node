@@ -1,3 +1,4 @@
+TileMapLayer
 Label
 Control
 Button
@@ -11,4 +12,3 @@ TextureRect
 VBoxContainer
 TextureButton
 Camera2D
-CenterContainer
