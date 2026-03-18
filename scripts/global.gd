@@ -55,7 +55,6 @@ func reset():
 
 #tick system
 func _process(delta: float) -> void:
-	print(speed)
 	#makes time goes up
 	time +=  delta
 	
@@ -91,8 +90,8 @@ func hurt():
 		await get_tree().create_timer(0.23).timeout
 	hurting = false
 	ScenetoSpawn = sceneMenu
-	changeScene.emit()
-	if score > highScore:
+	if score >= highScore:
 		highScore = score
+	changeScene.emit()
 	reset()	
 	

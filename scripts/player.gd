@@ -46,7 +46,6 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	Global.originalTime = 1 - (Global.speed*0.1)
-	print(Global.speed)
 	#see if you can make this on update
 	if openJaw >= 1:
 		$headSprite.frame = 5

@@ -4,7 +4,6 @@ var score = Global.score
 
 	
 func _process(delta: float) -> void:
-
 	$score.text = "%04d" %Global.score
 #shows food timer
 	if Global.sFoodActive:

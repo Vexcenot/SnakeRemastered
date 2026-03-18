@@ -1,7 +1,10 @@
 extends Control
-
+var score = Global.highScore
 func _ready():
+	print(Global.highScore)
 	Global.ScenetoSpawn = Global.levelSpawn
+	$ColorRect/Menu/Label.text = "%03d" %score
+	$ColorRect/Mazes/Label.text = "%03d" %Global.highScore
 
 func _process(_delta: float) -> void:
 	if $ColorRect/Level.visible:
