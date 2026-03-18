@@ -114,7 +114,7 @@ size_flags_vertical = 3
 theme = SubResource("Theme_yxum4")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 0
+vertical_scroll_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Menu/main menu/ScrollContainer"]
 layout_mode = 2
@@ -449,6 +449,7 @@ theme_override_constants/separation = 0
 [node name="no maze" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -478,6 +479,7 @@ alignment = 0
 [node name="Maze1" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -507,6 +509,7 @@ alignment = 0
 [node name="Maze2" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -536,6 +539,7 @@ alignment = 0
 [node name="Maze3" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -566,6 +570,7 @@ alignment = 0
 [node name="Maze4" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -596,6 +601,7 @@ alignment = 0
 [node name="Maze5" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -620,7 +626,6 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
 theme_override_styles/focus = ExtResource("20_nkj45")
 text = "Maze 5
-
 "
 alignment = 0
 
@@ -629,7 +634,7 @@ custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
@@ -796,5 +801,11 @@ text = "OK"
 [connection signal="button_down" from="ColorRect/Level/buttons/7" to="." method="_on__button_down7"]
 [connection signal="button_down" from="ColorRect/Level/buttons/8" to="." method="_on__button_down8"]
 [connection signal="button_down" from="ColorRect/Level/buttons/9" to="." method="_on__button_down9"]
+[connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/no maze" to="." method="_on_no_maze_button_down"]
+[connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maze1" to="." method="_on_maze_1_button_down"]
+[connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maze2" to="." method="_on_maze_2_button_down"]
+[connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maze3" to="." method="_on_maze_3_button_down"]
+[connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maze4" to="." method="_on_maze_4_button_down"]
+[connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maze5" to="." method="_on_maze_5_button_down"]
 [connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ok" to="." method="_on_ok_button_down3"]
 [connection signal="button_down" from="ColorRect/archv/VBoxContainer/ok" to="." method="_on_ok_button_down3"]

@@ -23,7 +23,7 @@ adjustment_saturation = 1.24
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ugsd"]
 shader = ExtResource("3_1n4fr")
 shader_parameter/mix_factor = 0.23000000766512
-shader_parameter/color_mix = Color(0, 0, 0, 0.6745098)
+shader_parameter/color_mix = Color(0, 0, 0, 0.7058824)
 shader_parameter/last_frame = Array[Texture2D]([])
 shader_parameter/ready = false
 shader_parameter/enable_mask = true

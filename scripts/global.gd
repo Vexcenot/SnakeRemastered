@@ -1,8 +1,16 @@
 extends Node
 var sceneGame = preload("res://scenes scripts/game.tscn")
 var maze1 = preload("res://scenes scripts/maze1.tscn" )
+var maze2 = preload("res://scenes scripts/maze2.tscn" )
+var maze3 = preload("res://scenes scripts/maze3.tscn" )
+var maze4 = preload("res://scenes scripts/maze4.tscn" )
+var maze5 = preload("res://scenes scripts/maze5.tscn" )
+
+
+
+
 var sceneMenu = preload("res://scenes scripts/menu.tscn")
-var ScenetoSpawn = sceneMenu
+var ScenetoSpawn = sceneGame
 
 var speed : int = 9#6
 var originalTime : float = 1 - (speed*0.1)

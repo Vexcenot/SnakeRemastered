@@ -1,3 +1,4 @@
+TextureRect
 HBoxContainer
 Control
 VBoxContainer
@@ -11,4 +12,3 @@ CollisionShape2D
 Area2D
 ColorRect
 Container
-TextureRect

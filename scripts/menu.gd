@@ -8,7 +8,6 @@ func _process(_delta: float) -> void:
 var level :bool = true
 
 func _on_new_game_button_down() -> void:
-	Global.ScenetoSpawn = Global.sceneGame
 	Global.changeScene.emit()
 	await get_tree().process_frame
 	queue_free()
@@ -109,3 +108,27 @@ func _on_ok_button_down3() -> void:
 func _on_mazes_button_down() -> void:
 	$ColorRect/Mazes.visible = true
 	$ColorRect/Menu.visible = false
+
+
+func _on_no_maze_button_down() -> void:
+	Global.ScenetoSpawn = Global.sceneGame
+
+
+func _on_maze_1_button_down() -> void:
+	Global.ScenetoSpawn = Global.maze1
+
+
+func _on_maze_2_button_down() -> void:
+	Global.ScenetoSpawn = Global.maze2
+
+
+func _on_maze_3_button_down() -> void:
+	Global.ScenetoSpawn = Global.maze3
+
+
+func _on_maze_4_button_down() -> void:
+	Global.ScenetoSpawn = Global.maze4
+
+
+func _on_maze_5_button_down() -> void:
+	Global.ScenetoSpawn = Global.maze5
