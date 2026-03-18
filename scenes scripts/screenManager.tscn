@@ -18,7 +18,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2.095, 1.2)
-color = Color(1, 1, 1, 0.039215688)
+color = Color(0, 0, 0, 0.039215688)
 
 [node name="Menu" parent="." instance=ExtResource("1_36rdl")]
 layout_mode = 1
