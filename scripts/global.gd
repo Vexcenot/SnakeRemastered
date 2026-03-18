@@ -1,5 +1,6 @@
 extends Node
 var sceneGame = preload("res://scenes scripts/game.tscn")
+var maze1 = preload("res://scenes scripts/maze1.tscn" )
 var sceneMenu = preload("res://scenes scripts/menu.tscn")
 var ScenetoSpawn = sceneMenu
 

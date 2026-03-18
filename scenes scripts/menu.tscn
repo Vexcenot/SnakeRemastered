@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=39 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
@@ -61,6 +61,9 @@ region = Rect2(0, 0, 78, 11)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjnfi"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eogbu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Menu" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -78,17 +81,24 @@ offset_right = 84.0
 offset_bottom = 48.0
 color = Color(0, 0, 0, 0)
 
-[node name="main menu" type="VBoxContainer" parent="ColorRect"]
+[node name="Menu" type="Control" parent="ColorRect"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="main menu" type="VBoxContainer" parent="ColorRect/Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 10.0
+offset_right = 44.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -1
 
-[node name="Label" type="Label" parent="ColorRect/main menu"]
+[node name="Label" type="Label" parent="ColorRect/Menu/main menu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4j3ub")
@@ -96,7 +106,7 @@ theme_override_font_sizes/font_size = 8
 text = "hiscore here"
 horizontal_alignment = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/main menu"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/Menu/main menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_yxum4")
@@ -104,23 +114,23 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/main menu/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Menu/main menu/ScrollContainer"]
 layout_mode = 2
 
-[node name="ScrollBar" type="Sprite2D" parent="ColorRect/main menu/ScrollContainer/HBoxContainer"]
+[node name="ScrollBar" type="Sprite2D" parent="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer"]
 visible = false
 position = Vector2(81, -19)
 texture = ExtResource("3_pa2cx")
 centered = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/main menu/ScrollContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="continue" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="continue" type="TextureButton" parent="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_60p26")
@@ -129,32 +139,32 @@ texture_hover = SubResource("AtlasTexture_jgdjs")
 texture_disabled = SubResource("AtlasTexture_jgdjs")
 texture_focused = SubResource("AtlasTexture_jgdjs")
 
-[node name="new Game" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="new Game" type="TextureButton" parent="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_jgdjs")
 texture_pressed = SubResource("ImageTexture_ewvr7")
 texture_hover = ExtResource("5_2epkg")
 texture_disabled = ExtResource("5_2epkg")
 
-[node name="level" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="level" type="TextureButton" parent="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_0b3bo")
 texture_pressed = ExtResource("7_7tfu8")
 texture_hover = ExtResource("7_7tfu8")
 
-[node name="mazes" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="mazes" type="TextureButton" parent="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_eeftm")
 texture_pressed = ExtResource("9_dst00")
 texture_hover = ExtResource("9_dst00")
 
-[node name="instructions" type="TextureButton" parent="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="instructions" type="TextureButton" parent="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("10_eeftm")
 texture_pressed = ExtResource("11_dst00")
 texture_hover = ExtResource("11_dst00")
 
-[node name="TextureButton" type="TextureButton" parent="ColorRect/main menu"]
+[node name="TextureButton" type="TextureButton" parent="ColorRect/Menu/main menu"]
 layout_mode = 2
 texture_normal = ExtResource("13_pa2cx")
 
@@ -230,12 +240,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4j3ub")
 theme_override_font_sizes/font_size = 8
 text = "Level:"
-
-[node name="ColorRect2" type="ColorRect" parent="ColorRect/Level"]
-layout_mode = 0
-offset_top = 10.0
-offset_right = 68.0
-offset_bottom = 10.0
 
 [node name="VolBrackets" type="Sprite2D" parent="ColorRect/Level"]
 visible = false
@@ -396,28 +400,184 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bhk6r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fjnfi")
 
 [node name="Mazes" type="Control" parent="ColorRect"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="ColorRect/Mazes"]
 layout_mode = 0
-offset_top = 12.0
-offset_right = 40.0
-offset_bottom = 35.0
+offset_right = 84.0
+offset_bottom = 10.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4j3ub")
 theme_override_font_sizes/font_size = 8
-text = "12345"
+text = "8 - 1 -3 - 3"
+horizontal_alignment = 2
 
-[node name="ok" type="Button" parent="ColorRect/Mazes"]
-custom_minimum_size = Vector2(0, -3.375)
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Mazes"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 36.0
-offset_right = 75.0
-offset_bottom = 54.0
+offset_top = 9.0
+offset_right = 84.0
+offset_bottom = 49.0
+theme_override_constants/separation = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/Mazes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_yxum4")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="ScrollBar" type="Sprite2D" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer"]
+position = Vector2(81, -19)
+texture = ExtResource("3_pa2cx")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="continue" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_60p26")
+texture_pressed = SubResource("AtlasTexture_jgdjs")
+texture_hover = SubResource("AtlasTexture_jgdjs")
+texture_disabled = SubResource("AtlasTexture_jgdjs")
+texture_focused = SubResource("AtlasTexture_jgdjs")
+
+[node name="new Game" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_jgdjs")
+texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_hover = ExtResource("5_2epkg")
+texture_disabled = ExtResource("5_2epkg")
+
+[node name="level" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_0b3bo")
+texture_pressed = ExtResource("7_7tfu8")
+texture_hover = ExtResource("7_7tfu8")
+
+[node name="mazes" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_eeftm")
+texture_pressed = ExtResource("9_dst00")
+texture_hover = ExtResource("9_dst00")
+
+[node name="instructions" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_eeftm")
+texture_pressed = ExtResource("11_dst00")
+texture_hover = ExtResource("11_dst00")
+
+[node name="ok" type="Button" parent="ColorRect/Mazes/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_eogbu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efmc1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t6ycr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nkj45")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8c2m")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_grs6e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fhf2g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_n7qjf")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ybihx")
+text = "OK"
+
+[node name="archv" type="Control" parent="ColorRect"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/archv"]
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+text = "hiscore here"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/archv"]
+layout_mode = 0
+offset_top = 9.0
+offset_right = 84.0
+offset_bottom = 49.0
+theme_override_constants/separation = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/archv/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_yxum4")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/archv/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="continue" type="TextureButton" parent="ColorRect/archv/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_60p26")
+texture_pressed = SubResource("AtlasTexture_jgdjs")
+texture_hover = SubResource("AtlasTexture_jgdjs")
+texture_disabled = SubResource("AtlasTexture_jgdjs")
+texture_focused = SubResource("AtlasTexture_jgdjs")
+
+[node name="new Game" type="TextureButton" parent="ColorRect/archv/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_jgdjs")
+texture_pressed = SubResource("ImageTexture_ewvr7")
+texture_hover = ExtResource("5_2epkg")
+texture_disabled = ExtResource("5_2epkg")
+
+[node name="level" type="TextureButton" parent="ColorRect/archv/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_0b3bo")
+texture_pressed = ExtResource("7_7tfu8")
+texture_hover = ExtResource("7_7tfu8")
+
+[node name="mazes" type="TextureButton" parent="ColorRect/archv/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_eeftm")
+texture_pressed = ExtResource("9_dst00")
+texture_hover = ExtResource("9_dst00")
+
+[node name="instructions" type="TextureButton" parent="ColorRect/archv/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_eeftm")
+texture_pressed = ExtResource("11_dst00")
+texture_hover = ExtResource("11_dst00")
+
+[node name="ok" type="Button" parent="ColorRect/archv/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
@@ -441,25 +601,42 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ybihx")
 text = "OK"
 
-[node name="title" type="Label" parent="ColorRect/Mazes"]
-layout_mode = 0
-offset_left = 7.0
-offset_right = 75.0
-offset_bottom = 10.0
+[node name="ok" type="Button" parent="ColorRect/archv/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
 theme_override_fonts/font = ExtResource("2_4j3ub")
 theme_override_font_sizes/font_size = 8
-text = "Mazes:"
+theme_override_styles/normal = SubResource("StyleBoxFlat_eogbu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efmc1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t6ycr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nkj45")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8c2m")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_grs6e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fhf2g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_n7qjf")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ybihx")
+text = "OK"
 
-[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_down"]
-[connection signal="button_up" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_up"]
-[connection signal="pressed" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]
-[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_new_game_button_down"]
-[connection signal="button_up" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_continue_button_up"]
-[connection signal="pressed" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_new_game_pressed"]
-[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/level" to="." method="_on_level_button_down"]
-[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/mazes" to="." method="_on_mazes_button_down"]
-[connection signal="button_down" from="ColorRect/main menu/ScrollContainer/HBoxContainer/VBoxContainer/instructions" to="." method="_on_instructions_button_down"]
+[connection signal="button_down" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_down"]
+[connection signal="button_up" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_button_up"]
+[connection signal="pressed" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="button_down" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_new_game_button_down"]
+[connection signal="button_up" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_continue_button_up"]
+[connection signal="pressed" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/new Game" to="." method="_on_new_game_pressed"]
+[connection signal="button_down" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/level" to="." method="_on_level_button_down"]
+[connection signal="button_down" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/mazes" to="." method="_on_mazes_button_down"]
+[connection signal="button_down" from="ColorRect/Menu/main menu/ScrollContainer/HBoxContainer/VBoxContainer/instructions" to="." method="_on_instructions_button_down"]
 [connection signal="button_down" from="ColorRect/Instructions/text/ok" to="." method="_on_ok_button_down2"]
 [connection signal="button_down" from="ColorRect/Level/ok" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="ColorRect/Level/buttons/1" to="." method="_on__button_down"]
@@ -471,4 +648,5 @@ text = "Mazes:"
 [connection signal="button_down" from="ColorRect/Level/buttons/7" to="." method="_on__button_down7"]
 [connection signal="button_down" from="ColorRect/Level/buttons/8" to="." method="_on__button_down8"]
 [connection signal="button_down" from="ColorRect/Level/buttons/9" to="." method="_on__button_down9"]
-[connection signal="button_down" from="ColorRect/Mazes/ok" to="." method="_on_ok_button_down3"]
+[connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ok" to="." method="_on_ok_button_down3"]
+[connection signal="button_down" from="ColorRect/archv/VBoxContainer/ok" to="." method="_on_ok_button_down3"]

@@ -16,11 +16,11 @@ func _on_new_game_button_down() -> void:
 #make it spawn scene ontop of main scene
 func _on_level_button_down() -> void:
 	$ColorRect/Level.visible = true
-	$"ColorRect/main menu".visible = false
+	$ColorRect/Menu.visible = false
 
 func _on_button_button_down() -> void:
 	$ColorRect/Level.visible = false
-	$"ColorRect/main menu".visible = true
+	$ColorRect/Menu.visible = true
 
 func _input(event: InputEvent) -> void:
 	#key presses if level screen active
@@ -35,13 +35,13 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("ui_accept"):
 		if $ColorRect/Level.visible:
 			$ColorRect/Level.visible = false
-			$"ColorRect/main menu".visible = true
+			$ColorRect/Menu.visible = true
 		elif $ColorRect/Instructions.visible:
 			$ColorRect/Instructions.visible = false
-			$"ColorRect/main menu".visible = true
+			$ColorRect/Menu.visible = true
 		elif $ColorRect/Mazes.visible:
 			$ColorRect/Mazes.visible = false
-			$"ColorRect/main menu".visible = true
+			$ColorRect/Menu.visible = true
 
 
 func _on__button_down() -> void:
@@ -93,19 +93,19 @@ func _on__button_down9() -> void:
 
 func _on_ok_button_down2() -> void:
 	$ColorRect/Instructions.visible = false
-	$"ColorRect/main menu".visible = true
+	$ColorRect/Menu.visible = true
 
 
 func _on_instructions_button_down() -> void:
 	$ColorRect/Instructions.visible = true
-	$"ColorRect/main menu".visible = false
+	$ColorRect/Menu.visible = false
 
 
 func _on_ok_button_down3() -> void:
 	$ColorRect/Mazes.visible = false
-	$"ColorRect/main menu".visible = true
+	$ColorRect/Menu.visible = true
 
 
 func _on_mazes_button_down() -> void:
 	$ColorRect/Mazes.visible = true
-	$"ColorRect/main menu".visible = false
+	$ColorRect/Menu.visible = false

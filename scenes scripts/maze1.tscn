@@ -1,48 +1,48 @@
-[gd_scene load_steps=18 format=4 uid="uid://djmp2arl0h67y"]
+[gd_scene load_steps=18 format=4 uid="uid://c37wqwvbk55w6"]
 
-[ext_resource type="Script" uid="uid://b1t77m7ck2aiy" path="res://scripts/game.gd" id="1_bpfs0"]
-[ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="2_737ep"]
-[ext_resource type="PackedScene" uid="uid://vyrhi7no52rc" path="res://scenes scripts/wall.tscn" id="4_4aj4u"]
-[ext_resource type="PackedScene" uid="uid://d26166gmdh3d5" path="res://scenes scripts/superFood.tscn" id="6_r428f"]
-[ext_resource type="PackedScene" uid="uid://qsxibdu7sd4e" path="res://scenes scripts/player.tscn" id="6_u5fcb"]
-[ext_resource type="Texture2D" uid="uid://clsgicc6rciet" path="res://sprites/level border.png" id="7_r428f"]
-[ext_resource type="PackedScene" uid="uid://bcwndhiw26dmq" path="res://scenes scripts/ui.tscn" id="8_04w48"]
+[ext_resource type="Script" uid="uid://b1t77m7ck2aiy" path="res://scripts/game.gd" id="1_eo8r6"]
+[ext_resource type="PackedScene" uid="uid://bcwndhiw26dmq" path="res://scenes scripts/ui.tscn" id="2_2pxbg"]
+[ext_resource type="PackedScene" uid="uid://chuyydvfgw31t" path="res://scenes scripts/food.tscn" id="3_y8sdr"]
+[ext_resource type="PackedScene" uid="uid://qsxibdu7sd4e" path="res://scenes scripts/player.tscn" id="4_b7v6x"]
+[ext_resource type="PackedScene" uid="uid://d26166gmdh3d5" path="res://scenes scripts/superFood.tscn" id="5_pjgyb"]
+[ext_resource type="Texture2D" uid="uid://clsgicc6rciet" path="res://sprites/level border.png" id="6_ordts"]
+[ext_resource type="PackedScene" uid="uid://vyrhi7no52rc" path="res://scenes scripts/wall.tscn" id="7_jy68u"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_equ2a"]
-scenes/1/scene = ExtResource("4_4aj4u")
-scenes/2/scene = ExtResource("6_u5fcb")
+scenes/1/scene = ExtResource("7_jy68u")
+scenes/2/scene = ExtResource("4_b7v6x")
 
 [sub_resource type="TileSet" id="TileSet_e4aj0"]
 tile_size = Vector2i(2, 2)
 sources/0 = SubResource("TileSetScenesCollectionSource_equ2a")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_e4aj0"]
-scenes/1/scene = ExtResource("4_4aj4u")
-scenes/2/scene = ExtResource("6_u5fcb")
+scenes/1/scene = ExtResource("7_jy68u")
+scenes/2/scene = ExtResource("4_b7v6x")
 
 [sub_resource type="TileSet" id="TileSet_bpfs0"]
 tile_size = Vector2i(2, 2)
 sources/0 = SubResource("TileSetScenesCollectionSource_e4aj0")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bpfs0"]
-scenes/1/scene = ExtResource("4_4aj4u")
-scenes/2/scene = ExtResource("6_u5fcb")
+scenes/1/scene = ExtResource("7_jy68u")
+scenes/2/scene = ExtResource("4_b7v6x")
 
 [sub_resource type="TileSet" id="TileSet_ve4h6"]
 tile_size = Vector2i(2, 2)
 sources/0 = SubResource("TileSetScenesCollectionSource_bpfs0")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ve4h6"]
-scenes/1/scene = ExtResource("4_4aj4u")
-scenes/2/scene = ExtResource("6_u5fcb")
+scenes/1/scene = ExtResource("7_jy68u")
+scenes/2/scene = ExtResource("4_b7v6x")
 
 [sub_resource type="TileSet" id="TileSet_5vvk0"]
 tile_size = Vector2i(2, 2)
 sources/0 = SubResource("TileSetScenesCollectionSource_ve4h6")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5vvk0"]
-scenes/1/scene = ExtResource("4_4aj4u")
-scenes/2/scene = ExtResource("6_u5fcb")
+scenes/1/scene = ExtResource("7_jy68u")
+scenes/2/scene = ExtResource("4_b7v6x")
 
 [sub_resource type="TileSet" id="TileSet_lv2g1"]
 tile_size = Vector2i(2, 2)
@@ -52,22 +52,22 @@ sources/0 = SubResource("TileSetScenesCollectionSource_5vvk0")
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_bpfs0")
+script = ExtResource("1_eo8r6")
 
-[node name="Control" parent="." instance=ExtResource("8_04w48")]
+[node name="Control" parent="." instance=ExtResource("2_2pxbg")]
 layout_mode = 1
 
-[node name="food" parent="." instance=ExtResource("2_737ep")]
+[node name="food" parent="." instance=ExtResource("3_y8sdr")]
 position = Vector2(-9, -9)
 minX = 4
 minY = 12
 maxX = 81
 maxY = 45
 
-[node name="Player" parent="." instance=ExtResource("6_u5fcb")]
+[node name="Player" parent="." instance=ExtResource("4_b7v6x")]
 position = Vector2(40, 28)
 
-[node name="superFood" parent="." instance=ExtResource("6_r428f")]
+[node name="superFood" parent="." instance=ExtResource("5_pjgyb")]
 position = Vector2(4, 12)
 minX = 4
 minY = 12
@@ -75,12 +75,16 @@ addEat = false
 
 [node name="LevelBorder" type="Sprite2D" parent="."]
 position = Vector2(42, 24)
-texture = ExtResource("7_r428f")
+texture = ExtResource("6_ordts")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, 9)
 tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAQAnAAEAAAAAAAAAAQACAAEAAAAAAAAAAQADAAEAAAAAAAAAAQAEAAEAAAAAAAAAAQAFAAEAAAAAAAAAAQAGAAEAAAAAAAAAAQAHAAEAAAAAAAAAAQAIAAEAAAAAAAAAAQAJAAEAAAAAAAAAAQAKAAEAAAAAAAAAAQALAAEAAAAAAAAAAQAMAAEAAAAAAAAAAQANAAEAAAAAAAAAAQAOAAEAAAAAAAAAAQAPAAEAAAAAAAAAAQATAAEAAAAAAAAAAQAUAAEAAAAAAAAAAQAVAAEAAAAAAAAAAQAWAAEAAAAAAAAAAQAXAAEAAAAAAAAAAQAYAAEAAAAAAAAAAQAZAAEAAAAAAAAAAQAaAAEAAAAAAAAAAQAbAAEAAAAAAAAAAQAcAAEAAAAAAAAAAQAdAAEAAAAAAAAAAQAeAAEAAAAAAAAAAQAfAAEAAAAAAAAAAQAgAAEAAAAAAAAAAQAhAAEAAAAAAAAAAQAiAAEAAAAAAAAAAQAjAAEAAAAAAAAAAQAkAAEAAAAAAAAAAQAlAAEAAAAAAAAAAQAmAAEAAAAAAAAAAQAnAAIAAAAAAAAAAQAnAAMAAAAAAAAAAQAnAAQAAAAAAAAAAQAnAAUAAAAAAAAAAQAnAAYAAAAAAAAAAQAnAAcAAAAAAAAAAQAnAAgAAAAAAAAAAQAnAAkAAAAAAAAAAQAnAAoAAAAAAAAAAQAnAAsAAAAAAAAAAQAnAAwAAAAAAAAAAQAnAA0AAAAAAAAAAQAnAA4AAAAAAAAAAQAnAA8AAAAAAAAAAQAnABAAAAAAAAAAAQAnABEAAAAAAAAAAQAmABEAAAAAAAAAAQAlABEAAAAAAAAAAQAkABEAAAAAAAAAAQAjABEAAAAAAAAAAQAiABEAAAAAAAAAAQAhABEAAAAAAAAAAQAgABEAAAAAAAAAAQAfABEAAAAAAAAAAQAeABEAAAAAAAAAAQAdABEAAAAAAAAAAQAcABEAAAAAAAAAAQAbABEAAAAAAAAAAQAaABEAAAAAAAAAAQAZABEAAAAAAAAAAQAYABEAAAAAAAAAAQAXABEAAAAAAAAAAQAWABEAAAAAAAAAAQAVABEAAAAAAAAAAQAUABEAAAAAAAAAAQATABEAAAAAAAAAAQASABEAAAAAAAAAAQARABEAAAAAAAAAAQAQABEAAAAAAAAAAQAPABEAAAAAAAAAAQAOABEAAAAAAAAAAQANABEAAAAAAAAAAQAMABEAAAAAAAAAAQALABEAAAAAAAAAAQAKABEAAAAAAAAAAQAJABEAAAAAAAAAAQAIABEAAAAAAAAAAQAHABEAAAAAAAAAAQAGABEAAAAAAAAAAQAFABEAAAAAAAAAAQAEABEAAAAAAAAAAQADABEAAAAAAAAAAQACABEAAAAAAAAAAQABABEAAAAAAAAAAQABABAAAAAAAAAAAQABAA8AAAAAAAAAAQABAA4AAAAAAAAAAQABAA0AAAAAAAAAAQABAAwAAAAAAAAAAQABAAsAAAAAAAAAAQABAAoAAAAAAAAAAQABAAkAAAAAAAAAAQABAAgAAAAAAAAAAQABAAcAAAAAAAAAAQABAAYAAAAAAAAAAQABAAUAAAAAAAAAAQABAAQAAAAAAAAAAQABAAMAAAAAAAAAAQABAAIAAAAAAAAAAQAQAAEAAAAAAAAAAQARAAEAAAAAAAAAAQASAAEAAAAAAAAAAQA=")
-enabled = false
+tile_set = SubResource("TileSet_e4aj0")
+
+[node name="TileMapLayer6" type="TileMapLayer" parent="."]
+position = Vector2(1, 9)
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAQAnAAEAAAAAAAAAAQACAAEAAAAAAAAAAQADAAEAAAAAAAAAAQAEAAEAAAAAAAAAAQAFAAEAAAAAAAAAAQAGAAEAAAAAAAAAAQAHAAEAAAAAAAAAAQAIAAEAAAAAAAAAAQAJAAEAAAAAAAAAAQAKAAEAAAAAAAAAAQALAAEAAAAAAAAAAQAMAAEAAAAAAAAAAQANAAEAAAAAAAAAAQAOAAEAAAAAAAAAAQAPAAEAAAAAAAAAAQATAAEAAAAAAAAAAQAUAAEAAAAAAAAAAQAVAAEAAAAAAAAAAQAWAAEAAAAAAAAAAQAXAAEAAAAAAAAAAQAYAAEAAAAAAAAAAQAZAAEAAAAAAAAAAQAaAAEAAAAAAAAAAQAbAAEAAAAAAAAAAQAcAAEAAAAAAAAAAQAdAAEAAAAAAAAAAQAeAAEAAAAAAAAAAQAfAAEAAAAAAAAAAQAgAAEAAAAAAAAAAQAhAAEAAAAAAAAAAQAiAAEAAAAAAAAAAQAjAAEAAAAAAAAAAQAkAAEAAAAAAAAAAQAlAAEAAAAAAAAAAQAmAAEAAAAAAAAAAQAnAAIAAAAAAAAAAQAnAAMAAAAAAAAAAQAnAAQAAAAAAAAAAQAnAAUAAAAAAAAAAQAnAAYAAAAAAAAAAQAnAAcAAAAAAAAAAQAnAAgAAAAAAAAAAQAnAAkAAAAAAAAAAQAnAAoAAAAAAAAAAQAnAAsAAAAAAAAAAQAnAAwAAAAAAAAAAQAnAA0AAAAAAAAAAQAnAA4AAAAAAAAAAQAnAA8AAAAAAAAAAQAnABAAAAAAAAAAAQAnABEAAAAAAAAAAQAmABEAAAAAAAAAAQAlABEAAAAAAAAAAQAkABEAAAAAAAAAAQAjABEAAAAAAAAAAQAiABEAAAAAAAAAAQAhABEAAAAAAAAAAQAgABEAAAAAAAAAAQAfABEAAAAAAAAAAQAeABEAAAAAAAAAAQAdABEAAAAAAAAAAQAcABEAAAAAAAAAAQAbABEAAAAAAAAAAQAaABEAAAAAAAAAAQAZABEAAAAAAAAAAQAYABEAAAAAAAAAAQAXABEAAAAAAAAAAQAWABEAAAAAAAAAAQAVABEAAAAAAAAAAQAUABEAAAAAAAAAAQATABEAAAAAAAAAAQASABEAAAAAAAAAAQARABEAAAAAAAAAAQAQABEAAAAAAAAAAQAPABEAAAAAAAAAAQAOABEAAAAAAAAAAQANABEAAAAAAAAAAQAMABEAAAAAAAAAAQALABEAAAAAAAAAAQAKABEAAAAAAAAAAQAJABEAAAAAAAAAAQAIABEAAAAAAAAAAQAHABEAAAAAAAAAAQAGABEAAAAAAAAAAQAFABEAAAAAAAAAAQAEABEAAAAAAAAAAQADABEAAAAAAAAAAQACABEAAAAAAAAAAQABABEAAAAAAAAAAQABABAAAAAAAAAAAQABAA8AAAAAAAAAAQABAA4AAAAAAAAAAQABAA0AAAAAAAAAAQABAAwAAAAAAAAAAQABAAsAAAAAAAAAAQABAAoAAAAAAAAAAQABAAkAAAAAAAAAAQABAAgAAAAAAAAAAQABAAcAAAAAAAAAAQABAAYAAAAAAAAAAQABAAUAAAAAAAAAAQABAAQAAAAAAAAAAQABAAMAAAAAAAAAAQABAAIAAAAAAAAAAQAQAAEAAAAAAAAAAQARAAEAAAAAAAAAAQASAAEAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_e4aj0")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
@@ -108,4 +112,4 @@ enabled = false
 tile_set = SubResource("TileSet_lv2g1")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(28, 44)
+position = Vector2(28, 12)

@@ -38,7 +38,6 @@ var eatHistory : Array = []
 
 
 func _ready() -> void:
-
 	if !Global.multiplayerMode and player2:
 		queue_free()
 	Global.tick.connect(update)
