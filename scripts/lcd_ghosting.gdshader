@@ -29,6 +29,10 @@ uniform vec2 shadow_offset_px = vec2(0.0, 4.0);
 /* === OBJECT OPACITY === */
 uniform float object_opacity : hint_range(0.0, 1.0) = 1.0;
 
+/* === TRANSPARENCY THRESHOLD === */
+uniform float black_threshold : hint_range(0.0, 1.0) = 0.01;
+uniform bool make_non_black_transparent = true;
+
 /* === HELPERS === */
 vec4 sample_texture_safe(sampler2D tex, vec2 uv) {
 	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
@@ -51,14 +55,34 @@ void fragment() {
 
 	/* === BASE COLOR === */
 	vec4 base_tex = sample_texture_safe(TEXTURE, uv);
+	
+	/* === MAKE NON-BLACK PIXELS TRANSPARENT === */
+	if (make_non_black_transparent) {
+		// Check if pixel is black (all RGB channels below threshold)
+		float brightness = max(max(base_tex.r, base_tex.g), base_tex.b);
+		if (brightness > black_threshold) {
+			base_tex.a = 0.0; // Make non-black pixels transparent
+		}
+	}
+	
 	base_tex.a *= object_opacity;
 
 	/* === SHADOW (PIXEL OFFSET, BASE STAYS PUT) === */
 	if (enable_shadow) {
 		vec2 shadow_uv = uv - shadow_offset_px * TEXTURE_PIXEL_SIZE;
+		vec4 shadow_sample = sample_texture_safe(TEXTURE, shadow_uv);
+		
+		// Apply the same transparency logic to shadow sampling
+		if (make_non_black_transparent) {
+			float shadow_brightness = max(max(shadow_sample.r, shadow_sample.g), shadow_sample.b);
+			if (shadow_brightness > black_threshold) {
+				shadow_sample.a = 0.0;
+			}
+		}
+		
 		vec4 shadow = vec4(
 			drop_shadow_color.rgb,
-			sample_texture_safe(TEXTURE, shadow_uv).a * drop_shadow_color.a
+			shadow_sample.a * drop_shadow_color.a
 		);
 
 		COLOR = shadow.a > 0.0
@@ -71,7 +95,17 @@ void fragment() {
 	/* === SMEAR ACCUMULATION === */
 	vec4 smear_color = vec4(0.0);
 	for (int i = 0; i < smear_frames; i++) {
-		smear_color = mix(smear_color, texture(last_frame[i], uv), mix_factor);
+		vec4 smear_sample = texture(last_frame[i], uv);
+		
+		// Apply the same transparency logic to smear frames
+		if (make_non_black_transparent) {
+			float smear_brightness = max(max(smear_sample.r, smear_sample.g), smear_sample.b);
+			if (smear_brightness > black_threshold) {
+				smear_sample.a = 0.0;
+			}
+		}
+		
+		smear_color = mix(smear_color, smear_sample, mix_factor);
 	}
 
 	vec4 final_color = ready

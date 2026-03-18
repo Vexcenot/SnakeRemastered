@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=41 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b1353ka8uqtbm" path="res://sprites/buttons/wasd.png" id="16_efmc1"]
 [ext_resource type="Texture2D" uid="uid://brohw1pu18sfn" path="res://sprites/bars.png" id="16_k8css"]
 [ext_resource type="Texture2D" uid="uid://nku7qvuakqhg" path="res://sprites/buttons/vol brackets.png" id="16_xh7j4"]
+[ext_resource type="StyleBox" uid="uid://uvedxfhaqaw6" path="res://scenes scripts/nokia bar empty.tres" id="19_t6ycr"]
+[ext_resource type="StyleBox" uid="uid://curnkm8yu1d3r" path="res://scenes scripts/nokia bar hover.tres" id="20_nkj45"]
 
 [sub_resource type="Theme" id="Theme_yxum4"]
 
@@ -62,7 +64,7 @@ region = Rect2(0, 0, 78, 11)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjnfi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eogbu"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0, 0, 0, 0)
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -444,44 +446,190 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="continue" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="no maze" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_60p26")
-texture_pressed = SubResource("AtlasTexture_jgdjs")
-texture_hover = SubResource("AtlasTexture_jgdjs")
-texture_disabled = SubResource("AtlasTexture_jgdjs")
-texture_focused = SubResource("AtlasTexture_jgdjs")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "No Maze"
+alignment = 0
 
-[node name="new Game" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Maze1" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
-texture_normal = ExtResource("4_jgdjs")
-texture_pressed = SubResource("ImageTexture_ewvr7")
-texture_hover = ExtResource("5_2epkg")
-texture_disabled = ExtResource("5_2epkg")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 1"
+alignment = 0
 
-[node name="level" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Maze2" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
-texture_normal = ExtResource("6_0b3bo")
-texture_pressed = ExtResource("7_7tfu8")
-texture_hover = ExtResource("7_7tfu8")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 2"
+alignment = 0
 
-[node name="mazes" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Maze3" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
-texture_normal = ExtResource("8_eeftm")
-texture_pressed = ExtResource("9_dst00")
-texture_hover = ExtResource("9_dst00")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 3
+"
+alignment = 0
 
-[node name="instructions" type="TextureButton" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Maze4" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
-texture_normal = ExtResource("10_eeftm")
-texture_pressed = ExtResource("11_dst00")
-texture_hover = ExtResource("11_dst00")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 4
+"
+alignment = 0
+
+[node name="Maze5" type="Button" parent="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 5
+
+"
+alignment = 0
 
 [node name="ok" type="Button" parent="ColorRect/Mazes/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
