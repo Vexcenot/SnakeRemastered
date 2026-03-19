@@ -1,5 +1,8 @@
 extends Control
 var score = Global.highScore
+var lvlName : String = "Maze 1"
+var mazeMessage : String
+
 func _ready():
 	print(Global.highScore)
 	Global.ScenetoSpawn = Global.levelSpawn
@@ -102,31 +105,47 @@ func _on_ok_button_down2() -> void:
 func _on_no_maze_button_down() -> void:
 	Global.levelSpawn = Global.sceneGame
 	Global.ScenetoSpawn = Global.levelSpawn
+	lvlName = "No maze"
+	closeMaze()
 
 
 func _on_maze_1_button_down() -> void:
 	Global.levelSpawn = Global.maze1
 	Global.ScenetoSpawn = Global.levelSpawn
+	lvlName = "Maze 1"
+	closeMaze()
 
 
 func _on_maze_2_button_down() -> void:
 	Global.levelSpawn = Global.maze2
 	Global.ScenetoSpawn = Global.levelSpawn
+	lvlName = "Maze 2"
+	closeMaze()
 
 
 func _on_maze_3_button_down() -> void:
 	Global.levelSpawn = Global.maze3
 	Global.ScenetoSpawn = Global.levelSpawn
+	lvlName = "Maze 3"
+	closeMaze()
 
 
 func _on_maze_4_button_down() -> void:
 	Global.levelSpawn = Global.maze4
 	Global.ScenetoSpawn = Global.levelSpawn
+	lvlName = "Maze 4"
+	closeMaze()
 
 
 func _on_maze_5_button_down() -> void:
 	Global.levelSpawn = Global.maze5
 	Global.ScenetoSpawn = Global.levelSpawn
+	lvlName = "Maze 5"
+	selectMaze()
+	
+func closeMaze():
+	$ColorRect/Mazes.visible = false
+	$ColorRect/Menu.visible = true
 
 
 func _on_ok_button_down3() -> void:
@@ -156,3 +175,12 @@ func _on_ins_button_down() -> void:
 func _on_maz_button_down() -> void:
 	$ColorRect/Mazes.visible = true
 	$ColorRect/Menu.visible = false
+	
+#maze select animation
+func selectMaze():
+	$"ColorRect/Maze selected screen".visible = true
+	$ColorRect/Mazes.visible = false
+	$"ColorRect/Maze selected screen/AnimationPlayer".play("tick")
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	$"ColorRect/Maze selected screen".visible = false
+	$ColorRect/Menu.visible = true

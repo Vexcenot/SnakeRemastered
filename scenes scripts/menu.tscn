@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=46 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://nku7qvuakqhg" path="res://sprites/buttons/vol brackets.png" id="16_xh7j4"]
 [ext_resource type="StyleBox" uid="uid://uvedxfhaqaw6" path="res://scenes scripts/nokia bar empty.tres" id="19_t6ycr"]
 [ext_resource type="StyleBox" uid="uid://curnkm8yu1d3r" path="res://scenes scripts/nokia bar hover.tres" id="20_nkj45"]
+[ext_resource type="Texture2D" uid="uid://dnlrwg6kyxl0n" path="res://sprites/buttons/check boxes.png" id="20_t6ycr"]
 
 [sub_resource type="Theme" id="Theme_yxum4"]
 
@@ -60,6 +61,43 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhk6r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjnfi"]
+
+[sub_resource type="Animation" id="Animation_t6ycr"]
+resource_name = "tick"
+length = 1.32
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CheckBoxes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_nkj45"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CheckBoxes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8c2m"]
+_data = {
+&"RESET": SubResource("Animation_nkj45"),
+&"tick": SubResource("Animation_t6ycr")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60p26"]
 atlas = ExtResource("2_ck6xg")
@@ -843,6 +881,36 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ybihx")
 text = " OK"
 
+[node name="Maze selected screen" type="Control" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckBoxes" type="Sprite2D" parent="ColorRect/Maze selected screen"]
+position = Vector2(74, 10)
+texture = ExtResource("20_t6ycr")
+hframes = 3
+
+[node name="title" type="Label" parent="ColorRect/Maze selected screen"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 78.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+text = "Maze 1
+selected"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Maze selected screen"]
+libraries = {
+&"": SubResource("AnimationLibrary_k8c2m")
+}
+
 [node name="archv" type="Control" parent="ColorRect"]
 visible = false
 anchors_preset = 0
@@ -989,4 +1057,5 @@ text = "OK"
 [connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maze4" to="." method="_on_maze_4_button_down"]
 [connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maze5" to="." method="_on_maze_5_button_down"]
 [connection signal="button_down" from="ColorRect/Mazes/VBoxContainer/ok" to="." method="_on_ok_button_down3"]
+[connection signal="animation_finished" from="ColorRect/Maze selected screen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="button_down" from="ColorRect/archv/VBoxContainer/ok" to="." method="_on_ok_button_down3"]

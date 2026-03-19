@@ -1,11 +1,12 @@
+AnimationPlayer
+Label
+Control
 TextureRect
 HBoxContainer
-Control
 VBoxContainer
 VScrollBar
 Marker2D
 TileMapLayer
-Label
 Button
 Node2D
 CollisionShape2D
