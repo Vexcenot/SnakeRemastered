@@ -1,9 +1,11 @@
 extends Control
-var score = Global.highScore
+var score : int = Global.highScore
 var lvlName : String = "Maze 1"
 var mazeMessage : String
 
 func _ready():
+	if !Global.title:
+		skipTitle()
 	print(Global.highScore)
 	Global.ScenetoSpawn = Global.levelSpawn
 	$ColorRect/Menu/Label.text = "%03d" %score
@@ -27,7 +29,10 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_right"):
 			if Global.speed <= 8:
 				Global.speed += 1
-
+	if event is InputEventKey:
+		if event.pressed and not event.echo:
+			$"ColorRect/title animation".visible = false
+			$ColorRect/Menu.visible = true
 
 #cancel back to menu
 	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("ui_accept"):
@@ -106,35 +111,35 @@ func _on_no_maze_button_down() -> void:
 	Global.levelSpawn = Global.sceneGame
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "No maze"
-	closeMaze()
+	selectMaze()
 
 
 func _on_maze_1_button_down() -> void:
 	Global.levelSpawn = Global.maze1
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 1"
-	closeMaze()
+	selectMaze()
 
 
 func _on_maze_2_button_down() -> void:
 	Global.levelSpawn = Global.maze2
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 2"
-	closeMaze()
+	selectMaze()
 
 
 func _on_maze_3_button_down() -> void:
 	Global.levelSpawn = Global.maze3
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 3"
-	closeMaze()
+	selectMaze()
 
 
 func _on_maze_4_button_down() -> void:
 	Global.levelSpawn = Global.maze4
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 4"
-	closeMaze()
+	selectMaze()
 
 
 func _on_maze_5_button_down() -> void:
@@ -142,17 +147,12 @@ func _on_maze_5_button_down() -> void:
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 5"
 	selectMaze()
-	
-func closeMaze():
-	$ColorRect/Mazes.visible = false
-	$ColorRect/Menu.visible = true
+
 
 
 func _on_ok_button_down3() -> void:
 	$ColorRect/Mazes.visible = false
 	$ColorRect/Menu.visible = true
-
-
 
 
 ########
@@ -171,16 +171,33 @@ func _on_ins_button_down() -> void:
 	$ColorRect/Instructions.visible = true
 	$ColorRect/Menu.visible = false
 
-
 func _on_maz_button_down() -> void:
 	$ColorRect/Mazes.visible = true
 	$ColorRect/Menu.visible = false
 	
 #maze select animation
 func selectMaze():
+	$"ColorRect/Maze selected screen/mazeName".text = lvlName
 	$"ColorRect/Maze selected screen".visible = true
 	$ColorRect/Mazes.visible = false
 	$"ColorRect/Maze selected screen/AnimationPlayer".play("tick")
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$"ColorRect/Maze selected screen".visible = false
+	$ColorRect/Menu.visible = true
+
+
+########
+#INTRO ANIMATION
+########
+func intro_finished(anim_name: StringName) -> void:
+	if Global.title:
+		skipTitle()
+func introarea(area: Area2D) -> void:
+	skipTitle()
+func titlebuttondown() -> void:
+	skipTitle()
+func skipTitle():
+	Global.title = false
+	$"ColorRect/title animation".visible = false
 	$ColorRect/Menu.visible = true

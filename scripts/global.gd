@@ -5,6 +5,7 @@ var maze2 = preload("res://scenes scripts/maze2.tscn")
 var maze3 = preload("res://scenes scripts/maze3.tscn")
 var maze4 = preload("res://scenes scripts/maze4.tscn")
 var maze5 = preload("res://scenes scripts/maze5.tscn")
+var title : bool = true
 var levelSpawn = sceneGame
 
 
