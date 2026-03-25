@@ -67,6 +67,10 @@ maxY = 45
 [node name="Player" parent="." instance=ExtResource("6_u5fcb")]
 position = Vector2(40, 28)
 
+[node name="Player2" parent="." instance=ExtResource("6_u5fcb")]
+position = Vector2(40, 40)
+player2 = true
+
 [node name="superFood" parent="." instance=ExtResource("6_r428f")]
 position = Vector2(4, 12)
 minX = 4

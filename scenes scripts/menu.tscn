@@ -110,6 +110,21 @@ region = Rect2(0, 0, 78, 11)
 
 [sub_resource type="ImageTexture" id="ImageTexture_ewvr7"]
 
+[sub_resource type="Animation" id="Animation_grs6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
 [sub_resource type="Animation" id="Animation_k8c2m"]
 resource_name = "intro"
 length = 2.3
@@ -124,21 +139,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [4, 4, 3, 2, 1, 0, 4]
-}
-
-[sub_resource type="Animation" id="Animation_grs6e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhf2g"]
@@ -1131,6 +1131,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_m48k2")
 [connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/New" to="." method="_on_new_button_down"]
 [connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Lev" to="." method="_on_lev_button_down"]
 [connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maz" to="." method="_on_maz_button_down"]
+[connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Mul" to="." method="multiplayer_butt_down"]
 [connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Ins" to="." method="_on_ins_button_down"]
 [connection signal="button_down" from="ColorRect/Instructions/text/ok" to="." method="_on_ok_button_down2"]
 [connection signal="button_down" from="ColorRect/Level/ok" to="." method="_on_button_button_down"]

@@ -46,6 +46,36 @@ func _input(event: InputEvent) -> void:
 			$ColorRect/Mazes.visible = false
 			$ColorRect/Menu.visible = true
 
+########
+#MAIN MENU BUTTONS
+########
+func _on_new_button_down() -> void:
+	Global.changeScene.emit()
+	await get_tree().process_frame
+	queue_free()
+
+func _on_lev_button_down() -> void:
+	$ColorRect/Level.visible = true
+	$ColorRect/Menu.visible = false
+
+func _on_ins_button_down() -> void:
+	$ColorRect/Instructions.visible = true
+	$ColorRect/Menu.visible = false
+
+func _on_maz_button_down() -> void:
+	$ColorRect/Mazes.visible = true
+	$ColorRect/Menu.visible = false
+	
+#maze select animation
+func selectMaze():
+	$"ColorRect/Maze selected screen/mazeName".text = lvlName
+	$"ColorRect/Maze selected screen".visible = true
+	$ColorRect/Mazes.visible = false
+	$"ColorRect/Maze selected screen/AnimationPlayer".play("tick")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	$"ColorRect/Maze selected screen".visible = false
+	$ColorRect/Menu.visible = true
 
 
 ########
@@ -155,36 +185,6 @@ func _on_ok_button_down3() -> void:
 	$ColorRect/Menu.visible = true
 
 
-########
-#MAIN MENU BUTTONS
-########
-func _on_new_button_down() -> void:
-	Global.changeScene.emit()
-	await get_tree().process_frame
-	queue_free()
-
-func _on_lev_button_down() -> void:
-	$ColorRect/Level.visible = true
-	$ColorRect/Menu.visible = false
-
-func _on_ins_button_down() -> void:
-	$ColorRect/Instructions.visible = true
-	$ColorRect/Menu.visible = false
-
-func _on_maz_button_down() -> void:
-	$ColorRect/Mazes.visible = true
-	$ColorRect/Menu.visible = false
-	
-#maze select animation
-func selectMaze():
-	$"ColorRect/Maze selected screen/mazeName".text = lvlName
-	$"ColorRect/Maze selected screen".visible = true
-	$ColorRect/Mazes.visible = false
-	$"ColorRect/Maze selected screen/AnimationPlayer".play("tick")
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	$"ColorRect/Maze selected screen".visible = false
-	$ColorRect/Menu.visible = true
 
 
 ########
@@ -201,3 +201,10 @@ func skipTitle():
 	Global.title = false
 	$"ColorRect/title animation".visible = false
 	$ColorRect/Menu.visible = true
+
+
+func multiplayer_butt_down() -> void:
+	Global.multiplayerMode = true
+	Global.changeScene.emit()
+	await get_tree().process_frame
+	queue_free()

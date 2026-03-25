@@ -1,5 +1,6 @@
-Button
 CollisionShape2D
+StaticBody2D
+Button
 Area2D
 AnimationPlayer
 Control
@@ -11,4 +12,3 @@ VBoxContainer
 VScrollBar
 Marker2D
 TileMapLayer
-Node2D
