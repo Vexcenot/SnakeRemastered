@@ -58,8 +58,7 @@ func _ready() -> void:
 	
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_pressed("up"):
-		print("Suck")
+	#inputControls()
 	Global.originalTime = 1 - (Global.speed*0.1)
 	#see if you can make this on update
 	if openJaw >= 1:
@@ -150,8 +149,86 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("sprint"):
 		Global.finalTime = Global.originalTime
 		
+func inputControls():
+	# Don't accept new inputs if reversing or hurting
+	if Global.reversing or Global.hurting:
+		return
+		
+	# Always check for inputs, but limit buffer size
+	var up_input = (
+		Input.is_action_just_pressed("up") and !player2 or
+		Input.is_action_just_pressed("up2") and !Global.multiplayerMode or
+		Input.is_action_just_pressed("up2") and player2
+	)
+	var down_input = (
+		Input.is_action_just_pressed("down") and !player2 or
+		Input.is_action_just_pressed("down2") and !Global.multiplayerMode or
+		Input.is_action_just_pressed("down2") and player2
+	)
+	var left_input = (
+		Input.is_action_just_pressed("left") and !player2 or
+		Input.is_action_just_pressed("left2") and !Global.multiplayerMode or
+		Input.is_action_just_pressed("left2") and player2
+	)
+	var right_input = (
+		Input.is_action_just_pressed("right") and !player2 or
+		Input.is_action_just_pressed("right2") and !Global.multiplayerMode or
+		Input.is_action_just_pressed("right2") and player2
+	)
+	
+	# Add inputs to buffer
+	if up_input:
+		if moveOrders.size() < 4:
+			if moveOrders.is_empty() or moveOrders.back() != up:
+				moveOrders.append(up)
+				Global.moveStart = true
+		else:
+			# Replace the last input if buffer is full (for responsive controls)
+			if moveOrders.back() != up:
+				moveOrders[-1] = up
+				Global.moveStart = true
+				
+	if down_input:
+		if moveOrders.size() < 4:
+			if moveOrders.is_empty() or moveOrders.back() != down:
+				moveOrders.append(down)
+				Global.moveStart = true
+		else:
+			if moveOrders.back() != down:
+				moveOrders[-1] = down
+				Global.moveStart = true
+				
+	if left_input:
+		if moveOrders.size() < 4:
+			if moveOrders.is_empty() or moveOrders.back() != left:
+				moveOrders.append(left)
+				Global.moveStart = true
+		else:
+			if moveOrders.back() != left:
+				moveOrders[-1] = left
+				Global.moveStart = true
+				
+	if right_input:
+		if moveOrders.size() < 4:
+			if moveOrders.is_empty() or moveOrders.back() != right:
+				moveOrders.append(right)
+				Global.moveStart = true
+		else:
+			if moveOrders.back() != right:
+				moveOrders[-1] = right
+				Global.moveStart = true
 
-
+	# Debug commands
+	if Input.is_action_just_pressed("action"):
+		eat += 1
+		
+	if Input.is_action_just_pressed("action3"):
+		direction = stop
+		
+	if Input.is_action_pressed("sprint"):
+		Global.finalTime = Global.originalTime * 0.1
+	else:
+		Global.finalTime = Global.originalTime
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 # spawns tail at head current pos and adds it to array
 func spawnTail():
@@ -285,7 +362,7 @@ func posRot():
 				hurt()
 			else:
 				#teleports down if too up
-				if position.y <= minY: 
+				if position.y <= minY:
 					position.y = maxY + 4
 				
 				#normal movement
@@ -299,7 +376,7 @@ func posRot():
 				hurt()
 			else:
 				#teleports up if too down
-				if position.y >= maxY: 
+				if position.y >= maxY:
 					position.y = minY - 5
 					
 					
@@ -330,7 +407,7 @@ func posRot():
 				hurt()
 			else:
 				#teleports right if too left
-				if position.x <= minX: 
+				if position.x <= minX:
 					position.x = maxX + 4
 
 				
