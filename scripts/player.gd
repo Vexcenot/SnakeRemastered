@@ -40,11 +40,26 @@ var eatHistory : Array = []
 func _ready() -> void:
 	if !Global.multiplayerMode and player2:
 		queue_free()
+	elif !player2:
+		$headcol.set_collision_layer_value(7, true)
+		$up.set_collision_mask_value(8, true)
+		$down.set_collision_mask_value(8, true)
+		$left.set_collision_mask_value(8, true)
+		$right.set_collision_mask_value(8, true)
+	else:
+		$headcol.set_collision_layer_value(8, true)
+		$up.set_collision_mask_value(7, true)
+		$down.set_collision_mask_value(7, true)
+		$left.set_collision_mask_value(7, true)
+		$right.set_collision_mask_value(7, true)
+
 	Global.tick.connect(update)
 	startTeleport()
 	
 	
 func _process(_delta: float) -> void:
+	if Input.is_action_pressed("up"):
+		print("Suck")
 	Global.originalTime = 1 - (Global.speed*0.1)
 	#see if you can make this on update
 	if openJaw >= 1:

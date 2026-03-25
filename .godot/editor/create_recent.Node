@@ -1,5 +1,6 @@
 CollisionShape2D
 StaticBody2D
+CanvasLayer
 Button
 Area2D
 AnimationPlayer
@@ -11,4 +12,3 @@ HBoxContainer
 VBoxContainer
 VScrollBar
 Marker2D
-TileMapLayer
