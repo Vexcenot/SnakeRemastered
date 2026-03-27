@@ -12,6 +12,7 @@ func _ready():
 	Global.ScenetoSpawn = Global.levelSpawn
 	$ColorRect/Menu/Label.text = "%03d" %score
 	$ColorRect/Mazes/Label.text = "%03d" %Global.highScore
+	#$ColorRect/Score/VBoxContainer/Label2.text = str(Global.score)
 
 func _process(_delta: float) -> void:
 	if $ColorRect/Level.visible:
@@ -201,3 +202,10 @@ func multiplayer_butt_down() -> void:
 	Global.gameStarted = true
 	await get_tree().process_frame
 	queue_free()
+	
+
+
+
+func score_timeout() -> void:
+	$"ColorRect/Score end".visible = false
+	$ColorRect/Menu.visible = true

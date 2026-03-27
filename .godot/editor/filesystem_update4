@@ -9,3 +9,6 @@ res://dpad.gd
 res://scripts/global.gd
 res://scenes scripts/tail.tscn
 res://scripts/tail.gd
+res://scenes scripts/menu.tscn
+res://scenes scripts/score.gd
+res://scripts/menu.gd
