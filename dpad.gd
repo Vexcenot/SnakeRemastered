@@ -1,4 +1,5 @@
 extends Control
+@export var p2 = false
 
 var swipe_start_position: Vector2
 var swipe_threshold: float = 50.0  # Minimum distance to register as a swipe
@@ -6,6 +7,17 @@ var swipe_threshold: float = 50.0  # Minimum distance to register as a swipe
 func _ready() -> void:
 	# Enable touch/drag events
 	set_process_input(true)
+	
+func _process(_delta: float) -> void:
+		if Global.gameStarted:
+			if Global.dpadEnabled and !p2:
+				visible = Global.gameStarted
+			if Global.multiplayerMode:
+				if Global.dpadEnabled:
+					visible = true
+		else:
+			visible = false
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -93,25 +105,37 @@ func swipe_right() -> void:
 # Your existing button handlers remain unchanged
 func _on_up_button_down() -> void:
 	var event = InputEventAction.new()
-	event.action = "up"
+	if p2:
+		event.action = "up2"
+	else:
+		event.action = "up"
 	event.pressed = true
 	Input.parse_input_event(event)
 
 func _on_down_button_down() -> void:
 	var event = InputEventAction.new()
-	event.action = "down"
+	if p2:
+		event.action = "down2"
+	else:
+		event.action = "down"
 	event.pressed = true
 	Input.parse_input_event(event)
 
 func _on_left_button_down() -> void:
 	var event = InputEventAction.new()
-	event.action = "left"
+	if p2:
+		event.action = "left2"
+	else:
+		event.action = "left"
 	event.pressed = true
 	Input.parse_input_event(event)
 
 func _on_right_button_down() -> void:
 	var event = InputEventAction.new()
-	event.action = "right"
+	if p2:
+		event.action = "right2"
+	else:
+		event.action = "right"
 	event.pressed = true
 	Input.parse_input_event(event)
 

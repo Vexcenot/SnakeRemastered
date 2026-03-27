@@ -1,7 +1,11 @@
 res://scripts/player.gd
-res://dpad.gd
-res://scenes scripts/dpad.tscn
+res://scenes scripts/maze5.tscn
 res://scripts/lcd_ghosting.gdshader
 res://scripts/blur.gdshader
 res://scripts/ghostpost.gdshader
 res://scenes scripts/screenManager.tscn
+res://scenes scripts/dpad.tscn
+res://dpad.gd
+res://scripts/global.gd
+res://scenes scripts/tail.tscn
+res://scripts/tail.gd

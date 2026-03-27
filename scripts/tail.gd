@@ -14,9 +14,9 @@ var full : bool = false #make this true if cant update upon spawn on player scri
 func _ready() -> void:
 	Global.tick.connect(update)
 	update()
-	if lastTail:
-		$tailSprite/StaticBody2D/straightCol.disabled = true
-		$tailSprite/finalArea/CollisionShape2D.disabled = false
+	#if lastTail:
+		#$tailSprite/StaticBody2D/straightCol.disabled = true
+		#$tailSprite/finalArea/CollisionShape2D.disabled = false
 	#else:
 		#$StaticBody2D/straightCol.disabled = false
 
@@ -47,8 +47,8 @@ func update():
 			#$tailSprite/StaticBody2D/straightCol.disabled = false
 			if lastTail:
 				$tailSprite.frame = 0
-				$tailSprite/StaticBody2D/straightCol.disabled = true
-				$tailSprite/finalArea/CollisionShape2D.disabled = false
+				#$tailSprite/StaticBody2D/straightCol.disabled = true
+				#$tailSprite/finalArea/CollisionShape2D.disabled = false
 			elif full:
 				$tailSprite.frame = 6
 			else:

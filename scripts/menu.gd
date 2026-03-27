@@ -2,6 +2,8 @@ extends Control
 var score : int = Global.highScore
 var lvlName : String = "Maze 1"
 var mazeMessage : String
+var level :bool = true
+
 
 func _ready():
 	if !Global.title:
@@ -16,9 +18,6 @@ func _process(_delta: float) -> void:
 		Global.updateTime()
 		$ColorRect/Level/VolBars.frame = Global.speed - 1
 		Global.ScenetoSpawn = Global.levelSpawn
-
-var level :bool = true
-
 
 func _input(event: InputEvent) -> void:
 	#key presses if level screen active
@@ -46,11 +45,14 @@ func _input(event: InputEvent) -> void:
 			$ColorRect/Mazes.visible = false
 			$ColorRect/Menu.visible = true
 
+
+
 ########
 #MAIN MENU BUTTONS
 ########
 func _on_new_button_down() -> void:
 	Global.changeScene.emit()
+	Global.gameStarted = true
 	await get_tree().process_frame
 	queue_free()
 
@@ -132,8 +134,6 @@ func _on_ok_button_down2() -> void:
 
 
 
-
-
 ########
 #MAZE MENU BUTTONS
 ########
@@ -143,13 +143,11 @@ func _on_no_maze_button_down() -> void:
 	lvlName = "No maze"
 	selectMaze()
 
-
 func _on_maze_1_button_down() -> void:
 	Global.levelSpawn = Global.maze1
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 1"
 	selectMaze()
-
 
 func _on_maze_2_button_down() -> void:
 	Global.levelSpawn = Global.maze2
@@ -157,13 +155,11 @@ func _on_maze_2_button_down() -> void:
 	lvlName = "Maze 2"
 	selectMaze()
 
-
 func _on_maze_3_button_down() -> void:
 	Global.levelSpawn = Global.maze3
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 3"
 	selectMaze()
-
 
 func _on_maze_4_button_down() -> void:
 	Global.levelSpawn = Global.maze4
@@ -171,14 +167,11 @@ func _on_maze_4_button_down() -> void:
 	lvlName = "Maze 4"
 	selectMaze()
 
-
 func _on_maze_5_button_down() -> void:
 	Global.levelSpawn = Global.maze5
 	Global.ScenetoSpawn = Global.levelSpawn
 	lvlName = "Maze 5"
 	selectMaze()
-
-
 
 func _on_ok_button_down3() -> void:
 	$ColorRect/Mazes.visible = false
@@ -202,9 +195,9 @@ func skipTitle():
 	$"ColorRect/title animation".visible = false
 	$ColorRect/Menu.visible = true
 
-
 func multiplayer_butt_down() -> void:
 	Global.multiplayerMode = true
 	Global.changeScene.emit()
+	Global.gameStarted = true
 	await get_tree().process_frame
 	queue_free()

@@ -1,18 +1,18 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1774424057
-dpad.gd::GDScript::1394002945228406958::1774420887::0::1::::<>Control<><>0<>0<><>::
+::res://::1774542526
+dpad.gd::GDScript::1394002945228406958::1774442039::0::1::::<>Control<><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1773892720::0::1::::<><><>0<>0<><>::
 nokiafc22.ttf::FontFile::8779061768389019339::1773156823::1773156823::1::::<><><>0<>0<>deb7022c8f8ddd3389049d5c64e12e65<>res://.godot/imported/nokiafc22.ttf-e471b8bf65cb2f04c8017de8d5b65402.fontdata::
 numbers.ttf::FontFile::405336179648591550::1773156823::1773156823::1::::<><><>0<>0<>a33a379e2614747b68ec6e717f53f2fd<>res://.godot/imported/numbers.ttf-863eb0e0cfd18a275f569f4debe51ded.fontdata::
 README.md::TextFile::-1::1773156823::0::1::::<><><>0<>0<><>::
 ::res://dwasdwa/::1773892720
-::res://scenes scripts/::1774423891
+::res://scenes scripts/::1774575999
 button.gd::GDScript::1141852103424199351::1773393116::0::1::::<>Button<><>0<>0<><>::
-dpad.tscn::PackedScene::7413604599582159870::1774420254::0::1::::<><><>0<>0<><>::uid://ox3dfotb5lwo::::res://sprites/buttons/dpad.png<>uid://t4ja3ymvtnas::::res://dpad.gd
+dpad.tscn::PackedScene::7413604599582159870::1774575999::0::1::::<><><>0<>0<><>::uid://ox3dfotb5lwo::::res://sprites/buttons/dpad.png<>uid://t4ja3ymvtnas::::res://dpad.gd
 food.tscn::PackedScene::5306951085060773223::1773156823::0::1::::<><><>0<>0<><>::uid://cs8ytl8rpxdct::::res://sprites/food.png<>uid://dp7rdaxnt8kij::::res://scripts/food.gd<>uid://ofbqoxcr0qx2::::res://sprites/4x4 test.png
 fullArea.tscn::PackedScene::5321567513985650059::1773156823::0::1::::<><><>0<>0<><>::
 game.tscn::PackedScene::7816693174992426300::1774423891::0::1::::<><><>0<>0<><>::uid://b1t77m7ck2aiy::::res://scripts/game.gd<>uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn
-game_smear_ingo.tscn::PackedScene::4209853313398879349::1774420042::0::1::::<><><>0<>0<><>::uid://cewu4bx04fpgq::::res://scripts/game_smear_controller.gd<>uid://daqddq80s6d0r::::res://scripts/lcd_ghosting.gdshader<>uid://bwd4eaj1y7l7i::::res://scenes scripts/screenManager.tscn<>uid://c405ma3uyb6yd::::res://scripts/blur.gdshader<>uid://ybwu1xedccsp::::res://scripts/sub_viewport_container.gd<>uid://cwybr1u0suvhj::::res://sprites/vignette.png<>uid://bwt3yllfh1rbu::::res://sprites/sharp grian.png
+game_smear_ingo.tscn::PackedScene::4209853313398879349::1774443405::0::1::::<><><>0<>0<><>::uid://cewu4bx04fpgq::::res://scripts/game_smear_controller.gd<>uid://daqddq80s6d0r::::res://scripts/lcd_ghosting.gdshader<>uid://bwd4eaj1y7l7i::::res://scenes scripts/screenManager.tscn<>uid://c405ma3uyb6yd::::res://scripts/blur.gdshader<>uid://ybwu1xedccsp::::res://scripts/sub_viewport_container.gd<>uid://cwybr1u0suvhj::::res://sprites/vignette.png<>uid://bwt3yllfh1rbu::::res://sprites/sharp grian.png
 grid mask.tscn::PackedScene::6800018263590104227::1773156823::0::1::::<><><>0<>0<><>::uid://10k7wa118dq0::::res://sprites/grid test.png
 level.gd::GDScript::1454439788945026477::1773582195::0::1::::<>Control<><>0<>0<><>::
 level.tscn::PackedScene::1897341656205336317::1773580138::0::1::::<><><>0<>0<><>::uid://dxcv4ntyhwh3x::::res://nokiafc22.ttf<>uid://uysn76fy0jof::::res://scenes scripts/level.gd<>uid://nku7qvuakqhg::::res://sprites/buttons/vol brackets.png<>uid://da0ns2cmfx30r::::res://sprites/buttons/bars.png
@@ -22,27 +22,27 @@ maze1.tscn::PackedScene::6805554611938971507::1774412165::0::1::::<><><>0<>0<><>
 maze2.tscn::PackedScene::5879119237362155830::1773830410::0::1::::<><><>0<>0<><>::uid://b1t77m7ck2aiy::::res://scripts/game.gd<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn<>uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn
 maze3.tscn::PackedScene::9088008981889482194::1773748829::0::1::::<><><>0<>0<><>::uid://b1t77m7ck2aiy::::res://scripts/game.gd<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn<>uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn
 maze4.tscn::PackedScene::9033738371489040158::1773748944::0::1::::<><><>0<>0<><>::uid://b1t77m7ck2aiy::::res://scripts/game.gd<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn<>uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn
-maze5.tscn::PackedScene::4287462561766620099::1773749015::0::1::::<><><>0<>0<><>::uid://b1t77m7ck2aiy::::res://scripts/game.gd<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn<>uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn
-menu.tscn::PackedScene::4322291186704717420::1774417971::0::1::::<><><>0<>0<><>::uid://crh58j548l86l::::res://scripts/menu.gd<>uid://dxcv4ntyhwh3x::::res://nokiafc22.ttf<>uid://c63cntorc0l8l::::res://sprites/button normal.png<>uid://cowrgyx78ftji::::res://sprites/button higlighted.png<>uid://d0gx6gd6uvtbd::::res://sprites/scroll bar.png<>uid://dvqyne3v8hbcs::::res://sprites/buttons/new game.png<>uid://bxyytgxghgcyr::::res://sprites/buttons/new game highlighted.png<>uid://c0e8s2ui4b3ht::::res://sprites/buttons/level.png<>uid://kisdatjqyjks::::res://sprites/buttons/level highlighted.png<>uid://c534652yirxjq::::res://sprites/buttons/mazes.png<>uid://qvg745fv575b::::res://sprites/buttons/mazes highlighted.png<>uid://coc6faoyl0i55::::res://sprites/buttons/instructions.png<>uid://dn6eijeh54cij::::res://sprites/buttons/instructions highlighted.png<>uid://w27bnp11x8ke::::res://sprites/buttons/arrow.png<>uid://b1353ka8uqtbm::::res://sprites/buttons/wasd.png<>uid://brohw1pu18sfn::::res://sprites/bars.png<>uid://nku7qvuakqhg::::res://sprites/buttons/vol brackets.png<>uid://uvedxfhaqaw6::::res://scenes scripts/nokia bar empty.tres<>uid://curnkm8yu1d3r::::res://scenes scripts/nokia bar hover.tres<>uid://dnlrwg6kyxl0n::::res://sprites/buttons/check boxes.png<>uid://ogju0ivsc7gg::::res://sprites/buttons/introframes.png
+maze5.tscn::PackedScene::4287462561766620099::1774573841::0::1::::<><><>0<>0<><>::uid://b1t77m7ck2aiy::::res://scripts/game.gd<>uid://bcwndhiw26dmq::::res://scenes scripts/ui.tscn<>uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://qsxibdu7sd4e::::res://scenes scripts/player.tscn<>uid://d26166gmdh3d5::::res://scenes scripts/superFood.tscn<>uid://clsgicc6rciet::::res://sprites/level border.png<>uid://vyrhi7no52rc::::res://scenes scripts/wall.tscn
+menu.tscn::PackedScene::4322291186704717420::1774528667::0::1::::<><><>0<>0<><>::uid://crh58j548l86l::::res://scripts/menu.gd<>uid://dxcv4ntyhwh3x::::res://nokiafc22.ttf<>uid://c63cntorc0l8l::::res://sprites/button normal.png<>uid://cowrgyx78ftji::::res://sprites/button higlighted.png<>uid://d0gx6gd6uvtbd::::res://sprites/scroll bar.png<>uid://dvqyne3v8hbcs::::res://sprites/buttons/new game.png<>uid://bxyytgxghgcyr::::res://sprites/buttons/new game highlighted.png<>uid://c0e8s2ui4b3ht::::res://sprites/buttons/level.png<>uid://kisdatjqyjks::::res://sprites/buttons/level highlighted.png<>uid://c534652yirxjq::::res://sprites/buttons/mazes.png<>uid://qvg745fv575b::::res://sprites/buttons/mazes highlighted.png<>uid://coc6faoyl0i55::::res://sprites/buttons/instructions.png<>uid://dn6eijeh54cij::::res://sprites/buttons/instructions highlighted.png<>uid://w27bnp11x8ke::::res://sprites/buttons/arrow.png<>uid://b1353ka8uqtbm::::res://sprites/buttons/wasd.png<>uid://brohw1pu18sfn::::res://sprites/bars.png<>uid://nku7qvuakqhg::::res://sprites/buttons/vol brackets.png<>uid://uvedxfhaqaw6::::res://scenes scripts/nokia bar empty.tres<>uid://curnkm8yu1d3r::::res://scenes scripts/nokia bar hover.tres<>uid://dnlrwg6kyxl0n::::res://sprites/buttons/check boxes.png<>uid://ogju0ivsc7gg::::res://sprites/buttons/introframes.png
 nokia bar empty.tres::StyleBoxFlat::1447378247028436523::1773826240::0::1::::<><><>0<>0<><>::
 nokia bar hover.tres::StyleBoxFlat::6212520523187829669::1773838988::0::1::::<><><>0<>0<><>::
 player.tscn::PackedScene::1161591133076408506::1774423854::0::1::::<><><>0<>0<><>::uid://blnsvu5y16aoh::::res://scripts/player.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
-screenManager.tscn::PackedScene::3938536328075744244::1774420243::0::1::::<><><>0<>0<><>::uid://b2t0rfa8toa6o::::res://scenes scripts/menu.tscn<>uid://cawxnoj058oyu::::res://scripts/screen_manager.gd<>uid://ddvg8qhjboeti::::res://scenes scripts/dpad.tscn
+screenManager.tscn::PackedScene::3938536328075744244::1774575983::0::1::::<><><>0<>0<><>::uid://b2t0rfa8toa6o::::res://scenes scripts/menu.tscn<>uid://cawxnoj058oyu::::res://scripts/screen_manager.gd<>uid://ddvg8qhjboeti::::res://scenes scripts/dpad.tscn
 superFood.tscn::PackedScene::9119992179147233116::1773156823::0::1::::<><><>0<>0<><>::uid://chuyydvfgw31t::::res://scenes scripts/food.tscn<>uid://c3fwc3tolb47e::::res://scripts/superFood.gd<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
 tail.tscn::PackedScene::6937240318415454553::1773156823::0::1::::<><><>0<>0<><>::uid://cxl0jc0rinrbq::::res://scripts/tail.gd<>uid://305whs0fsehe::::res://sprites/smol snake.png
 TitleScreen.tscn::PackedScene::6367794496742839377::1773156823::0::1::::<><><>0<>0<><>::uid://bp53ogoj3pvx5::::res://scripts/Title.gd<>uid://by1v1iymak6n::::res://sprites/title screen.png
 ui.tscn::PackedScene::2573009740904928668::1773156823::0::1::::<><><>0<>0<><>::uid://sq76bvau60dn::::res://scripts/ui.gd<>uid://f1l3e1j13yb3::::res://numbers.ttf<>uid://bs0gkpi2r28wi::::res://sprites/superfoods.png
 wall.tscn::PackedScene::1524555942161601440::1773713800::0::1::::<><><>0<>0<><>::uid://dcpxyuw3wquqi::::res://sprites/wall.png
-::res://scripts/::1774423855
-blur.gdshader::Shader::6861770260245868471::1774412325::0::1::::<><><>0<>0<><>::
+::res://scripts/::1774573841
+blur.gdshader::Shader::6861770260245868471::1774573841::0::1::::<><><>0<>0<><>::
 food.gd::GDScript::8279192376186307673::1773156823::0::1::::food<>Node2D<><>0<>0<><>::
 game.gd::GDScript::4252554564601801056::1773156823::0::1::::<>Control<><>0<>0<><>::
 game_smear_controller.gd::GDScript::5100279269634923120::1773156823::0::1::::<>Control<><>0<>0<><>::
-ghostpost.gdshader::Shader::896760964806403455::1774412325::0::1::::<><><>0<>0<><>::
-global.gd::GDScript::2912662693220618486::1774368875::0::1::::<>Node<><>0<>0<><>::
-lcd_ghosting.gdshader::Shader::7192480496017584103::1774417218::0::1::::<><><>0<>0<><>::
-menu.gd::GDScript::5982383314909508277::1774408802::0::1::::<>Control<><>0<>0<><>::
-player.gd::GDScript::3186466379993582715::1774423855::0::1::::<>Node2D<><>0<>0<><>::
+ghostpost.gdshader::Shader::896760964806403455::1774573841::0::1::::<><><>0<>0<><>::
+global.gd::GDScript::2912662693220618486::1774442039::0::1::::<>Node<><>0<>0<><>::
+lcd_ghosting.gdshader::Shader::7192480496017584103::1774573841::0::1::::<><><>0<>0<><>::
+menu.gd::GDScript::5982383314909508277::1774443405::0::1::::<>Control<><>0<>0<><>::
+player.gd::GDScript::3186466379993582715::1774573841::0::1::::<>Node2D<><>0<>0<><>::
 screen_manager.gd::GDScript::4819678134537340996::1773156823::0::1::::<>Control<><>0<>0<><>::
 sub_viewport_container.gd::GDScript::1687969516109234683::1773156823::0::1::::<>SubViewportContainer<><>0<>0<><>::
 superFood.gd::GDScript::6749791724106037232::1773736105::0::1::::superFood<>food<><>0<>0<><>::
@@ -71,13 +71,13 @@ title screen.png::CompressedTexture2D::121351432291435795::1773156823::177315682
 vignette.png::CompressedTexture2D::6366633466673441195::1773156823::1773156823::1::::<><><>0<>0<>b744b73ca3f90cc73aedf0d725af708a<>res://.godot/imported/vignette.png-6a1c8ae6e42aed1a80d3f341287c2df8.ctex::
 wall greemn.png::CompressedTexture2D::5546092185105476990::1773156823::1773156823::1::::<><><>0<>0<>5745cb76068346865cbf083feef483e9<>res://.godot/imported/wall greemn.png-3cda3c27ead8dbdd5896b344673f75ae.ctex::
 wall.png::CompressedTexture2D::7332045840308554584::1773156823::1773156823::1::::<><><>0<>0<>8cf4e381b60154ce396748b95f990cdc<>res://.godot/imported/wall.png-202f71260357ef04e6e8c2cec090a94e.ctex::
-::res://sprites/buttons/::1774418537
+::res://sprites/buttons/::1774576127
 arrow.png::CompressedTexture2D::1601838196151384500::1773676021::1773676021::1::::<><><>0<>0<>5d8855654a53a6bf8e37966ca2814f07<>res://.godot/imported/arrow.png-e8e0dcdc4c71ddef82e4e443afe03d15.ctex::
 bars.png::CompressedTexture2D::7211694381899956443::1773652285::1773647114::1::::<><><>0<>0<>a3cdf5683b6b32fd049ed1043c63e8c5<>res://.godot/imported/bars.png-46e2ff6c208e38b7b025d7c83536b193.ctex::
 check boxes.png::CompressedTexture2D::8095497013527700931::1773915755::1773915755::1::::<><><>0<>0<>c283c86584b8ed7fa64519a53331de53<>res://.godot/imported/check boxes.png-7ed8a7e69b2597c708b08d0568beb7fa.ctex::
 continue highlighted.png::CompressedTexture2D::1378073771865078236::1773469998::1773469999::1::::<><><>0<>0<>d00f08696523d64279407b0cfdbe4972<>res://.godot/imported/continue highlighted.png-3c8d9849b59e43a3265f8e843e1d67f9.ctex::
 continue.png::CompressedTexture2D::8723172642925712443::1773469998::1773469999::1::::<><><>0<>0<>3ddca38b1c0c6731ca71071a59669ecd<>res://.godot/imported/continue.png-3c5b6e0f68d62c25f638dbc12adb9cdd.ctex::
-dpad.png::CompressedTexture2D::1031830217564818438::1774418537::1774418537::1::::<><><>0<>0<>df12d2c76ec4493c7a164b5892ec8217<>res://.godot/imported/dpad.png-f32a259c7ad5ff200a67ed6210c8be81.ctex::
+dpad.png::CompressedTexture2D::1031830217564818438::1774576127::1774576127::1::::<><><>0<>0<>df12d2c76ec4493c7a164b5892ec8217<>res://.godot/imported/dpad.png-f32a259c7ad5ff200a67ed6210c8be81.ctex::
 instructions highlighted.png::CompressedTexture2D::8135970362320531657::1773469998::1773469999::1::::<><><>0<>0<>d00863c4c6e4eb89a7ec3322e657407a<>res://.godot/imported/instructions highlighted.png-7856a4917114f8615e5575dd53d99571.ctex::
 instructions.png::CompressedTexture2D::5761505112305464498::1773469998::1773469999::1::::<><><>0<>0<>445bdb64425f34a25f237259efab2425<>res://.godot/imported/instructions.png-a4ccbc167e81cc940f66521c82383881.ctex::
 introframes.png::CompressedTexture2D::995613572690310818::1774368255::1774368255::1::::<><><>0<>0<>00aff0b2ee67ddf9b6eb1618957a1639<>res://.godot/imported/introframes.png-3305d1c3a68788322088f0a5e67c2271.ctex::

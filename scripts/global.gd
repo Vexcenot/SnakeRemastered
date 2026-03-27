@@ -32,6 +32,9 @@ var multiplayerMode : bool = false
 var playerX : float = 0
 var sFoodActive : bool = false
 var levelFrame : int = 9
+var gameStarted : bool = false
+var dpadEnabled : bool = true
+var isMobile : bool = false
 
 signal tick
 signal reverse
@@ -43,6 +46,8 @@ func updateTime():
 	time = originalTime
 
 func reset():
+	multiplayerMode =  false
+	gameStarted = false
 	finalTime = originalTime
 	time = originalTime
 	foodEaten = 0
