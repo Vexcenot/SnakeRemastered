@@ -1,5 +1,8 @@
-Timer
+AudioStreamPlayer      - Matches the "sound" keyword.
+AnimationPlayer
+Sprite2D
 Control
+Timer
 VBoxContainer
 Label
 CollisionShape2D
@@ -7,9 +10,6 @@ StaticBody2D
 CanvasLayer
 Button
 Area2D
-AnimationPlayer
-Sprite2D
 TextureRect
 HBoxContainer
 VScrollBar
-Marker2D

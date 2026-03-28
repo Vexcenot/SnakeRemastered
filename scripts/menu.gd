@@ -1,18 +1,40 @@
 extends Control
-var score : int = Global.highScore
+var score : int = Global.score
+var Hscore : int = Global.highScore
 var lvlName : String = "Maze 1"
 var mazeMessage : String
 var level :bool = true
 
 
 func _ready():
+#skips opening animation
 	if !Global.title:
 		skipTitle()
-	print(Global.highScore)
+	else:
+		$"ColorRect/title animation/introAnim".play("intro")
+
 	Global.ScenetoSpawn = Global.levelSpawn
-	$ColorRect/Menu/Label.text = "%03d" %score
+
+#displays highscore
+	$ColorRect/Menu/Label.text = "%03d" %Hscore
 	$ColorRect/Mazes/Label.text = "%03d" %Global.highScore
-	#$ColorRect/Score/VBoxContainer/Label2.text = str(Global.score)
+
+#shows score after game ends
+	if Global.gameStarted and !Global.isHighscore:
+		Global.gameStarted = false
+		$"ColorRect/Score end/VBoxContainer/outroScore".text = str(score)
+		$ColorRect/Menu.visible = false
+		$"ColorRect/Score end".visible = true
+		$"ColorRect/Score end/Timer".start()
+
+#plays fire works when highscored
+	elif Global.isHighscore: 
+		Global.gameStarted = false
+		Global.isHighscore = false
+		$"ColorRect/Score end/VBoxContainer/outroScore".text = str(score)
+		$ColorRect/Menu.visible = false
+		$ColorRect/fireworks.visible = true
+		$ColorRect/fireworks/AnimationPlayer.play("fireworks")
 
 func _process(_delta: float) -> void:
 	if $ColorRect/Level.visible:
@@ -21,7 +43,7 @@ func _process(_delta: float) -> void:
 		Global.ScenetoSpawn = Global.levelSpawn
 
 func _input(event: InputEvent) -> void:
-	#key presses if level screen active
+	#key presses if level screen active (controls level)
 	if $ColorRect/Level.visible:
 		if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_left"):
 			if Global.speed >= 2:
@@ -29,10 +51,16 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_right"):
 			if Global.speed <= 8:
 				Global.speed += 1
+
+#skip screen
 	if event is InputEventKey:
 		if event.pressed and not event.echo:
-			$"ColorRect/title animation".visible = false
-			$ColorRect/Menu.visible = true
+			if Global.title:
+				skipTitle()
+			if $"ColorRect/Score end".visible:
+				skipScore()
+			if $ColorRect/fireworks.visible:
+				skipFireworks()
 
 #cancel back to menu
 	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("ui_accept"):
@@ -206,6 +234,28 @@ func multiplayer_butt_down() -> void:
 
 
 
+########
+#SCORE SCREEN
+########
 func score_timeout() -> void:
+	if $"ColorRect/Score end".visible:
+		$"ColorRect/Score end".visible = false
+		$ColorRect/Menu.visible = true
+
+func skipScore():
 	$"ColorRect/Score end".visible = false
 	$ColorRect/Menu.visible = true
+	
+func skipFireworks():
+	$ColorRect/fireworks.visible = false
+	$"ColorRect/Score end".visible = true
+	$"ColorRect/Score end/Timer".start()
+	
+
+########
+#FIREWORKS
+########
+func fireworksAnimationFinished(anim_name: StringName) -> void:
+	if $ColorRect/fireworks.visible:
+		skipFireworks()
+		$winsound.play()

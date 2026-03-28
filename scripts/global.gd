@@ -33,8 +33,9 @@ var playerX : float = 0
 var sFoodActive : bool = false
 var levelFrame : int = 9
 var gameStarted : bool = false
-var dpadEnabled : bool = true
+var dpadEnabled : bool = false
 var isMobile : bool = false
+var isHighscore : bool = false
 
 signal tick
 signal reverse
@@ -47,7 +48,6 @@ func updateTime():
 
 func reset():
 	multiplayerMode =  false
-	gameStarted = false
 	finalTime = originalTime
 	time = originalTime
 	foodEaten = 0
@@ -96,7 +96,8 @@ func hurt():
 		await get_tree().create_timer(0.23).timeout
 	hurting = false
 	ScenetoSpawn = sceneMenu
-	if score >= highScore:
+	if score > highScore:
+		isHighscore = true
 		highScore = score
 	changeScene.emit()
 	reset()	
