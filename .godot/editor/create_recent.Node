@@ -1,15 +1,14 @@
+TextureRect
+Control
+ColorRect
+Container
+AudioStreamPlayer
 AudioStreamPlayer      - Matches the "sound" keyword.
 AnimationPlayer
 Sprite2D
-Control
 Timer
 VBoxContainer
 Label
 CollisionShape2D
 StaticBody2D
 CanvasLayer
-Button
-Area2D
-TextureRect
-HBoxContainer
-VScrollBar

@@ -421,6 +421,7 @@ func posRot():
 
 #snake killer
 func hurt():
+	$die.play()
 	pain = true
 	direction = stop
 	Global.hurt()
@@ -463,6 +464,7 @@ func colCheckTele():
 func _on_head_area_area_entered(area: Area2D) -> void:
 	if area.name == "food":
 		eat += 1
+		$eat.play()
 
 func _on_head_buffer_area_entered(area: Area2D) -> void:
 	if area.name == "food":

@@ -1,6 +1,9 @@
-res://scenes scripts/menu.tscn
+res://scenes scripts/player.tscn
 res://scripts/lcd_ghosting.gdshader
 res://scripts/blur.gdshader
 res://scripts/ghostpost.gdshader
+res://scripts/player.gd
+res://scenes scripts/tail.tscn
+res://scripts/tail.gd
+res://scenes scripts/menu.tscn
 res://scripts/menu.gd
-res://scripts/global.gd

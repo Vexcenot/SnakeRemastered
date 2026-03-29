@@ -1,12 +1,14 @@
-[gd_scene load_steps=61 format=3 uid="uid://b2t0rfa8toa6o"]
+[gd_scene load_steps=69 format=3 uid="uid://b2t0rfa8toa6o"]
 
 [ext_resource type="Script" uid="uid://crh58j548l86l" path="res://scripts/menu.gd" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxcv4ntyhwh3x" path="res://nokiafc22.ttf" id="2_4j3ub"]
 [ext_resource type="Texture2D" uid="uid://c63cntorc0l8l" path="res://sprites/button normal.png" id="2_ck6xg"]
 [ext_resource type="AudioStream" uid="uid://bnqvvvvwevsuf" path="res://audio/win.wav" id="2_fhf2g"]
 [ext_resource type="Texture2D" uid="uid://cowrgyx78ftji" path="res://sprites/button higlighted.png" id="2_yxum4"]
+[ext_resource type="AudioStream" uid="uid://06ayp16tllre" path="res://audio/tone.wav" id="3_n7qjf"]
 [ext_resource type="Texture2D" uid="uid://d0gx6gd6uvtbd" path="res://sprites/scroll bar.png" id="3_pa2cx"]
 [ext_resource type="Texture2D" uid="uid://dvqyne3v8hbcs" path="res://sprites/buttons/new game.png" id="4_jgdjs"]
+[ext_resource type="Texture2D" uid="uid://dr3r1q0qkkgmu" path="res://sprites/buttons/scroll bar.png" id="4_jh7g4"]
 [ext_resource type="Texture2D" uid="uid://bxyytgxghgcyr" path="res://sprites/buttons/new game highlighted.png" id="5_2epkg"]
 [ext_resource type="Texture2D" uid="uid://c0e8s2ui4b3ht" path="res://sprites/buttons/level.png" id="6_0b3bo"]
 [ext_resource type="Texture2D" uid="uid://kisdatjqyjks" path="res://sprites/buttons/level highlighted.png" id="7_7tfu8"]
@@ -25,9 +27,42 @@
 [ext_resource type="FontFile" uid="uid://wmcxoajnl8jy" path="res://nokia-s60v1-12px.otf" id="21_k8c2m"]
 [ext_resource type="Texture2D" uid="uid://ogju0ivsc7gg" path="res://sprites/buttons/introframes.png" id="21_nkj45"]
 
+[sub_resource type="ImageTexture" id="ImageTexture_jh7g4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ype5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjmwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibtf3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybihx"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
 [sub_resource type="Theme" id="Theme_yxum4"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_jh7g4")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_jh7g4")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_jh7g4")
+VScrollBar/icons/increment = SubResource("ImageTexture_jh7g4")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_jh7g4")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_jh7g4")
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_ype5m")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_hjmwg")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_ibtf3")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_ybihx")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ibtf3")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ck6xg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_238qo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jh7g4"]
 
@@ -113,6 +148,33 @@ region = Rect2(0, 0, 78, 11)
 
 [sub_resource type="ImageTexture" id="ImageTexture_ewvr7"]
 
+[sub_resource type="Animation" id="Animation_n7qjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../winsound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_fhf2g"]
 resource_name = "fireworks"
 length = 3.0
@@ -139,33 +201,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_n7qjf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../winsound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jh7g4"]
@@ -235,6 +270,9 @@ script = ExtResource("1_ouk20")
 [node name="winsound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fhf2g")
 
+[node name="tone" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n7qjf")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 84.0
@@ -243,6 +281,36 @@ color = Color(0, 0, 0, 0)
 
 [node name="Menu" type="Control" parent="ColorRect"]
 visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="scroll" type="Control" parent="ColorRect/Menu"]
+anchors_preset = 0
+offset_top = 9.0
+offset_right = 84.0
+offset_bottom = 9.0
+
+[node name="ScrollBar" type="Sprite2D" parent="ColorRect/Menu/scroll"]
+position = Vector2(81, 0)
+texture = ExtResource("4_jh7g4")
+centered = false
+offset = Vector2(0, -63)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/Menu/scroll"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -40.0
+offset_right = 106.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/Menu/scroll"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 28.0
+offset_right = 113.0
+offset_bottom = 68.0
+
+[node name="Control" type="Control" parent="ColorRect/Menu/scroll"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -259,7 +327,7 @@ theme_override_font_sizes/font_size = 8
 text = "COMING SOON!"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="ColorRect/Menu"]
+[node name="score" type="Label" parent="ColorRect/Menu"]
 layout_mode = 0
 offset_right = 84.0
 offset_bottom = 10.0
@@ -281,25 +349,17 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_yxum4")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_238qo")
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
 
-[node name="ScrollBar" type="Sprite2D" parent="ColorRect/Menu/VBoxContainer/ScrollContainer"]
-position = Vector2(81, -19)
-texture = ExtResource("3_pa2cx")
-centered = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Menu/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Menu/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Con" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Con" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
@@ -331,7 +391,7 @@ text = "Continue
 "
 alignment = 0
 
-[node name="New" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="New" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 mouse_filter = 1
@@ -361,7 +421,7 @@ theme_override_styles/focus = ExtResource("20_nkj45")
 text = "New game        "
 alignment = 0
 
-[node name="Lev" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Lev" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 mouse_filter = 1
@@ -391,7 +451,7 @@ theme_override_styles/focus = ExtResource("20_nkj45")
 text = "Level"
 alignment = 0
 
-[node name="Maz" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Maz" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 mouse_filter = 1
@@ -421,7 +481,7 @@ theme_override_styles/focus = ExtResource("20_nkj45")
 text = "Mazes"
 alignment = 0
 
-[node name="Mul" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Mul" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 mouse_filter = 1
@@ -451,7 +511,7 @@ theme_override_styles/focus = ExtResource("20_nkj45")
 text = "Multiplayer"
 alignment = 0
 
-[node name="Ins" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Ins" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 mouse_filter = 1
@@ -482,7 +542,362 @@ text = "Instructions
 "
 alignment = 0
 
+[node name="Top" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Top Score
+"
+alignment = 0
+
+[node name="Dpad" type="Button" parent="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Dpad
+"
+alignment = 0
+
 [node name="ok" type="Button" parent="ColorRect/Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_eogbu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efmc1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t6ycr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nkj45")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8c2m")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_grs6e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fhf2g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_n7qjf")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ybihx")
+text = "Select"
+
+[node name="maze chooser" type="Control" parent="ColorRect"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="scroll" type="Control" parent="ColorRect/maze chooser"]
+anchors_preset = 0
+offset_top = 9.0
+offset_right = 84.0
+offset_bottom = 9.0
+
+[node name="ScrollBar" type="Sprite2D" parent="ColorRect/maze chooser/scroll"]
+position = Vector2(81, 0)
+texture = ExtResource("4_jh7g4")
+centered = false
+offset = Vector2(0, -63)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/maze chooser/scroll"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -40.0
+offset_right = 106.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/maze chooser/scroll"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 28.0
+offset_right = 113.0
+offset_bottom = 68.0
+
+[node name="Control" type="Control" parent="ColorRect/maze chooser/scroll"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="ColorRect/maze chooser"]
+visible = false
+layout_mode = 0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+text = "COMING SOON!"
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="ColorRect/maze chooser"]
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+text = "80082"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/maze chooser"]
+layout_mode = 0
+offset_top = 9.0
+offset_right = 84.0
+offset_bottom = 49.0
+theme_override_constants/separation = 0
+
+[node name="mazescrolls" type="ScrollContainer" parent="ColorRect/maze chooser/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_yxum4")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ck6xg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_238qo")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/maze chooser/VBoxContainer/mazescrolls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="maz0" type="Button" parent="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "No Maze
+"
+alignment = 0
+
+[node name="maz1" type="Button" parent="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 1"
+alignment = 0
+
+[node name="maz2" type="Button" parent="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 2"
+alignment = 0
+
+[node name="maz3" type="Button" parent="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 3"
+alignment = 0
+
+[node name="maz4" type="Button" parent="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 4"
+alignment = 0
+
+[node name="maz5" type="Button" parent="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer"]
+custom_minimum_size = Vector2(0, -3.375)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_fonts/font = ExtResource("2_4j3ub")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("19_t6ycr")
+theme_override_styles/normal_mirrored = ExtResource("19_t6ycr")
+theme_override_styles/pressed = ExtResource("20_nkj45")
+theme_override_styles/pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover = ExtResource("20_nkj45")
+theme_override_styles/hover_mirrored = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed = ExtResource("20_nkj45")
+theme_override_styles/hover_pressed_mirrored = ExtResource("20_nkj45")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jh7g4")
+theme_override_styles/focus = ExtResource("20_nkj45")
+text = "Maze 5
+"
+alignment = 0
+
+[node name="ok" type="Button" parent="ColorRect/maze chooser/VBoxContainer"]
 custom_minimum_size = Vector2(0, -3.375)
 layout_mode = 2
 theme_type_variation = &"FlatButton"
@@ -1255,11 +1670,20 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_hxmmw")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0xt4r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m48k2")
 
-[connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/New" to="." method="_on_new_button_down"]
-[connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Lev" to="." method="_on_lev_button_down"]
-[connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Maz" to="." method="_on_maz_button_down"]
-[connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Mul" to="." method="multiplayer_butt_down"]
-[connection signal="button_down" from="ColorRect/Menu/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Ins" to="." method="_on_ins_button_down"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/Con" to="." method="_on_con_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/Lev" to="." method="_on_lev_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/Maz" to="." method="_on_maz_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/Mul" to="." method="_on_mul_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/Ins" to="." method="_on_ins_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/Top" to="." method="_on_top_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/VBoxContainer/ScrollContainer/VBoxContainer/Dpad" to="." method="_on_dpad_pressed"]
+[connection signal="pressed" from="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer/maz0" to="." method="_on_maz_0_pressed"]
+[connection signal="pressed" from="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer/maz1" to="." method="_on_maz_1_pressed"]
+[connection signal="pressed" from="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer/maz2" to="." method="_on_maz_2_pressed"]
+[connection signal="pressed" from="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer/maz3" to="." method="_on_maz_3_pressed"]
+[connection signal="pressed" from="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer/maz4" to="." method="_on_maz_4_pressed"]
+[connection signal="pressed" from="ColorRect/maze chooser/VBoxContainer/mazescrolls/VBoxContainer/maz5" to="." method="_on_maz_5_pressed"]
 [connection signal="button_down" from="ColorRect/Instructions/text/ok" to="." method="_on_ok_button_down2"]
 [connection signal="button_down" from="ColorRect/Level/ok" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="ColorRect/Level/buttons/1" to="." method="_on__button_down"]
